@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: eu.eidas.node.auth.service.tests.AUSERVICESAMLTestCase
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0 sec - in eu.eidas.node.auth.service.tests.AUSERVICESAMLTestCase

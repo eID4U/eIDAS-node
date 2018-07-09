@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: eu.eidas.node.auth.util.tests.logback_integrity.SHA256OutputStreamTest
+-------------------------------------------------------------------------------
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in eu.eidas.node.auth.util.tests.logback_integrity.SHA256OutputStreamTest

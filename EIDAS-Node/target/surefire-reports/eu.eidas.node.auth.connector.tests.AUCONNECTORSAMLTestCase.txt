@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: eu.eidas.node.auth.connector.tests.AUCONNECTORSAMLTestCase
+-------------------------------------------------------------------------------
+Tests run: 18, Failures: 0, Errors: 0, Skipped: 15, Time elapsed: 0.114 sec - in eu.eidas.node.auth.connector.tests.AUCONNECTORSAMLTestCase

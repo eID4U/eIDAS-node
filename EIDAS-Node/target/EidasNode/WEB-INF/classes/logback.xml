@@ -35,10 +35,6 @@
                     eIDASNodeSecurity appender      : INFO
 -->
 
-<!-- Configure eIDAS log -->
-<property name="LOG_HOME" value ="/home/aldo/eidaslog/"/>
-
-
 <configuration scan="true" scanPeriod="30 minutes">
 
     <!--

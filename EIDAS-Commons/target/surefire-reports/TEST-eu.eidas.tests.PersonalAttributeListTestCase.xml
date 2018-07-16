@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="eu.eidas.tests.PersonalAttributeListTestCase" time="0.024" tests="28" errors="0" skipped="1" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="eu.eidas.tests.PersonalAttributeListTestCase" time="0.032" tests="28" errors="0" skipped="1" failures="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-8-oracle/jre/lib/amd64"/>
     <property name="java.vm.version" value="25.171-b11"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
-    <property name="maven.multiModuleProjectDirectory" value="/home/aldo/workspace/eIDAS-node/EIDAS-Parent"/>
+    <property name="maven.multiModuleProjectDirectory" value="/home/aldo/workspace/eIDAS-node-eID4U/EIDAS-Parent"/>
     <property name="java.vendor.url" value="http://java.oracle.com/"/>
     <property name="path.separator" value=":"/>
     <property name="guice.disable.misplaced.annotation.check" value="true"/>
@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.os.patch.level" value="unknown"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="/home/aldo/workspace/eIDAS-node/EIDAS-Parent"/>
+    <property name="user.dir" value="/home/aldo/workspace/eIDAS-node-eID4U/EIDAS-Parent"/>
     <property name="java.runtime.version" value="1.8.0_171-b11"/>
     <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
     <property name="java.endorsed.dirs" value="/usr/lib/jvm/java-8-oracle/jre/lib/endorsed"/>
@@ -59,11 +59,11 @@
     <property name="sun.desktop" value="gnome"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase name="testPutComplexAttr" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0.001"/>
-  <testcase name="testGetIsAgeOverAttr" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0.006"/>
-  <testcase name="testCloneFromPopulate" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0.002"/>
+  <testcase name="testPutComplexAttr" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0"/>
+  <testcase name="testGetIsAgeOverAttr" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0.01"/>
+  <testcase name="testCloneFromPopulate" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0.003"/>
   <testcase name="testAddSameAttrNameEmpty" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0"/>
-  <testcase name="testAddNull" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0.001"/>
+  <testcase name="testAddNull" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0"/>
   <testcase name="testToStringFromAdd" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0"/>
   <testcase name="testToStringFromPut" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0.001"/>
   <testcase name="testToString" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0">
@@ -71,22 +71,22 @@
   </testcase>
   <testcase name="testPopulateMixAttrs" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0"/>
   <testcase name="testPutNull" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0"/>
-  <testcase name="testPopulateWithInvalidValuesFormat" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0"/>
+  <testcase name="testPopulateWithInvalidValuesFormat" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0.001"/>
   <testcase name="testPopulateWithInvalidFormat" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0"/>
   <testcase name="testCloneFromAdd" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0"/>
   <testcase name="testCloneFromPut" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0.001"/>
   <testcase name="testPutSimpleAttr" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0"/>
-  <testcase name="testAddSameAttrName" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0"/>
+  <testcase name="testAddSameAttrName" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0.001"/>
   <testcase name="testToStringFromPopulate" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0"/>
-  <testcase name="testGetSimpleAttr" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0"/>
+  <testcase name="testGetSimpleAttr" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0.001"/>
   <testcase name="testPutSameAttrNameEmpty" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0"/>
   <testcase name="testAddSimpleAttr" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0"/>
   <testcase name="testPutSameAttrName" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0.001"/>
   <testcase name="testGetCompleAttr" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0.001"/>
   <testcase name="testPopulateComplexAttr" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0"/>
   <testcase name="testToStringFromSimplePopulate" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0"/>
-  <testcase name="testCopyOf" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0.001"/>
+  <testcase name="testCopyOf" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0"/>
   <testcase name="testAddCompleAttr" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0"/>
   <testcase name="testPopulateSimpleAttr" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0"/>
-  <testcase name="testIterator" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0"/>
+  <testcase name="testIterator" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0.001"/>
 </testsuite>

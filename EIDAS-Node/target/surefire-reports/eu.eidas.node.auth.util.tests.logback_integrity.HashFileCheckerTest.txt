@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: eu.eidas.node.auth.util.tests.logback_integrity.HashFileCheckerTest
 -------------------------------------------------------------------------------
-Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.153 sec - in eu.eidas.node.auth.util.tests.logback_integrity.HashFileCheckerTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.219 sec - in eu.eidas.node.auth.util.tests.logback_integrity.HashFileCheckerTest

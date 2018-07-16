@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: eu.eidas.node.auth.metadata.EidasNodeMetadataGeneratorTest
 -------------------------------------------------------------------------------
-Tests run: 7, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 1.064 sec - in eu.eidas.node.auth.metadata.EidasNodeMetadataGeneratorTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.966 sec - in eu.eidas.node.auth.metadata.EidasNodeMetadataGeneratorTest

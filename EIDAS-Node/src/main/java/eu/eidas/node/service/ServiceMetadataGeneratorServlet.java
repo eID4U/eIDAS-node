@@ -61,7 +61,9 @@ public class ServiceMetadataGeneratorServlet extends AbstractConnectorServlet{
         EidasNodeMetadataGenerator generator = (EidasNodeMetadataGenerator)getApplicationContext().getBean(generatorName);
         PropertiesUtil.checkProxyServiceActive();
         if(PropertiesUtil.isMetadataEnabled()) {
-            response.getOutputStream().print(generator.generateServiceMetadata());
+            response.setContentType("text/xml");
+            response.setCharacterEncoding("UTF-8");
+            response.getWriter().print(generator.generateServiceMetadata());
         }else{
             response.sendError(HttpServletResponse.SC_NOT_FOUND);
         }

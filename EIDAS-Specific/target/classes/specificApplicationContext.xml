@@ -68,6 +68,7 @@
         <property name="serviceRequesterMetadataUrl" value="${service.requester.metadata.url}"/>
         <property name="serviceMetadataActive" value="${service.metadata.activate:true}"/>
         <property name="idpMetadataUrl" value="${idp.metadata.url}"/>
+        <property name="idpMetadataWhitelist" value="${idp.metadata.location.whitelist}"/>
 
         <property name="callBackURL" value="${service.specificidpredirect.url}" />
 
@@ -85,6 +86,7 @@
         <property name="specificSpRequestCorrelationMap" ref="specificSpRequestCorrelationMap"/>
         <property name="connectorRequestCorrelationMap" ref="specificConnectorLightRequestCorrelationMap"/>
         <property name="metadataFetcher" ref="nodeMetadataFetcher"/>
+        <property name="spMetadataWhitelist" value="${sp.metadata.location.whitelist}" />
     </bean>
 
     <!-- IdP replies here -->

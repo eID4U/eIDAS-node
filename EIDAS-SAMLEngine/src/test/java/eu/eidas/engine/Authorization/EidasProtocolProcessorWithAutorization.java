@@ -1292,6 +1292,51 @@ public class EidasProtocolProcessorWithAutorization implements ProtocolProcessor
 
     @Nonnull
     @Override
+    public Response marshallErrorResponse(@Nonnull IAuthenticationRequest request, @Nonnull IAuthenticationResponse response, @Nonnull String ipAddress, @Nonnull SamlEngineCoreProperties samlCoreProperties, @Nonnull DateTime currentTime, List<String> applicationIdentifiers) throws EIDASSAMLEngineException {
+        LOG.trace("generateResponseMessageFail");
+        validateParamResponseFail(request, response);
+
+        // Mandatory
+        StatusCode statusCode = BuilderFactoryUtil.generateStatusCode(response.getStatusCode());
+
+        // Mandatory SAML
+        LOG.trace("Generate StatusCode.");
+        // Subordinate code is optional in case not covered into next codes:
+        // - urn:oasis:names:tc:SAML:2.0:status:AuthnFailed
+        // - urn:oasis:names:tc:SAML:2.0:status:InvalidAttrNameOrValue
+        // - urn:oasis:names:tc:SAML:2.0:status:InvalidNameIDPolicy
+        // - urn:oasis:names:tc:SAML:2.0:status:RequestDenied
+        // - http://www.stork.gov.eu/saml20/statusCodes/QAANotSupported
+
+        if (StringUtils.isNotBlank(response.getSubStatusCode())) {
+            StatusCode newStatusCode = BuilderFactoryUtil.generateStatusCode(response.getSubStatusCode());
+            statusCode.setStatusCode(newStatusCode);
+        }
+
+        LOG.debug("Generate Status.");
+        Status status = BuilderFactoryUtil.generateStatus(statusCode);
+
+        if (StringUtils.isNotBlank(response.getStatusMessage())) {
+            StatusMessage statusMessage = BuilderFactoryUtil.generateStatusMessage(response.getStatusMessage());
+
+            status.setStatusMessage(statusMessage);
+        }
+
+        LOG.trace("Generate Response.");
+        // RESPONSE
+        Response responseFail =
+                newResponse(status, request.getAssertionConsumerServiceURL(), request.getId(), samlCoreProperties);
+
+        String responseIssuer = response.getIssuer();
+        if (responseIssuer != null && !responseIssuer.isEmpty()) {
+            responseFail.getIssuer().setValue(responseIssuer);
+        }
+
+        return responseFail;
+    }
+
+    @Nonnull
+    @Override
     public IAuthenticationRequest createProtocolRequestToBeSent(@Nonnull IAuthenticationRequest requestToBeSent,
                                                                 @Nonnull String serviceIssuer,
                                                                 @Nonnull SamlEngineCoreProperties coreProperties)

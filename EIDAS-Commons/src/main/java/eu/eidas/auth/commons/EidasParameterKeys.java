@@ -172,11 +172,15 @@ public enum EidasParameterKeys {
      * Represents the 'RelayState' parameter constant.
      */
     RELAY_STATE("RelayState"),
-
     /**
      * Represents the 'idp.url' parameter constant.
      */
     IDP_URL("idp.url"),
+    /**
+     * Represents the list of application identifiers where fail responses must contain assertion.
+     * TODO: to be removed when transition period ends
+     */
+    INCLUDE_ASSERTION_FAIL_RESPONSE_APPLICATION_IDENTIFIERS("include.assertion.fail.response.application.identifiers"),
     /**
      * Represents the 'internal-authentication' parameter constant.
      */

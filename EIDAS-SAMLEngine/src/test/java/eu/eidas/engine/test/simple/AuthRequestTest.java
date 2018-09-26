@@ -34,6 +34,8 @@ import org.slf4j.LoggerFactory;
 
 import static org.junit.Assert.*;
 
+import java.util.Arrays;
+
 /**
  * The Class EidasAuthRequestTest - test support for STORK1 format.
  */
@@ -145,7 +147,7 @@ public class AuthRequestTest {
 
     private static final String SAMLID = "f5e7e0f5-b9b8-4256-a7d0-4090141b326d";
 
-    private static final String ISSUER = "http://localhost:7001/SP/metadata";
+    private static final String ISSUER = "http://localhost:7001/SP/metadata".toLowerCase();
 
     private static final String DESTINATION = "http://localhost:7001/EidasNode/ConnectorMetadata";
 
@@ -617,7 +619,7 @@ public class AuthRequestTest {
     @Test
     public final void testValidateAuthnRequestNullParam() throws EIDASSAMLEngineException {
         try {
-            engine1.unmarshallRequestAndValidate(null, "ES");
+            engine1.unmarshallRequestAndValidate(null, "ES",null);
             fail("processValidateRequestToken(...) should've thrown an EIDASSAMLEngineException!");
         } catch (EIDASSAMLEngineException e) {
             LOG.error("Error");
@@ -632,7 +634,7 @@ public class AuthRequestTest {
     @Test
     public final void testValidateAuthnRequestErrorEncode() throws EIDASSAMLEngineException {
         try {
-            engine1.unmarshallRequestAndValidate(EidasStringUtil.getBytes("messageError"), "ES");
+            engine1.unmarshallRequestAndValidate(EidasStringUtil.getBytes("messageError"), "ES",null);
             fail("processValidateRequestToken(...) should've thrown an EIDASSAMLEngineException!");
         } catch (EIDASSAMLEngineException e) {
             LOG.error("Error");
@@ -648,7 +650,7 @@ public class AuthRequestTest {
     public final void testValidateAuthnRequest() throws EIDASSAMLEngineException {
         IStorkAuthenticationRequest validatedRequest =
                 (IStorkAuthenticationRequest) engine1.unmarshallRequestAndValidate(
-                        getDefaultTestStorkAuthnRequestTokenSaml(), "ES");
+                        getDefaultTestStorkAuthnRequestTokenSaml(), "ES",Arrays.asList(ISSUER));
 
         assertEquals("CrossBorderShare incorrect: ", validatedRequest.isEIDCrossBorderShare(), false);
         assertEquals("CrossSectorShare incorrect: ", validatedRequest.isEIDCrossSectorShare(), false);
@@ -667,7 +669,7 @@ public class AuthRequestTest {
         ProtocolEngineI engine = ProtocolEngineFactory.getDefaultProtocolEngine("CONF2");
 
         IStorkAuthenticationRequest request = (IStorkAuthenticationRequest) engine.unmarshallRequestAndValidate(
-                getDefaultTestStorkAuthnRequestTokenSaml(), "ES");
+                getDefaultTestStorkAuthnRequestTokenSaml(), "ES",Arrays.asList(ISSUER));
 
         assertEquals("Sestination incorrect: ", request.getDestination(), destination);
 
@@ -700,7 +702,7 @@ public class AuthRequestTest {
         final byte[] bytes = SSETestUtils.readSamlFromFile("/data/eu/eidas/EIDASSAMLEngine/AuthnRequest.xml");
 
         try {
-            engine1.unmarshallRequestAndValidate(bytes, "ES");
+            engine1.unmarshallRequestAndValidate(bytes, "ES",null);
             fail("testValidateFileAuthnRequest(...) should've thrown an EIDASSAMLEngineException!");
         } catch (EIDASSAMLEngineException e) {
             LOG.error(e.getMessage());
@@ -718,7 +720,7 @@ public class AuthRequestTest {
         final byte[] bytes = SSETestUtils.readSamlFromFile("/data/eu/eidas/EIDASSAMLEngine/AuthnRequestTagDelete.xml");
 
         try {
-            engine1.unmarshallRequestAndValidate(bytes, "ES");
+            engine1.unmarshallRequestAndValidate(bytes, "ES",null);
             fail("processValidateRequestToken(...) should have thrown an EIDASSAMLEngineException!");
         } catch (EIDASSAMLEngineException e) {
             LOG.error(e.getMessage());
@@ -757,7 +759,7 @@ public class AuthRequestTest {
 
             final byte[] authReqNotTrust = engineNotTrusted.generateRequestMessage(request, null).getMessageBytes();
             final ProtocolEngineI engine = ProtocolEngineFactory.getDefaultProtocolEngine("CONF1");
-            engine.unmarshallRequestAndValidate(authReqNotTrust, "ES");
+            engine.unmarshallRequestAndValidate(authReqNotTrust, "ES",Arrays.asList(ISSUER));
             fail("validateEIDASAuthnRequestNotTrusted(...) should have thrown an EIDASSAMLEngineException!");
         } catch (EIDASSAMLEngineException e) {
             LOG.error("Error: " + e, e);
@@ -797,7 +799,7 @@ public class AuthRequestTest {
 
         // engine ("CONF1") no have trust certificate from "CONF2"
         final ProtocolEngineI engineNotTrusted = ProtocolEngineFactory.getDefaultProtocolEngine("CONF2");
-        engineNotTrusted.unmarshallRequestAndValidate(authReqNotTrust, "ES");
+        engineNotTrusted.unmarshallRequestAndValidate(authReqNotTrust, "ES",Arrays.asList(ISSUER));
 
     }
 
@@ -826,7 +828,7 @@ public class AuthRequestTest {
 
         try {
             authRequest = engine1.generateRequestMessage(request, null).getMessageBytes();
-            engine1.unmarshallRequestAndValidate(authRequest, "ES");
+            engine1.unmarshallRequestAndValidate(authRequest, "ES",null);
             assertNotNull(request.getSpId());
         } catch (EIDASSAMLEngineException e) {
             LOG.error("Error");
@@ -857,7 +859,7 @@ public class AuthRequestTest {
 
         try {
             authRequest = engine1.generateRequestMessage(request, null).getMessageBytes();
-            engine1.unmarshallRequestAndValidate(authRequest, "ES");
+            engine1.unmarshallRequestAndValidate(authRequest, "ES",null);
             assertNull(request.getSpId());
         } catch (EIDASSAMLEngineException e) {
             LOG.error("Error");
@@ -900,7 +902,7 @@ public class AuthRequestTest {
         byte[] tokenSaml = requestMessage.getMessageBytes();
 
         IStorkAuthenticationRequest authenticationRequest =
-                (IStorkAuthenticationRequest) engine1.unmarshallRequestAndValidate(tokenSaml, "ES");
+                (IStorkAuthenticationRequest) engine1.unmarshallRequestAndValidate(tokenSaml, "ES",Arrays.asList(ISSUER));
 
         assertNull("The value shouldn't exist",
                    authenticationRequest.getRequestedAttributes().getDefinitionsByFriendlyName("unknown"));
@@ -998,7 +1000,7 @@ public class AuthRequestTest {
         byte[] messageBytes = req.getMessageBytes();
         String asXml = EidasStringUtil.toString(messageBytes);
         IStorkAuthenticationRequest authenticationRequest =
-                (IStorkAuthenticationRequest) engine1.unmarshallRequestAndValidate(messageBytes, "ES");
+                (IStorkAuthenticationRequest) engine1.unmarshallRequestAndValidate(messageBytes, "ES",Arrays.asList(ISSUER));
 
         assertTrue("SignedDoc request should be the same: " + asXml, authenticationRequest.getRequestedAttributes()
                 .getAttributeValuesByFriendlyName("signedDoc")

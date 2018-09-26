@@ -11,7 +11,7 @@
     <parent>
         <groupId>eu.eidas</groupId>
         <artifactId>eidas-parent</artifactId>
-        <version>1.4.1</version>
+        <version>1.4.3</version>
         <relativePath>../EIDAS-Parent/pom.xml</relativePath>
     </parent>
     <dependencies>

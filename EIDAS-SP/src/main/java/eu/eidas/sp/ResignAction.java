@@ -73,7 +73,7 @@ public class ResignAction extends ActionSupport implements ServletRequestAware, 
         try {
             SpProtocolEngineI defaultSamlEngine = SpProtocolEngineFactory.getSpProtocolEngine(SP_CONF);
             IAuthenticationRequest authenticationRequest =
-                    defaultSamlEngine.unmarshallRequestAndValidate(messageBytes, citizenCountryCode);
+                    defaultSamlEngine.unmarshallRequestAndValidate(messageBytes, citizenCountryCode,null);
             EidasAuthenticationRequest.Builder reqBuilder =
                     new EidasAuthenticationRequest.Builder((IEidasAuthenticationRequest) authenticationRequest);
             reqBuilder.binding(samlRequestBinding);

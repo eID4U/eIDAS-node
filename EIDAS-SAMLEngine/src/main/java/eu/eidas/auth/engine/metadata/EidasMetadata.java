@@ -88,8 +88,8 @@ public class EidasMetadata {
         this.add(SAMLConstants.SAML2_POST_BINDING_URI);
     }};
 
-    private static String PROTOCOL_VERSION_URI = "http://eidas.europa.eu/entity-attributes/protocol-version";
-    private static final String APPLICATION_IDENTIFIER = "http://eidas.europa.eu/entity-attributes/application-identifier";
+    public static final String PROTOCOL_VERSION_URI = "http://eidas.europa.eu/entity-attributes/protocol-version";
+    public static final String APPLICATION_IDENTIFIER = "http://eidas.europa.eu/entity-attributes/application-identifier";
 
     @NotThreadSafe
     public static final class Generator {

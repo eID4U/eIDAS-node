@@ -1,21 +1,31 @@
 package eu.eidas.auth.engine;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
+import java.util.Arrays;
+import java.util.Collection;
+
+import org.junit.Ignore;
 import org.junit.Test;
 import org.opensaml.saml2.core.Response;
+import org.opensaml.xml.signature.SignatureException;
 
 import eu.eidas.auth.commons.EIDASStatusCode;
 import eu.eidas.auth.commons.EidasStringUtil;
 import eu.eidas.auth.commons.attribute.ImmutableAttributeMap;
 import eu.eidas.auth.commons.attribute.impl.StringAttributeValue;
+import eu.eidas.auth.commons.protocol.IAuthenticationRequest;
 import eu.eidas.auth.commons.protocol.IAuthenticationResponse;
 import eu.eidas.auth.commons.protocol.IRequestMessage;
 import eu.eidas.auth.commons.protocol.IResponseMessage;
 import eu.eidas.auth.commons.protocol.eidas.impl.EidasAuthenticationRequest;
 import eu.eidas.auth.commons.protocol.impl.AuthenticationResponse;
+import eu.eidas.auth.commons.protocol.impl.BinaryRequestMessage;
 import eu.eidas.auth.commons.xml.opensaml.OpenSamlHelper;
 import eu.eidas.auth.engine.core.eidas.spec.EidasSpec;
-
-import static org.junit.Assert.assertFalse;
+import eu.eidas.engine.exceptions.EIDASSAMLEngineException;
 
 /**
  * ProtocolEngineTest
@@ -29,14 +39,16 @@ public final class ProtocolEngineTest {
 
         ProtocolEngineI protocolEngine = DefaultProtocolEngineFactory.getInstance().getProtocolEngine("METADATATEST");
 
-        EidasAuthenticationRequest request = EidasAuthenticationRequest.builder()
+        final String ISSUER = "https://source.europa.eu/metadata";
+        
+		EidasAuthenticationRequest request = EidasAuthenticationRequest.builder()
                 .id("_1")
-                .issuer("https://source.europa.eu/metadata")
+                .issuer(ISSUER)
                 .destination("https://destination.europa.eu")
                 .citizenCountryCode("BE")
                 .originCountryCode("BE")
                 .providerName("Prov")
-                .assertionConsumerServiceURL("https://source.europa.eu/metadata")
+                .assertionConsumerServiceURL(ISSUER)
                 .requestedAttributes(ImmutableAttributeMap.of(EidasSpec.Definitions.PERSON_IDENTIFIER,
                                                               new StringAttributeValue[] {}))
                 .build();
@@ -60,7 +72,7 @@ public final class ProtocolEngineTest {
         Response samlResponse = (Response) OpenSamlHelper.unmarshall(responseMessage.getMessageBytes());
         assertFalse(samlResponse.getEncryptedAssertions().isEmpty());
 
-        Correlated correlated = protocolEngine.unmarshallResponse(responseMessage.getMessageBytes());
+        Correlated correlated = protocolEngine.unmarshallResponse(responseMessage.getMessageBytes(),Arrays.asList("https://destination.europa.eu/metadata"), true);
 
         IAuthenticationResponse authenticationResponse =
                 protocolEngine.validateUnmarshalledResponse(correlated, "127.0.0.1", 0L, 0L, null);

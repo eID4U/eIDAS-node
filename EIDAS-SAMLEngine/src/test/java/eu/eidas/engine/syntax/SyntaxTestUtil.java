@@ -38,6 +38,8 @@ import eu.eidas.engine.exceptions.EIDASSAMLEngineException;
 
 import static org.junit.Assert.fail;
 
+import java.util.Arrays;
+
 /**
  * SyntaxTestUtil
  *
@@ -104,10 +106,11 @@ public class SyntaxTestUtil {
         return engine;
     }
 
+    static final String ISSUER_REQUEST="http://localhost:7001/SP/metadata".toLowerCase();
     public static byte[] createSAMLRequestToken() throws EIDASSAMLEngineException {
         EidasAuthenticationRequest.Builder builder =
                 new EidasAuthenticationRequest.Builder().id("f5e7e0f5-b9b8-4256-a7d0-4090141b326d")
-                        .issuer("http://localhost:7001/SP/metadata")
+                        .issuer(ISSUER_REQUEST)
                         .destination("http://proxyservice.gov.xx/EidasNode/ColleagueRequest")
                         .assertionConsumerServiceURL("http://connector.gov.xx/EidasNode/ColleagueResponse")
                         .providerName("my Service Provider")
@@ -121,10 +124,11 @@ public class SyntaxTestUtil {
         return getEngine(SAMLENGINE_CONF).generateRequestMessage(request, null).getMessageBytes();
     }
 
+    static final String ISSUER_RESPONSE="http://C-PEPS.gov.xx".toLowerCase();
     public static byte[] createSAMLResponseToken(final byte[] requestToken) throws EIDASSAMLEngineException {
 
         AuthenticationResponse response = new AuthenticationResponse.Builder().id("123")
-                .issuer("http://C-PEPS.gov.xx")
+                .issuer(ISSUER_RESPONSE)
                 .inResponseTo("456")
                 .ipAddress("111.222.333.4444")
                 .levelOfAssurance("high")
@@ -142,6 +146,6 @@ public class SyntaxTestUtil {
 
     public static IAuthenticationRequest getEidasAuthnRequestAndValidateFromToken(final byte[] tokenSaml)
             throws EIDASSAMLEngineException {
-        return getEngine(SAMLENGINE_CONF).unmarshallRequestAndValidate(tokenSaml, "BE");
+        return getEngine(SAMLENGINE_CONF).unmarshallRequestAndValidate(tokenSaml, "BE",Arrays.asList(ISSUER_REQUEST));
     }
 }

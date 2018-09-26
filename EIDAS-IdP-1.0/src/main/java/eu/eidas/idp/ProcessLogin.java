@@ -174,8 +174,9 @@ public class ProcessLogin {
         IAuthenticationRequest authnRequest;
         try {
             ProtocolEngineI engine = getSamlEngineInstance();
-            authnRequest =
-                    engine.unmarshallRequestAndValidate(EidasStringUtil.decodeBytesFromBase64(samlToken), getCountry());
+            byte[] decodedToken = EidasStringUtil.decodeBytesFromBase64(samlToken);
+			authnRequest =
+                    engine.unmarshallRequestAndValidate(decodedToken, getCountry(),null,false);
         } catch (Exception e) {
             logger.error(e);
             throw new InvalidParameterEIDASException(
@@ -264,13 +265,23 @@ public class ProcessLogin {
             IAuthenticationRequest processedAuthnRequest = processRequestCallback(authnRequest, engine);
             samlTokenFail.levelOfAssurance(eidasLoa);
             AuthenticationResponse token = samlTokenFail.build();
-            IResponseMessage responseMessage =
-                    engine.generateResponseErrorMessage(processedAuthnRequest, token, request.getRemoteAddr());
+            IResponseMessage responseMessage = generateResponseErrorMessage(processedAuthnRequest, request.getRemoteAddr(), engine, samlTokenFail);
+
             failureBytes = responseMessage.getMessageBytes();
         } catch (Exception ex) {
             throw new InternalErrorEIDASException("0", "Error generating SAMLToken", ex);
         }
         this.samlToken = EidasStringUtil.encodeToBase64(failureBytes);
+    }
+
+    private IResponseMessage generateResponseErrorMessage(IAuthenticationRequest authData, String ipUserAddress, ProtocolEngineI engine, AuthenticationResponse.Builder eidasAuthnResponseError) throws EIDASSAMLEngineException {
+        final List<String> includeAssertionApplicationIdentifiers = getIncludeAssertionApplicationIdentifiers();
+        return  engine.generateResponseErrorMessage(authData, eidasAuthnResponseError.build(), ipUserAddress, includeAssertionApplicationIdentifiers);
+    }
+
+    private List<String> getIncludeAssertionApplicationIdentifiers() {
+        String property = idpProperties.getProperty(EidasParameterKeys.INCLUDE_ASSERTION_FAIL_RESPONSE_APPLICATION_IDENTIFIERS.toString());
+        return EidasStringUtil.getTokens(property);
     }
 
     private IAuthenticationRequest processRequestCallback(IAuthenticationRequest authnRequest, ProtocolEngineI engine)

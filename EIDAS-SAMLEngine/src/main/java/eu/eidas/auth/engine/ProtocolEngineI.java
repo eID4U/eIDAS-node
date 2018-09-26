@@ -1,6 +1,8 @@
 package eu.eidas.auth.engine;
 
 import java.security.cert.X509Certificate;
+import java.util.Collection;
+import java.util.List;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -41,10 +43,38 @@ public interface ProtocolEngineI {
                                              boolean signAssertion,
                                              @Nonnull String ipAddress) throws EIDASSAMLEngineException;
 
+    /**
+     * Generates the Response error message.
+     *
+     * @param request the IAuthenticationRequest
+     * @param response the IAuthenticationResponse
+     * @param ipAddress the ipAddress
+     * @return the response error message
+     *
+     *
+     * @throws EIDASSAMLEngineException
+     */
     @Nonnull
     IResponseMessage generateResponseErrorMessage(@Nonnull IAuthenticationRequest request,
                                                   @Nonnull IAuthenticationResponse response,
                                                   @Nonnull String ipAddress) throws EIDASSAMLEngineException;
+
+    /**
+     * Generates the Response error message.
+     *
+     * @param request the IAuthenticationRequest
+     * @param response the IAuthenticationResponse
+     * @param ipAddress the ipAddress
+     * @param applicationIdentifiers the list of protocol versioning's application identifiers
+     * @since 1.4.3
+     * @return the response error message
+     * @throws EIDASSAMLEngineException
+     */
+    @Nonnull
+    IResponseMessage generateResponseErrorMessage(@Nonnull IAuthenticationRequest request,
+                                                  @Nonnull IAuthenticationResponse response,
+                                                  @Nonnull String ipAddress,
+                                                  List<String> applicationIdentifiers) throws EIDASSAMLEngineException;
 
     @Nullable
     ProtocolCipherI getCipher();
@@ -72,7 +102,15 @@ public interface ProtocolEngineI {
 
     @Nonnull
     IAuthenticationRequest unmarshallRequestAndValidate(@Nonnull byte[] requestBytes,
-                                                        @Nonnull String citizenCountryCode)
+                                                        @Nonnull String citizenCountryCode,
+                                                        Collection<String> whitelistMetadataURLs, 
+                                                        boolean checkWhitelist)
+            throws EIDASSAMLEngineException;
+
+    @Nonnull
+    IAuthenticationRequest unmarshallRequestAndValidate(@Nonnull byte[] requestBytes,
+                                                        @Nonnull String citizenCountryCode,
+                                                        Collection<String> whitelistMetadataURLs)
             throws EIDASSAMLEngineException;
 
     /**
@@ -81,20 +119,22 @@ public interface ProtocolEngineI {
      * The {@link Correlated} response object is used to retrieve the correlated request object in a {@link
      * CorrelationMap} before invoking {@link #validateUnmarshalledResponse(Correlated, String, long)} to obtain the
      * complete response.
-     *
+     * @param checkWhitelist TODO
      * @param tokenSaml the SAML response bytes
+     *
      * @return the SAML response instance
      * @throws EIDASSAMLEngineException the EIDASSAML engine exception
      */
     @Nonnull
-    Correlated unmarshallResponse(@Nonnull byte[] responseBytes) throws EIDASSAMLEngineException;
+    Correlated unmarshallResponse(@Nonnull byte[] responseBytes, Collection<String> metadataWhitelist, boolean checkWhitelist) throws EIDASSAMLEngineException;
 
     @Nonnull
     IAuthenticationResponse unmarshallResponseAndValidate(@Nonnull byte[] responseBytes,
                                                           @Nonnull String userIpAddress,
                                                           long beforeSkewTimeInMillis,
                                                           long afterSkewTimeInMillis,
-                                                          @Nullable String audienceRestriction)
+                                                          @Nullable String audienceRestriction
+                                                          ,Collection<String> metadataWhitelist, boolean checkWhitelist)
             throws EIDASSAMLEngineException;
 
     @Nonnull

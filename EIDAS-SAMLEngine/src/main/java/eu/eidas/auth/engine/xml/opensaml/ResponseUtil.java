@@ -29,6 +29,7 @@ import eu.eidas.auth.commons.EidasErrorKey;
 import eu.eidas.auth.commons.light.IResponseStatus;
 import eu.eidas.auth.commons.light.impl.ResponseStatus;
 import eu.eidas.auth.engine.AbstractProtocolEngine;
+import eu.eidas.auth.engine.metadata.impl.BaseMetadataFetcher;
 import eu.eidas.engine.exceptions.EIDASSAMLEngineException;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
@@ -88,14 +89,21 @@ public final class ResponseUtil {
     }
 
     /**
-     * Extracts the verified assertion from the given response.
+     * Extracts the verified assertion from a given successful response.
+     *
+     * Except for failure responses the assertion is not extracted.
      *
      * @param samlResponse the SAML response
+     * @param verifyBearerIpAddress the flag to verifiy or not Bearer Ip Address
      * @param userIpAddress the user IP address
-     * @return the assertion
-     * @throws EIDASSAMLEngineException the EIDASSAML engine exception
+     * @param beforeSkewTimeInMillis the before Skew Time in Millis
+     * @param afterSkewTimeInMillis the after Skew Time in Millis
+     * @param now the current DateTime
+     * @param audienceRestriction the
+     * @return the assertion for the successful SAML Response or null if SAML Response is a failure one
+     * @throws EIDASSAMLEngineException if assertion cannot be verified or for other cases than successful SAML Response or failure SAML Response
      */
-    @Nonnull
+    @Nullable
     public static Assertion extractVerifiedAssertion(@Nonnull Response samlResponse,
                                                      boolean verifyBearerIpAddress,
                                                      @Nullable String userIpAddress,
@@ -104,21 +112,30 @@ public final class ResponseUtil {
                                                      @Nonnull DateTime now,
                                                      @Nullable String audienceRestriction)
             throws EIDASSAMLEngineException {
-        // Exist only one Assertion
-        if (samlResponse.getAssertions() == null || samlResponse.getAssertions().isEmpty()) {
+
+        IResponseStatus responseStatus = ResponseUtil.extractResponseStatus(samlResponse);
+        final int numberAssertionsInResponse = samlResponse.getAssertions().size();
+        if (isFailure(responseStatus)) {
+
+            return null;
+        } else if (isNotFailureResponseAndCorrectNumberAssertions(responseStatus, numberAssertionsInResponse)) {
+            Assertion assertion = samlResponse.getAssertions().get(0);
+            verifyAssertion(assertion, verifyBearerIpAddress, userIpAddress, beforeSkewTimeInMillis, afterSkewTimeInMillis, now, audienceRestriction);
+
+            return assertion;
+        } else {
             //in replace of throwing  EIDASSAMLEngineException("Assertion is null or empty.")
             LOG.error(AbstractProtocolEngine.SAML_EXCHANGE,
-                    "BUSINESS EXCEPTION : Assertion is null, empty or the response is encrypted and decryption is not active.");
+                    "BUSINESS EXCEPTION : Assertion is other that null for failure SAML Responses or other that 1 for sucessful SAML Responses.");
             throw new EIDASSAMLEngineException(EidasErrorKey.MESSAGE_VALIDATION_ERROR.errorCode(),
                     EidasErrorKey.MESSAGE_VALIDATION_ERROR.errorCode(),
-                    "Assertion is null, empty or the response is encrypted and decryption is not active.");
+                    "Assertion is other that null for failure SAML Responses or other that 1 for sucessful SAML Responses.");
         }
 
-        Assertion assertion = samlResponse.getAssertions().get(0);
+    }
 
-        verifyAssertion(assertion, verifyBearerIpAddress, userIpAddress, beforeSkewTimeInMillis, afterSkewTimeInMillis, now, audienceRestriction);
-
-        return assertion;
+    private static boolean isNotFailureResponseAndCorrectNumberAssertions(@Nonnull IResponseStatus responseStatus, int numberAssertionsInResponse) {
+        return !isFailure(responseStatus) && numberAssertionsInResponse == 1;
     }
 
     public static boolean isFailure(@Nonnull IResponseStatus responseStatus) {

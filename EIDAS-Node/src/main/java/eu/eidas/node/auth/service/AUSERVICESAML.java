@@ -13,14 +13,21 @@
  */
 package eu.eidas.node.auth.service;
 
+import static org.apache.commons.lang.StringUtils.isEmpty;
+import static org.apache.commons.lang.StringUtils.isNotEmpty;
+
+import java.util.Arrays;
+import java.util.List;
 import java.util.Locale;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+import eu.eidas.node.utils.PropertiesUtil;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.MessageSource;
 import org.springframework.context.NoSuchMessageException;
 
@@ -59,10 +66,7 @@ import eu.eidas.engine.exceptions.EIDASSAMLEngineException;
 import eu.eidas.node.logging.LoggingMarkerMDC;
 import eu.eidas.node.utils.EidasNodeErrorUtil;
 import eu.eidas.node.utils.EidasNodeValidationUtil;
-
-import static org.apache.commons.lang.StringUtils.isEmpty;
-import static org.apache.commons.lang.StringUtils.isNotEmpty;
-import static org.apache.commons.lang.StringUtils.splitByCharacterType;
+import eu.eidas.util.WhitelistUtil;
 
 /**
  * This class is used by {@link AUSERVICE} to get, process and generate SAML Tokens. Also, it checks attribute values
@@ -137,7 +141,17 @@ public class AUSERVICESAML implements ISERVICESAMLService {
 
     private MetadataFetcherI metadataFetcher;
 
-    @Override
+    private String connectorMetadataWhitelist;
+    
+    public String getConnectorMetadataWhitelist() {
+		return connectorMetadataWhitelist;
+	}
+
+	public void setConnectorMetadataWhitelist(String connectorMetadataWhitelist) {
+		this.connectorMetadataWhitelist = connectorMetadataWhitelist;
+	}
+
+	@Override
     public String getSamlEngineInstanceName() {
         return samlInstance;
     }
@@ -265,8 +279,7 @@ public class AUSERVICESAML implements ISERVICESAMLService {
             eidasAuthnResponseError.id(SAMLEngineUtils.generateNCName());
             eidasAuthnResponseError.inResponseTo(authData.getId());
 
-            IResponseMessage responseMessage =
-                    engine.generateResponseErrorMessage(authData, eidasAuthnResponseError.build(), ipUserAddress);
+            final IResponseMessage responseMessage = generateResponseErrorMessage(authData, ipUserAddress, engine, eidasAuthnResponseError);
 
             if (isAuditable) {
                 prepareRespLoggerBean(responseMessage, errorMessage);
@@ -284,6 +297,16 @@ public class AUSERVICESAML implements ISERVICESAMLService {
         }
     }
 
+    private IResponseMessage generateResponseErrorMessage(IAuthenticationRequest authData, String ipUserAddress, ProtocolEngineI engine, AuthenticationResponse.Builder eidasAuthnResponseError) throws EIDASSAMLEngineException {
+        final List<String> includeAssertionApplicationIdentifiers = getIncludeAssertionApplicationIdentifiers();
+        return  engine.generateResponseErrorMessage(authData, eidasAuthnResponseError.build(), ipUserAddress, includeAssertionApplicationIdentifiers);
+    }
+
+    private List<String> getIncludeAssertionApplicationIdentifiers() {
+        String property = PropertiesUtil.getProperty(EidasParameterKeys.INCLUDE_ASSERTION_FAIL_RESPONSE_APPLICATION_IDENTIFIERS.toString());
+        return EidasStringUtil.getTokens(property);
+    }
+
     /**
      * {@inheritDoc}
      */
@@ -296,7 +319,8 @@ public class AUSERVICESAML implements ISERVICESAMLService {
             LOGGER.trace("Validating the SAML token");
             // validates SAML Token
             ProtocolEngineI engine = getSamlEngine();
-            IAuthenticationRequest authnRequest = engine.unmarshallRequestAndValidate(samlObj, countryCode);
+            IAuthenticationRequest authnRequest = engine.unmarshallRequestAndValidate(samlObj, countryCode, 
+            		WhitelistUtil.metadataWhitelist(connectorMetadataWhitelist));
 
             EidasAuthenticationRequest.Builder eIDASAuthnRequestBuilder = null;
             // retrieve AssertionConsumerURL from the metadata

@@ -38,6 +38,7 @@ import org.opensaml.saml2.core.Response;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.security.cert.X509Certificate;
+import java.util.List;
 
 /**
  * The {@code ProtocolProcessorI} interface is the low-level interface responsible for generating the correct protocol
@@ -205,7 +206,6 @@ public interface ProtocolProcessorI {
      * Use {@link ProtocolProcessorI#marshallErrorResponse(IAuthenticationRequest, IAuthenticationResponse, String, SamlEngineCoreProperties, DateTime)}
      */
     @Nonnull
-    @Deprecated
     Response marshallErrorResponse(@Nonnull IAuthenticationRequest request,
                                    @Nonnull IAuthenticationResponse response,
                                    @Nonnull String ipAddress,
@@ -228,6 +228,24 @@ public interface ProtocolProcessorI {
                                    @Nonnull String ipAddress,
                                    @Nonnull SamlEngineCoreProperties samlCoreProperties,
                                    @Nonnull final DateTime currentTime)
+            throws EIDASSAMLEngineException;
+
+    /**
+     * Converts the given kind of {@link IAuthenticationResponse} into the appropriate SAML error response.
+     * <p>
+     * The returned SAML response is not encrypted and is not signed, encryption and signature are handled by the {@link
+     * eu.eidas.auth.engine.ProtocolEngineI} itself.
+     *
+     * @since 1.4.3
+     *
+     */
+    @Nonnull
+    Response marshallErrorResponse(@Nonnull IAuthenticationRequest request,
+                                   @Nonnull IAuthenticationResponse response,
+                                   @Nonnull String ipAddress,
+                                   @Nonnull SamlEngineCoreProperties samlCoreProperties,
+                                   @Nonnull final DateTime currentTime,
+                                   List<String> applicationIdentifiers)
             throws EIDASSAMLEngineException;
 
     /**

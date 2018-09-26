@@ -19,6 +19,8 @@ import eu.eidas.engine.exceptions.EIDASSAMLEngineException;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.fail;
 
+import java.util.Arrays;
+
 public class EidasMessageFormatOnlyTest {
 
     /**
@@ -134,11 +136,11 @@ public class EidasMessageFormatOnlyTest {
             fail("error during the generation of stork request: " + ee);
         }
         try {
-            engine.unmarshallRequestAndValidate(request, "EN");
+            engine.unmarshallRequestAndValidate(request, "EN",Arrays.asList(REQUEST_ISSUER));
             fail("can validate stork request on eidas only processor");
         } catch (EIDASSAMLEngineException ee) {
             try {
-                getStorkEngine().unmarshallRequestAndValidate(request, "EN");
+                getStorkEngine().unmarshallRequestAndValidate(request, "EN",Arrays.asList(REQUEST_ISSUER));
             } catch (EIDASSAMLEngineException ee1) {
                 fail("cannot validate stork request on multi processor engine");
             }
@@ -146,11 +148,12 @@ public class EidasMessageFormatOnlyTest {
 
     }
 
+    private static final String REQUEST_ISSUER = "http://localhost:7001/SP/metadata".toLowerCase();
     private byte[] generateStorkRequest() throws EIDASSAMLEngineException {
 
-        IStorkAuthenticationRequest request = StorkAuthenticationRequest.builder()
+		IStorkAuthenticationRequest request = StorkAuthenticationRequest.builder()
                 .id("f5e7e0f5-b9b8-4256-a7d0-4090141b326d")
-                .issuer("http://localhost:7001/SP/metadata")
+                .issuer(REQUEST_ISSUER)
                 .destination(destination)
                 .providerName(spName)
                 .qaa(QAAL)
@@ -165,7 +168,7 @@ public class EidasMessageFormatOnlyTest {
                 .levelOfAssurance("High")
                 .build();
 
-        return getStorkEngine().generateRequestMessage(request, null).getMessageBytes();
+        return getStorkEngine().generateRequestMessage(request, request.getIssuer()).getMessageBytes();
     }
 
 }

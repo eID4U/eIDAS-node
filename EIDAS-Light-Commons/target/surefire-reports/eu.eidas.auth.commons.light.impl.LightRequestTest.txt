@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: eu.eidas.auth.commons.light.impl.LightRequestTest
 -------------------------------------------------------------------------------
-Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.246 sec - in eu.eidas.auth.commons.light.impl.LightRequestTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.211 sec - in eu.eidas.auth.commons.light.impl.LightRequestTest

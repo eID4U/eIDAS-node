@@ -29,7 +29,13 @@ import com.google.common.collect.Ordering;
 import com.google.common.collect.UnmodifiableIterator;
 import eu.eidas.auth.commons.EidasErrorKey;
 import eu.eidas.auth.commons.EidasErrors;
-import eu.eidas.auth.commons.attribute.*;
+import eu.eidas.auth.commons.attribute.AttributeDefinition;
+import eu.eidas.auth.commons.attribute.AttributeRegistries;
+import eu.eidas.auth.commons.attribute.AttributeRegistry;
+import eu.eidas.auth.commons.attribute.AttributeValueMarshaller;
+import eu.eidas.auth.commons.attribute.AttributeValueMarshallingException;
+import eu.eidas.auth.commons.attribute.ImmutableAttributeMap;
+import eu.eidas.auth.commons.attribute.PersonType;
 import eu.eidas.auth.commons.exceptions.EIDASServiceException;
 import eu.eidas.auth.commons.exceptions.InternalErrorEIDASException;
 import eu.eidas.auth.commons.light.IResponseStatus;
@@ -52,10 +58,16 @@ import eu.eidas.auth.engine.core.SamlEngineCoreProperties;
 import eu.eidas.auth.engine.core.eidas.spec.EidasSpec;
 import eu.eidas.auth.engine.core.eidas.spec.LegalPersonSpec;
 import eu.eidas.auth.engine.core.eidas.spec.RepresentativeLegalPersonSpec;
+import eu.eidas.auth.engine.metadata.EidasMetadata;
 import eu.eidas.auth.engine.metadata.MetadataFetcherI;
 import eu.eidas.auth.engine.metadata.MetadataSignerI;
 import eu.eidas.auth.engine.metadata.MetadataUtil;
-import eu.eidas.auth.engine.xml.opensaml.*;
+import eu.eidas.auth.engine.metadata.impl.CachingMetadataFetcher;
+import eu.eidas.auth.engine.xml.opensaml.AssertionUtil;
+import eu.eidas.auth.engine.xml.opensaml.BuilderFactoryUtil;
+import eu.eidas.auth.engine.xml.opensaml.CertificateUtil;
+import eu.eidas.auth.engine.xml.opensaml.ResponseUtil;
+import eu.eidas.auth.engine.xml.opensaml.SAMLEngineUtils;
 import eu.eidas.engine.exceptions.EIDASSAMLEngineException;
 import eu.eidas.util.Preconditions;
 import org.apache.commons.collections.CollectionUtils;
@@ -65,12 +77,27 @@ import org.opensaml.Configuration;
 import org.opensaml.common.SAMLVersion;
 import org.opensaml.common.xml.SAMLConstants;
 import org.opensaml.saml2.common.Extensions;
-import org.opensaml.saml2.core.*;
+import org.opensaml.saml2.common.impl.ExtensionsImpl;
+import org.opensaml.saml2.core.Assertion;
+import org.opensaml.saml2.core.Attribute;
+import org.opensaml.saml2.core.AttributeStatement;
 import org.opensaml.saml2.core.AttributeValue;
+import org.opensaml.saml2.core.AuthnContextClassRef;
+import org.opensaml.saml2.core.AuthnContextComparisonTypeEnumeration;
+import org.opensaml.saml2.core.AuthnRequest;
+import org.opensaml.saml2.core.Issuer;
+import org.opensaml.saml2.core.NameIDPolicy;
+import org.opensaml.saml2.core.RequestedAuthnContext;
+import org.opensaml.saml2.core.Response;
+import org.opensaml.saml2.core.Status;
+import org.opensaml.saml2.core.StatusCode;
+import org.opensaml.saml2.core.StatusMessage;
 import org.opensaml.saml2.metadata.AssertionConsumerService;
 import org.opensaml.saml2.metadata.EntityDescriptor;
 import org.opensaml.saml2.metadata.IDPSSODescriptor;
 import org.opensaml.saml2.metadata.SPSSODescriptor;
+import org.opensaml.samlext.saml2mdattr.EntityAttributes;
+import org.opensaml.samlext.saml2mdattr.impl.EntityAttributesImpl;
 import org.opensaml.xml.Namespace;
 import org.opensaml.xml.XMLObject;
 import org.opensaml.xml.XMLObjectBuilder;
@@ -90,7 +117,14 @@ import javax.xml.namespace.QName;
 import javax.xml.transform.TransformerException;
 import java.net.URI;
 import java.security.cert.X509Certificate;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * Implements the eIDAS protocol.
@@ -1258,6 +1292,7 @@ public class EidasProtocolProcessor implements ProtocolProcessorI {
         return marshallErrorResponse(request,response,ipAddress,coreProperties,currentTime);
     }
 
+
     @Nonnull
     @Override
     @SuppressWarnings("squid:S2583")
@@ -1305,6 +1340,13 @@ public class EidasProtocolProcessor implements ProtocolProcessorI {
         if (responseIssuer != null && !responseIssuer.isEmpty()) {
             responseFail.getIssuer().setValue(responseIssuer);
         }
+
+        addAssertionToResponse(request, response, ipAddress, coreProperties, currentTime, responseFail);
+
+        return responseFail;
+    }
+
+    private void addAssertionToResponse(@Nonnull IAuthenticationRequest request, @Nonnull IAuthenticationResponse response, @Nonnull String ipAddress, @Nonnull SamlEngineCoreProperties coreProperties, @Nonnull DateTime currentTime, Response responseFail) throws EIDASSAMLEngineException {
         DateTime notOnOrAfter = currentTime;
 
         notOnOrAfter = notOnOrAfter.plusSeconds(coreProperties.getTimeNotOnOrAfter());
@@ -1316,8 +1358,122 @@ public class EidasProtocolProcessor implements ProtocolProcessorI {
                                                         getFormat(), coreProperties.isOneTimeUse(), currentTime);
         addResponseAuthnContextClassRef(response, assertion);
         responseFail.getAssertions().add(assertion);
+    }
+
+    /**
+     * Method to marshall the {@link Response}.
+     *
+     * The response does not contain one assertion by default,
+     * unless the application identifier of the request matches one in the {@param applicationIdentifiers}.
+     *
+     * @param request the {@link IAuthenticationRequest}
+     * @param response the {@link IAuthenticationResponse}
+     * @param ipAddress the ipAddress
+     * @param coreProperties the {@link SamlEngineCoreProperties}
+     * @param currentTime the {@link DateTime}
+     * @param applicationIdentifiers the list of application identifiers of the requester's that response need to contain assertion
+     * @return the {@link Response}
+     * @throws EIDASSAMLEngineException
+     */
+    @Nonnull
+    @Override
+    @SuppressWarnings("squid:S2583")
+    public Response marshallErrorResponse(@Nonnull IAuthenticationRequest request,
+                                          @Nonnull IAuthenticationResponse response,
+                                          @Nonnull String ipAddress,
+                                          @Nonnull SamlEngineCoreProperties coreProperties,
+                                          @Nonnull final DateTime currentTime,
+                                          List<String> applicationIdentifiers)
+            throws EIDASSAMLEngineException {
+        LOG.trace("generateResponseMessageFail");
+        validateParamResponseFail(request, response);
+
+        // Mandatory
+        StatusCode statusCode = BuilderFactoryUtil.generateStatusCode(response.getStatusCode());
+
+        // Mandatory SAML
+        LOG.trace("Generate StatusCode.");
+        // Subordinate code is optional in case not covered into next codes:
+        // - urn:oasis:names:tc:SAML:2.0:status:AuthnFailed
+        // - urn:oasis:names:tc:SAML:2.0:status:InvalidAttrNameOrValue
+        // - urn:oasis:names:tc:SAML:2.0:status:InvalidNameIDPolicy
+        // - urn:oasis:names:tc:SAML:2.0:status:RequestDenied
+        // - http://www.stork.gov.eu/saml20/statusCodes/QAANotSupported
+
+        if (StringUtils.isNotBlank(response.getSubStatusCode())) {
+            StatusCode newStatusCode = BuilderFactoryUtil.generateStatusCode(response.getSubStatusCode());
+            statusCode.setStatusCode(newStatusCode);
+        }
+
+        LOG.debug("Generate Status.");
+        Status status = BuilderFactoryUtil.generateStatus(statusCode);
+
+        if (StringUtils.isNotBlank(response.getStatusMessage())) {
+            StatusMessage statusMessage = BuilderFactoryUtil.generateStatusMessage(response.getStatusMessage());
+
+            status.setStatusMessage(statusMessage);
+        }
+
+        LOG.trace("Generate Response.");
+        // RESPONSE
+        Response responseFail =
+                newResponse(status, request.getAssertionConsumerServiceURL(), request.getId(), coreProperties, currentTime);
+
+        String responseIssuer = response.getIssuer();
+        if (responseIssuer != null && !responseIssuer.isEmpty()) {
+            responseFail.getIssuer().setValue(responseIssuer);
+        }
+
+        final String requestApplicationIdentifier = getRequestApplicationIdentifier(request);
+
+        if (applicationIdentifiers != null && !applicationIdentifiers.isEmpty()) {
+            final boolean isAddAssertionToResponse = applicationIdentifiers.contains(requestApplicationIdentifier);
+            if (isAddAssertionToResponse) {
+                addAssertionToResponse(request, response, ipAddress, coreProperties, currentTime, responseFail);
+            }
+        }
 
         return responseFail;
+    }
+
+    private String getRequestApplicationIdentifier(@Nonnull IAuthenticationRequest request) throws EIDASSAMLEngineException {
+
+        Extensions extensions = getExtensions(request);
+
+        if (extensions instanceof ExtensionsImpl) {
+            List<XMLObject> unknownXMLObjects = extensions.getUnknownXMLObjects(EntityAttributes.DEFAULT_ELEMENT_NAME);
+
+            for (XMLObject unknownXMLObject : unknownXMLObjects) {
+
+                if (unknownXMLObject instanceof EntityAttributesImpl) {
+                    final List<Attribute> attributes = ((EntityAttributesImpl) unknownXMLObject).getAttributes();
+
+                    for (Attribute attribute : attributes) {
+
+                        if (EidasMetadata.APPLICATION_IDENTIFIER.equals(attribute.getName())) {
+                            final List<XMLObject> attributeValues = attribute.getAttributeValues();
+                            final XMLObject xmlObject = attributeValues.get(0);
+                            if (xmlObject instanceof XSAnyImpl) {
+                                return ((XSAnyImpl) xmlObject).getTextContent();
+                            } else if (xmlObject instanceof XSString) {
+                                return ((XSString) xmlObject).getValue();
+                            }
+                        }
+
+                    }
+                }
+            }
+        }
+
+        return StringUtils.EMPTY;
+    }
+
+    private Extensions getExtensions(@Nonnull IAuthenticationRequest request) throws EIDASSAMLEngineException {
+        if (metadataFetcher instanceof  CachingMetadataFetcher) {
+            return  ((CachingMetadataFetcher) metadataFetcher).getCache().getDescriptor(request.getIssuer()).getExtensions();
+        } else {
+            return metadataFetcher.getEntityDescriptor(request.getIssuer(), metadataSigner).getExtensions();
+        }
     }
 
     @Nonnull

@@ -53,7 +53,9 @@ public class ConnectorMetadataGeneratorServlet extends AbstractConnectorServlet{
         EidasNodeMetadataGenerator generator = (EidasNodeMetadataGenerator)getApplicationContext().getBean(generatorName);
         PropertiesUtil.checkConnectorActive();
         if(PropertiesUtil.isMetadataEnabled()) {
-            response.getOutputStream().print(generator.generateConnectorMetadata());
+            response.setContentType("text/xml");
+            response.setCharacterEncoding("UTF-8");
+            response.getWriter().print(generator.generateConnectorMetadata());
         }else{
             response.sendError(HttpServletResponse.SC_NOT_FOUND);
         }

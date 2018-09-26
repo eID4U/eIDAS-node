@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: eu.eidas.samlengineconfig.TestCreateEidasNodeConfig
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.064 sec - in eu.eidas.samlengineconfig.TestCreateEidasNodeConfig
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.06 sec - in eu.eidas.samlengineconfig.TestCreateEidasNodeConfig

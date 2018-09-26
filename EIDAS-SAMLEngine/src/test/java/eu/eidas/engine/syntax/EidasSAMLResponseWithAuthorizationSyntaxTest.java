@@ -20,6 +20,8 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
+import java.util.Arrays;
+
 /**
  * EidasSAMLResponseWithAuthorizationSyntaxTest
  *
@@ -66,7 +68,7 @@ public class EidasSAMLResponseWithAuthorizationSyntaxTest {
 
     public static IAuthenticationRequest getEidasAuthnRequestAndValidateFromToken(final byte[] tokenSaml)
             throws EIDASSAMLEngineException {
-        return getAuthorizationEngine(SyntaxTestUtil.SAMLENGINE_CONF).unmarshallRequestAndValidate(tokenSaml, "BE");
+        return getAuthorizationEngine(SyntaxTestUtil.SAMLENGINE_CONF).unmarshallRequestAndValidate(tokenSaml, "BE",Arrays.asList(SyntaxTestUtil.ISSUER_REQUEST));
     }
 
     public static ProtocolEngineI getAuthorizationEngine(String conf) {
@@ -95,7 +97,7 @@ public class EidasSAMLResponseWithAuthorizationSyntaxTest {
     @Test
     public void testNormalValidationOnSAMLrequest() throws Exception {
         assertNotNull(samlResponseToken);
-        IAuthenticationResponse response = SyntaxTestUtil.getEngine(SyntaxTestUtil.SAMLENGINE_CONF).unmarshallResponseAndValidate(samlResponseToken, null, 0, 0, null);
+        IAuthenticationResponse response = SyntaxTestUtil.getEngine(SyntaxTestUtil.SAMLENGINE_CONF).unmarshallResponseAndValidate(samlResponseToken, null, 0, 0, null,Arrays.asList(SyntaxTestUtil.ISSUER_RESPONSE),false);
         assertNotNull(response);
     }
 

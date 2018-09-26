@@ -1,11 +1,13 @@
 package eu.eidas.sp;
 
+import java.util.Collection;
+
 import javax.annotation.Nonnull;
 
-import eu.eidas.auth.engine.xml.opensaml.XmlSchemaUtil;
 import org.opensaml.saml2.core.AuthnRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.w3c.dom.Document;
 
 import eu.eidas.auth.commons.EidasErrorKey;
 import eu.eidas.auth.commons.protocol.IAuthenticationRequest;
@@ -14,8 +16,8 @@ import eu.eidas.auth.commons.protocol.impl.BinaryRequestMessage;
 import eu.eidas.auth.engine.ProtocolEngine;
 import eu.eidas.auth.engine.configuration.ProtocolConfigurationAccessor;
 import eu.eidas.auth.engine.xml.opensaml.CorrelatedResponse;
+import eu.eidas.auth.engine.xml.opensaml.XmlSchemaUtil;
 import eu.eidas.engine.exceptions.EIDASSAMLEngineException;
-import org.w3c.dom.Document;
 
 /**
  * SpProtocolEngine
@@ -41,7 +43,7 @@ public final class SpProtocolEngine extends ProtocolEngine implements SpProtocol
     @Nonnull
     public byte[] checkAndDecryptResponse(@Nonnull byte[] responseBytes) throws EIDASSAMLEngineException {
         // This decrypts the given responseBytes:
-        CorrelatedResponse response = (CorrelatedResponse) unmarshallResponse(responseBytes);
+        CorrelatedResponse response = (CorrelatedResponse) unmarshallResponse(responseBytes,null,false);
 
         // validateUnmarshalledResponse(samlResponse, userIP, skewTimeInMillis);
 
@@ -69,7 +71,7 @@ public final class SpProtocolEngine extends ProtocolEngine implements SpProtocol
     public byte[] reSignRequest(@Nonnull byte[] requestBytes) throws EIDASSAMLEngineException {
         LOG.trace("Generate SAMLAuthnRequest.");
 
-        AuthnRequest authnRequest = unmarshallRequest(requestBytes);
+        AuthnRequest authnRequest = unmarshallRequest(requestBytes,null,false);
         releaseExtensionsDom(authnRequest);
         if (null == authnRequest) {
             throw new EIDASSAMLEngineException(EidasErrorKey.INTERNAL_ERROR.errorCode(),
@@ -102,7 +104,8 @@ public final class SpProtocolEngine extends ProtocolEngine implements SpProtocol
      * @throws EIDASSAMLEngineException the EIDASSAML engine exception
      */
     @Override
-    public AuthnRequest unmarshallRequest(@Nonnull byte[] requestBytes) throws EIDASSAMLEngineException {
+    public AuthnRequest unmarshallRequest(@Nonnull byte[] requestBytes,
+    		Collection<String> whitelistMetadataURLs, boolean checkWhitelist) throws EIDASSAMLEngineException {
         LOG.trace("Validate request bytes.");
 
         if (null == requestBytes) {
@@ -140,7 +143,7 @@ public final class SpProtocolEngine extends ProtocolEngine implements SpProtocol
         // Obtaining new saml Token
         byte[] tokenSaml = originalRequest.getMessageBytes();
         IAuthenticationRequest authenticationRequest = originalRequest.getRequest();
-        authnRequestAux = unmarshallRequest(tokenSaml);
+        authnRequestAux = unmarshallRequest(tokenSaml,null,false);
         authnRequestAux.setProtocolBinding(
                 getProtocolProcessor().getProtocolBinding(authenticationRequest, getCoreProperties()));
         if (changeDestination) {

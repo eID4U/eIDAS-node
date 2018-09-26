@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: eu.eidas.TestIntegrationSample
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.566 sec - in eu.eidas.TestIntegrationSample
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.528 sec - in eu.eidas.TestIntegrationSample

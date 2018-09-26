@@ -15,6 +15,7 @@
 
 package eu.eidas.engine.test.simple.eidas;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -195,7 +196,7 @@ public class EidasAuthRequestTest {
 
         byte[] samlToken = getEngine().generateRequestMessage(request, null).getMessageBytes();
         LOG.info("EidasAuthenticationRequest 1: " + SSETestUtils.encodeSAMLToken(samlToken));
-        IAuthenticationRequest parsedRequest = getEngine().unmarshallRequestAndValidate(samlToken, "ES");
+        IAuthenticationRequest parsedRequest = getEngine().unmarshallRequestAndValidate(samlToken, "ES",Arrays.asList(DUMMY_ISSUER_URI));
         assertNotNull(parsedRequest);
         assertFalse(parsedRequest.getRequestedAttributes().isEmpty());
 
@@ -391,7 +392,7 @@ public class EidasAuthRequestTest {
     @Test
     public void testValidateAuthnRequestNullParam() throws EIDASSAMLEngineException {
         try {
-            getEngine().unmarshallRequestAndValidate(null, "ES");
+            getEngine().unmarshallRequestAndValidate(null, "ES",null);
             fail("processValidateRequestToken(...) should've thrown an EIDASSAMLEngineException!");
         } catch (EIDASSAMLEngineException e) {
             LOG.error("Error");
@@ -406,7 +407,7 @@ public class EidasAuthRequestTest {
     @Test
     public void testValidateAuthnRequestErrorEncode() throws EIDASSAMLEngineException {
         try {
-            getEngine().unmarshallRequestAndValidate(EidasStringUtil.getBytes("messageError"), "ES");
+            getEngine().unmarshallRequestAndValidate(EidasStringUtil.getBytes("messageError"), "ES",null);
             fail("processValidateRequestToken(...) should've thrown an EIDASSAMLEngineException!");
         } catch (EIDASSAMLEngineException e) {
             LOG.error("Error");
@@ -422,7 +423,7 @@ public class EidasAuthRequestTest {
     public void testValidateAuthnRequest() throws EIDASSAMLEngineException {
         IEidasAuthenticationRequest validatedRequest =
                 (IEidasAuthenticationRequest) getEngine().unmarshallRequestAndValidate(
-                        getDefaultTestEidasAuthnRequestTokenSaml(), "ES");
+                        getDefaultTestEidasAuthnRequestTokenSaml(), "ES",Arrays.asList(DUMMY_ISSUER_URI));
         assertNotNull(validatedRequest.getSpType());
     }
 
@@ -435,7 +436,7 @@ public class EidasAuthRequestTest {
     public void testValidateDataAuthnRequest() throws EIDASSAMLEngineException {
 
         IAuthenticationRequest request =
-                getEngine().unmarshallRequestAndValidate(getDefaultTestEidasAuthnRequestTokenSaml(), "ES");
+                getEngine().unmarshallRequestAndValidate(getDefaultTestEidasAuthnRequestTokenSaml(), "ES",Arrays.asList(DUMMY_ISSUER_URI));
 
         assertEquals("Sestination incorrect: ", request.getDestination(), destination);
 
@@ -467,7 +468,7 @@ public class EidasAuthRequestTest {
         byte[] bytes = SSETestUtils.readSamlFromFile("/data/eu/eidas/EIDASSAMLEngine/AuthnRequest.xml");
 
         try {
-            getEngine().unmarshallRequestAndValidate(bytes, "ES");
+            getEngine().unmarshallRequestAndValidate(bytes, "ES",null);
             fail("testValidateFileAuthnRequest(...) should've thrown an EIDASSAMLEngineException!");
         } catch (EIDASSAMLEngineException e) {
             LOG.error(e.getMessage());
@@ -485,7 +486,7 @@ public class EidasAuthRequestTest {
         byte[] bytes = SSETestUtils.readSamlFromFile("/data/eu/eidas/EIDASSAMLEngine/AuthnRequestTagDelete.xml");
 
         try {
-            getEngine().unmarshallRequestAndValidate(bytes, "ES");
+            getEngine().unmarshallRequestAndValidate(bytes, "ES",null);
             fail("processValidateRequestToken(...) should have thrown an EIDASSAMLEngineException!");
         } catch (EIDASSAMLEngineException e) {
             LOG.error(e.getMessage());
@@ -518,7 +519,7 @@ public class EidasAuthRequestTest {
                     .build();
             byte[] authReqNotTrust = engineNotTrusted.generateRequestMessage(request, null).getMessageBytes();
 
-            getEngine().unmarshallRequestAndValidate(authReqNotTrust, "ES");
+            getEngine().unmarshallRequestAndValidate(authReqNotTrust, "ES",Arrays.asList(DUMMY_ISSUER_URI));
         } catch (EIDASSAMLEngineException e) {
             LOG.error("Error");
             fail("validateEIDASAuthnRequestNotTrusted(...) should not have thrown an EIDASSAMLEngineException!");
@@ -551,7 +552,7 @@ public class EidasAuthRequestTest {
         byte[] authReqTrust = engineTrusted.generateRequestMessage(request, null).getMessageBytes();
 
         // engine ("CONF1")  have trust certificate from "CONF3"
-        getEngine().unmarshallRequestAndValidate(authReqTrust, "ES");
+        getEngine().unmarshallRequestAndValidate(authReqTrust, "ES",Arrays.asList(DUMMY_ISSUER_URI));
 
     }
 
@@ -574,7 +575,7 @@ public class EidasAuthRequestTest {
 
         try {
             authRequest = getEngine().generateRequestMessage(request, null).getMessageBytes();
-            getEngine().unmarshallRequestAndValidate(authRequest, "ES");
+            getEngine().unmarshallRequestAndValidate(authRequest, "ES",null);
             assertNotNull(request.getSpType());
         } catch (EIDASSAMLEngineException e) {
             LOG.error("Error");
@@ -600,7 +601,7 @@ public class EidasAuthRequestTest {
 
         try {
             authRequest = getEngine().generateRequestMessage(request, null).getMessageBytes();
-            IAuthenticationRequest authenticationRequest = getEngine().unmarshallRequestAndValidate(authRequest, "ES");
+            IAuthenticationRequest authenticationRequest = getEngine().unmarshallRequestAndValidate(authRequest, "ES",null);
             assertEquals("public", ((IEidasAuthenticationRequest) authenticationRequest).getSpType());
         } catch (EIDASSAMLEngineException e) {
             LOG.error("Error");
@@ -640,7 +641,7 @@ public class EidasAuthRequestTest {
         String saml = EidasStringUtil.toString(messageBytes);
         assertFalse(saml.isEmpty());
 
-        IAuthenticationRequest authenticationRequest = getEngine().unmarshallRequestAndValidate(messageBytes, "ES");
+        IAuthenticationRequest authenticationRequest = getEngine().unmarshallRequestAndValidate(messageBytes, "ES",Arrays.asList(DUMMY_ISSUER_URI));
 
         assertNull("The value shouldn't exist",
                    authenticationRequest.getRequestedAttributes().getAttributeValuesByNameUri("unknown"));
@@ -738,7 +739,7 @@ public class EidasAuthRequestTest {
 
         //validate request in a EIDAS enabled samlengine
         IAuthenticationRequest authenticationRequest =
-                getEngine().unmarshallRequestAndValidate(req.getMessageBytes(), "ES");
+                getEngine().unmarshallRequestAndValidate(req.getMessageBytes(), "ES",Arrays.asList(DUMMY_ISSUER_URI));
         assertNotNull(authenticationRequest);
     }
 

@@ -1,28 +1,30 @@
 package eu.eidas.sp;
 
-import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.ImmutableSet;
-import com.opensymphony.xwork2.Action;
-import com.opensymphony.xwork2.ActionSupport;
-import eu.eidas.auth.commons.EidasStringUtil;
-import eu.eidas.auth.commons.attribute.AttributeDefinition;
-import eu.eidas.auth.commons.attribute.AttributeValue;
-import eu.eidas.auth.commons.protocol.IAuthenticationResponse;
-import eu.eidas.auth.engine.ProtocolEngineFactory;
-import eu.eidas.auth.engine.ProtocolEngineI;
-import eu.eidas.encryption.exception.UnmarshallException;
-import eu.eidas.engine.exceptions.EIDASSAMLEngineException;
+import static eu.eidas.sp.Constants.SP_CONF;
+
+import java.util.Properties;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.apache.commons.lang.StringUtils;
 import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.interceptor.ServletResponseAware;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.util.Properties;
+import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableSet;
+import com.opensymphony.xwork2.Action;
+import com.opensymphony.xwork2.ActionSupport;
 
-import static eu.eidas.sp.Constants.SP_CONF;
+import eu.eidas.auth.commons.EidasStringUtil;
+import eu.eidas.auth.commons.attribute.AttributeDefinition;
+import eu.eidas.auth.commons.attribute.AttributeValue;
+import eu.eidas.auth.commons.protocol.IAuthenticationResponse;
+import eu.eidas.auth.engine.ProtocolEngineI;
+import eu.eidas.encryption.exception.UnmarshallException;
+import eu.eidas.engine.exceptions.EIDASSAMLEngineException;
 
 /**
  * This Action recives a SAML Response, shows it to the user and then validates it getting the attributes values
@@ -74,7 +76,7 @@ public class ReturnAction extends ActionSupport implements ServletRequestAware, 
         try {
             SpProtocolEngineI engine = SpProtocolEngineFactory.getSpProtocolEngine(SP_CONF);
             //validate SAML Token
-            engine.unmarshallResponseAndValidate(decSamlToken, request.getRemoteHost(), 0, 0, metadataUrl);
+            engine.unmarshallResponseAndValidate(decSamlToken, request.getRemoteHost(), 0, 0, metadataUrl, null,false);
 
             boolean encryptedResponse = SPUtil.isEncryptedSamlResponse(decSamlToken);
             if (encryptedResponse) {
@@ -116,7 +118,7 @@ public class ReturnAction extends ActionSupport implements ServletRequestAware, 
         try {
             ProtocolEngineI engine = SpProtocolEngineFactory.getSpProtocolEngine(SP_CONF);
             //validate SAML Token
-            authnResponse = engine.unmarshallResponseAndValidate(decSamlToken, request.getRemoteHost(), 0, 0, metadataUrl);
+            authnResponse = engine.unmarshallResponseAndValidate(decSamlToken, request.getRemoteHost(), 0, 0, metadataUrl,null,false);
 
         } catch (EIDASSAMLEngineException e) {
             logger.error(e.getMessage());

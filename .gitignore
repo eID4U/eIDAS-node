@@ -1,3 +1,5 @@
+.gitignore~
+
 EIDAS-Commons/eidas-commons.iml
 EIDAS-ConfigModule/eidas-configmodule.iml
 EIDAS-Encryption/eidas-encryption.iml
@@ -15,3 +17,12 @@ EIDAS-UPDATER/eidas-updater.iml
 
 *.log
 EIDAS-Commons/eidas-commons.log.*
+
+tomcat_local_deploy.sh
+tomcat_local_deploy.sh~
+tomcat_production_deploy.sh
+tomcat_production_deploy.sh~
+jboss_local_deploy.sh
+jboss_local_deploy.sh~
+jboss_production_deploy.sh
+jboss_production_deploy.sh~

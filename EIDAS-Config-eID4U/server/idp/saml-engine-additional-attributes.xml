@@ -4,13 +4,13 @@
     <comment>Dynamic attributes</comment>
 
     <entry key="1.NameUri">http://eidas.europa.eu/attributes/sectorspecific/eid4u/naturalperson/id/Type</entry>
-    <entry key="1.FriendlyName">idType</entry>
+    <entry key="1.FriendlyName">IdType</entry>
     <entry key="1.PersonType">NaturalPerson</entry>
     <entry key="1.Required">false</entry>
     <entry key="1.XmlType.NamespaceUri">http://eidas.europa.eu/attributes/sectorspecific/eid4u/naturalperson</entry>
     <entry key="1.XmlType.LocalPart">IdTypeType</entry>
     <entry key="1.XmlType.NamespacePrefix">eid4uP</entry>
-    <entry key="1.AttributeValueMarshaller">eu.eidas.auth.commons.attribute.impl.StringAttributeValueMarshaller</entry>
+    <entry key="1.AttributeValueMarshaller">eu.eidas.auth.commons.protocol.eidas.impl.IdTypeAttributeValueMarshaller</entry>
 
     <entry key="2.NameUri">http://eidas.europa.eu/attributes/sectorspecific/eid4u/naturalperson/id/Number</entry>
     <entry key="2.FriendlyName">IdNumber</entry>

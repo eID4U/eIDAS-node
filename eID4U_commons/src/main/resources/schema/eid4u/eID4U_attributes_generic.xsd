@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://eidas.europa.eu/attributes/sectorspecific/eid4u" xmlns:europass3="http://europass.cedefop.europa.eu/Europass" targetNamespace="http://eidas.europa.eu/attributes/sectorspecific/eid4u" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1">
+	<!--xs:import namespace="http://europass.cedefop.europa.eu/Europass" schemaLocation="https://europass.cedefop.europa.eu/xml/v3.1.2/EuropassSchema.xsd"/-->
+	<xs:import namespace="http://europass.cedefop.europa.eu/Europass" schemaLocation="classpath:/schema/eid4u/external/EuropassSchema.xsd"/>
+	<!-- Some generic types -->
+	<xs:element name="document">
+		<xs:annotation>
+			<xs:documentation>
+				Container element for an generic document
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:base64Binary">
+					<xs:attribute name="name" type="xs:string" use="required"/>
+					<xs:attribute name="type" type="DocumentTypeType" use="required"/>
+					<xs:attribute name="contentType" type="europass3:MimeTypeEnumeration" use="required"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:simpleType name="DocumentTypeType">
+		<xs:annotation>
+			<xs:documentation>
+				Type of an electronic document
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="photo"/>
+			<xs:enumeration value="certificate"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

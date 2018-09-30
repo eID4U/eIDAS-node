@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Mit XMLSpy v2013 (http://www.altova.com) von tlenz (Graz University of Technology IAIK) bearbeitet -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://eidas.europa.eu/attributes/sectorspecific/eid4u/naturalperson" xmlns:europass3="http://europass.cedefop.europa.eu/Europass" xmlns:eid4u="http://eidas.europa.eu/attributes/sectorspecific/eid4u" targetNamespace="http://eidas.europa.eu/attributes/sectorspecific/eid4u/naturalperson" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1">
+	<!--xs:import namespace="http://europass.cedefop.europa.eu/Europass" schemaLocation="https://europass.cedefop.europa.eu/xml/v3.1.2/EuropassSchema.xsd"/-->
+	<xs:import namespace="http://europass.cedefop.europa.eu/Europass" schemaLocation="classpath:/schema/eid4u/external/EuropassSchema.xsd"/>
+	<xs:import namespace="http://eidas.europa.eu/attributes/sectorspecific/eid4u" schemaLocation="eID4U_attributes_generic.xsd"/>
+	<!-- eID4U specific attributes that are not defined in other namespaces -->
+	<xs:simpleType name="IdTypeType">
+		<xs:annotation>
+			<xs:documentation>
+				Identification document type
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Passport"/>
+			<xs:enumeration value="National Identity Card"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="IdNumberType">
+		<xs:annotation>
+			<xs:documentation> 
+				Identification document number
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="IdIssuerType">
+		<xs:annotation>
+			<xs:documentation>
+				Entity that issued the identification document
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="IdExpiryDateType">
+		<xs:annotation>
+			<xs:documentation>
+				Expiration date of the identification document (Based on xsd:date i.e. YYYY-MM-DD format)
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:date"/>
+	</xs:simpleType>
+	<xs:simpleType name="EhicIdType">
+		<xs:annotation>
+			<xs:documentation>
+				European health insurance card number
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:integer">
+			<xs:pattern value="^80[0-9]{18}$"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="MaritalStateType">
+		<xs:annotation>
+			<xs:documentation>
+				Current marital state of the entity
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Single"/>
+			<xs:enumeration value="Married"/>
+			<xs:enumeration value="Divorced"/>
+			<xs:enumeration value="Widowed"/>
+			<xs:enumeration value="Civil Union"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="rfc822mailboxType">
+		<xs:annotation>
+			<xs:documentation>
+				eMail address of an entity as contact point
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[^@]+@[^\.]+\..+"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="PhoneNumberType">
+		<xs:annotation>
+			<xs:documentation>
+				Phone number of an entity as contact point
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:complexType name="PhotoType">
+		<xs:annotation>
+			<xs:documentation>
+				Current photo of an entity
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="eid4u:document" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="TaxIdentificationNumberType">
+		<xs:annotation>
+			<xs:documentation>
+				Tax identification number of the entity
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="^[A-Z]{2}/[a-zA-Z0-9].*"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

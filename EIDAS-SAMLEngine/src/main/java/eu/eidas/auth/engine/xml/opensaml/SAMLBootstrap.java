@@ -27,6 +27,7 @@ import org.opensaml.common.xml.SAMLSchemaBuilder;
 import org.opensaml.xml.ConfigurationException;
 import org.opensaml.xml.XMLConfigurator;
 
+import at.gv.egiz.eid4u.api.attributes.Definitions;
 import eu.eidas.auth.commons.xml.opensaml.OpenSamlHelper;
 
 public final class SAMLBootstrap {
@@ -50,6 +51,11 @@ public final class SAMLBootstrap {
             SAMLSchemaBuilder.addExtensionSchema("/eidas/saml_eidas_representative_legal_person.xsd");
             SAMLSchemaBuilder.addExtensionSchema("/eidas/saml_eidas_representative_natural_person.xsd");
 
+            SAMLSchemaBuilder.addExtensionSchema(Definitions.SAML2_eID4U_CORE_EXTENSIONS_SCHEMA_LOCATION);				
+            SAMLSchemaBuilder.addExtensionSchema(Definitions.SAML2_eID4U_PERSON_EXTENSIONS_SCHEMA_LOCATION);
+            SAMLSchemaBuilder.addExtensionSchema(Definitions.SAML2_eID4U_STUDIES_EXTENSIONS_SCHEMA_LOCATION);
+            SAMLSchemaBuilder.addExtensionSchema(Definitions.SAML2_eID4U_EXT_EUROPASS3_EXTENSIONS_SCHEMA_LOCATION);
+            
             initConfig("saml-eidasnode-config.xml");
 
             isBootstrapped = true;

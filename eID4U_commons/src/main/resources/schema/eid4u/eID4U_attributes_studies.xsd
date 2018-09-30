@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://eidas.europa.eu/attributes/sectorspecific/eID4U/studies" xmlns:eid4u="http://eidas.europa.eu/attributes/sectorspecific/eid4u" xmlns:europass3="http://europass.cedefop.europa.eu/Europass" targetNamespace="http://eidas.europa.eu/attributes/sectorspecific/eID4U/studies" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1">
+	<!--xs:import namespace="http://europass.cedefop.europa.eu/Europass" schemaLocation="https://europass.cedefop.europa.eu/xml/v3.1.2/EuropassSchema.xsd"/-->
+	<xs:import namespace="http://europass.cedefop.europa.eu/Europass" schemaLocation="classpath:/schema/eid4u/external/EuropassSchema.xsd"/>
+	<xs:import namespace="http://eidas.europa.eu/attributes/sectorspecific/eid4u" schemaLocation="eID4U_attributes_generic.xsd"/>
+	<xs:simpleType name="HomeInstitutionNameType">
+		<xs:annotation>
+			<xs:documentation>
+				Name of the home institute
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="HomeInstitutionIdentifierType">
+		<xs:annotation>
+			<xs:documentation>
+				Erasmus code of the home institute
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="CurrentDegreeType">
+		<xs:annotation>
+			<xs:documentation>
+				Name of the degree the student is currently pursuing in his/her studies
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="FieldOfStudyType">
+		<xs:annotation>
+			<xs:documentation>
+				Field of the studies the student is currently pursuing
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="LevelOfStudyType">
+		<xs:annotation>
+			<xs:documentation>
+				Level of the studies the student is currently pursuing
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:complexType name="TranscriptType">
+		<xs:annotation>
+			<xs:documentation>
+				Transcript of records as Set of documents
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="eid4u:document" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="DegreeAwardingInstitutionType">
+		<xs:annotation>
+			<xs:documentation>
+				Name of the education institute that issued the degee of the previous studie
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="GraduationYearType">
+		<xs:annotation>
+			<xs:documentation>
+				Year when the entity received his/her last obtained degree
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:unsignedShort">
+			<xs:totalDigits value="4"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+    <xs:complexType name="LanguageLevelType">
+		<xs:annotation>
+			<xs:documentation>
+				Declaration of level of language knowledge
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ForeignLanguage" type="europass3:ForeignLanguageSkillType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+    
+    <xs:element name="certificates" type="CertificatesType" />
+	<xs:complexType name="CertificatesType">
+		<xs:annotation>
+			<xs:documentation>
+				Certificates for language knowledge
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="eid4u:document" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

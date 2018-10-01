@@ -8,6 +8,7 @@
 
 package at.gv.egiz.eid4u.impl.attributes.xjc.eid4u;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -44,9 +45,10 @@ import at.gv.egiz.eid4u.impl.attributes.xjc.europass.ForeignLanguageSkillType;
 @XmlType(name = "LanguageLevelType", propOrder = {
     "foreignLanguage"
 })
-public class LanguageLevelType {
+public class LanguageLevelType implements Serializable {
 
-    @XmlElement(name = "ForeignLanguage", required = true)
+	private static final long serialVersionUID = 1L;
+	@XmlElement(name = "ForeignLanguage", required = true)
     protected List<ForeignLanguageSkillType> foreignLanguage;
 
     /**

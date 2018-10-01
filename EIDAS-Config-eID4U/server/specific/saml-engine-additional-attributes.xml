@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
-    <comment>Dynamic attributes</comment>
-
-   <!-- eID4U natural-person attributes -->
+     <comment>eID4U natural-person attributes</comment>
     <entry key="1.NameUri">http://eidas.europa.eu/attributes/sectorspecific/eid4u/naturalperson/id/Type</entry>
     <entry key="1.FriendlyName">IdType</entry>
     <entry key="1.PersonType">NaturalPerson</entry>
@@ -50,7 +48,7 @@
     <entry key="5.AttributeValueMarshaller">at.gv.egiz.eid4u.impl.attributes.natural.EhicIdTypeAttributeValueMarshaller</entry>
 
     <entry key="6.NameUri">http://eidas.europa.eu/attributes/sectorspecific/eid4u/naturalperson/Nationality</entry>
-    <entry key="6.FriendlyName">Nationality/entry>
+    <entry key="6.FriendlyName">Nationality</entry>
     <entry key="6.PersonType">NaturalPerson</entry>
     <entry key="6.Required">false</entry>
     <entry key="6.XmlType.NamespaceUri">http://europass.cedefop.europa.eu/Europass</entry>
@@ -129,9 +127,7 @@
     <entry key="14.XmlType.LocalPart">TaxIdentificationNumberType</entry>
     <entry key="14.XmlType.NamespacePrefix">eid4uP</entry>
     <entry key="14.AttributeValueMarshaller">at.gv.egiz.eid4u.impl.attributes.natural.TaxIdentificationNumberType</entry>
-    
-    
-    <!-- eID4U studies information attributes -->
+
     <entry key="15.NameUri">http://eidas:europa:eu/attributes/sectorspecific/eid4u/studies/homeinsitution/Name</entry>
     <entry key="15.FriendlyName">HomeInstitutionNamer</entry>
     <entry key="15.PersonType">NaturalPerson</entry>

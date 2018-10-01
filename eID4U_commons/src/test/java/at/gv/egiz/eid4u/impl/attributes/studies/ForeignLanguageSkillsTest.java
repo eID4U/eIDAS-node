@@ -4,11 +4,13 @@ import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 import org.apache.commons.lang.RandomStringUtils;
 import org.junit.Test;
 
+import at.gv.egiz.eid4u.impl.attributes.xjc.eid4u.LanguageLevelType;
 import at.gv.egiz.eid4u.impl.attributes.xjc.eid4u.generic.Document;
 import at.gv.egiz.eid4u.impl.attributes.xjc.eid4u.generic.DocumentTypeType;
 import at.gv.egiz.eid4u.impl.attributes.xjc.europass.AbstractExperienceListType;
@@ -31,7 +33,7 @@ public class ForeignLanguageSkillsTest {
 		LanguageLevelTypeAttributeValueMarshaller serializer = new LanguageLevelTypeAttributeValueMarshaller();
 		
 		String serializedValue  = null;
-		AttributeValue<ArrayList<ForeignLanguageSkillType>> testvalues = generateTestValue();
+		AttributeValue<LanguageLevelType> testvalues = generateTestValue();
 		
 		//serialize attribute
 		try {
@@ -45,7 +47,7 @@ public class ForeignLanguageSkillsTest {
 		
 		
 		//deserialize attribute
-		AttributeValue<ArrayList<ForeignLanguageSkillType>>result = null;
+		AttributeValue<LanguageLevelType>result = null;
 		try {
 			result = serializer.unmarshal(serializedValue, false);
 			
@@ -61,9 +63,9 @@ public class ForeignLanguageSkillsTest {
 		
 	}
 
-	private void validate(AttributeValue<ArrayList<ForeignLanguageSkillType>> result, AttributeValue<ArrayList<ForeignLanguageSkillType>> testvalues) {
-		ArrayList<ForeignLanguageSkillType> testList = testvalues.getValue();
-		ArrayList<ForeignLanguageSkillType> resultList = result.getValue();
+	private void validate(AttributeValue<LanguageLevelType> result, AttributeValue<LanguageLevelType> testvalues) {
+		List<ForeignLanguageSkillType> testList = testvalues.getValue().getForeignLanguage();
+		List<ForeignLanguageSkillType> resultList = result.getValue().getForeignLanguage();
 		
 		assertTrue(testList.size() == resultList.size());
 		
@@ -82,7 +84,7 @@ public class ForeignLanguageSkillsTest {
 		}
 	}
 
-	private AttributeValue<ArrayList<ForeignLanguageSkillType>> generateTestValue() {
+	private AttributeValue<LanguageLevelType> generateTestValue() {
 		ArrayList<ForeignLanguageSkillType> list = new ArrayList<ForeignLanguageSkillType>();
 		
 		//create first test-document
@@ -99,7 +101,9 @@ public class ForeignLanguageSkillsTest {
 		
 		list.add(testDocOne);
 		
+		LanguageLevelType result = new LanguageLevelType();
+		result.getForeignLanguage().addAll(list);
 		
-		return new LanguageLevelAttributeValue(list, false);
+		return new LanguageLevelAttributeValue(result, false);
 	}
 }

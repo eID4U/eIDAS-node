@@ -8,6 +8,7 @@
 
 package at.gv.egiz.eid4u.impl.attributes.xjc.eid4u;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -44,9 +45,13 @@ import at.gv.egiz.eid4u.impl.attributes.xjc.eid4u.generic.Document;
 @XmlType(name = "CertificatesType", propOrder = {
     "document"
 })
-public class CertificatesType {
+public class CertificatesType implements Serializable {
 
-    @XmlElement(namespace = "http://eidas.europa.eu/attributes/sectorspecific/eid4u", required = true)
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	@XmlElement(namespace = "http://eidas.europa.eu/attributes/sectorspecific/eid4u", required = true)
     protected List<Document> document;
 
     /**

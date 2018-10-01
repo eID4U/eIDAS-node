@@ -1,15 +1,13 @@
 package at.gv.egiz.eid4u.impl.attributes.studies;
 
-import java.util.ArrayList;
-
-import at.gv.egiz.eid4u.impl.attributes.xjc.eid4u.generic.Document;
+import at.gv.egiz.eid4u.impl.attributes.xjc.eid4u.CertificatesType;
 import eu.eidas.auth.commons.attribute.impl.AbstractAttributeValue;
 
-public class CertificatesTypeAttributeValue extends AbstractAttributeValue<ArrayList<Document>>{
+public class CertificatesTypeAttributeValue extends AbstractAttributeValue<CertificatesType>{
 
 	private static final long serialVersionUID = 1L;
 
-	protected CertificatesTypeAttributeValue(ArrayList<Document> val, boolean nonLatinScriptAlternateVer) {
+	protected CertificatesTypeAttributeValue(CertificatesType val, boolean nonLatinScriptAlternateVer) {
 		super(val, nonLatinScriptAlternateVer);
 	}
 

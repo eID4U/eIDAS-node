@@ -23,16 +23,14 @@ import eu.eidas.auth.commons.attribute.AttributeValue;
 import eu.eidas.auth.commons.attribute.AttributeValueMarshaller;
 import eu.eidas.auth.commons.attribute.AttributeValueMarshallingException;
 
-public class CertificatesTypeAttributeValueMarshaller implements AttributeValueMarshaller<ArrayList<Document>> {
+public class CertificatesTypeAttributeValueMarshaller implements AttributeValueMarshaller<CertificatesType> {
 
 	@Override
-	public String marshal(AttributeValue<ArrayList<Document>> value) throws AttributeValueMarshallingException {
+	public String marshal(AttributeValue<CertificatesType> value) throws AttributeValueMarshallingException {
 		try {
 			//generate parent element
 			ObjectFactory factory = new ObjectFactory();
-			CertificatesType certificats = new CertificatesType();
-			certificats.getDocument().addAll(value.getValue());
-			JAXBElement<CertificatesType> element = factory.createCertificates(certificats);
+			JAXBElement<CertificatesType> element = factory.createCertificates(value.getValue());
 			
 			//marshal parent element
 			JAXBContext context = JAXBContext.newInstance(ObjectFactory.class);
@@ -49,7 +47,7 @@ public class CertificatesTypeAttributeValueMarshaller implements AttributeValueM
 	}
 
 	@Override
-	public AttributeValue<ArrayList<Document>> unmarshal(String value, boolean isNonLatinScriptAlternateVersion)
+	public AttributeValue<CertificatesType> unmarshal(String value, boolean isNonLatinScriptAlternateVersion)
 			throws AttributeValueMarshallingException {
 		try {
 			Reader reader = new StringReader(EidasStringUtil.decodeStringFromBase64(value));
@@ -77,15 +75,15 @@ public class CertificatesTypeAttributeValueMarshaller implements AttributeValueM
 			if (certificates.getDocument() == null || certificates.getDocument().size()==0)
 				throw new AttributeValueMarshallingException("'CertificatesType' contains NO documents");	
 				
-			ArrayList<Document> list = null;
-			if (!(certificates.getDocument() instanceof ArrayList)) {
-				list = new ArrayList<Document>();
-				list.addAll(certificates.getDocument());
-				
-			} else
-				list = (ArrayList<Document>) certificates.getDocument();
+//			ArrayList<Document> list = null;
+//			if (!(certificates.getDocument() instanceof ArrayList)) {
+//				list = new ArrayList<Document>();
+//				list.addAll(certificates.getDocument());
+//				
+//			} else
+//				list = (ArrayList<Document>) certificates.getDocument();
 			
-			return new CertificatesTypeAttributeValue(list, false);
+			return new CertificatesTypeAttributeValue(certificates , false);
 		
 		} catch (JAXBException | XMLStreamException e) {
 			throw new AttributeValueMarshallingException("Can NOT create JAXB unmarshaller for type 'Document'", e);

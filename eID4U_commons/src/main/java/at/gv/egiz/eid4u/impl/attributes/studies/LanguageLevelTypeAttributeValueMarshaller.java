@@ -24,16 +24,13 @@ import eu.eidas.auth.commons.attribute.AttributeValue;
 import eu.eidas.auth.commons.attribute.AttributeValueMarshaller;
 import eu.eidas.auth.commons.attribute.AttributeValueMarshallingException;
 
-public class LanguageLevelTypeAttributeValueMarshaller implements AttributeValueMarshaller<ArrayList<ForeignLanguageSkillType>>  {
+public class LanguageLevelTypeAttributeValueMarshaller implements AttributeValueMarshaller<LanguageLevelType>  {
 	@Override
-	public String marshal(AttributeValue<ArrayList<ForeignLanguageSkillType>> value) throws AttributeValueMarshallingException {
+	public String marshal(AttributeValue<LanguageLevelType> value) throws AttributeValueMarshallingException {
 		try {
 			//generate parent element
 			at.gv.egiz.eid4u.impl.attributes.xjc.eid4u.ObjectFactory factory = new at.gv.egiz.eid4u.impl.attributes.xjc.eid4u.ObjectFactory();
-			LanguageLevelType languageLevels = new LanguageLevelType();
-			
-			languageLevels.getForeignLanguage().addAll(value.getValue());
-			JAXBElement<LanguageLevelType> element = factory.createForeignLanguageList(languageLevels);
+			JAXBElement<LanguageLevelType> element = factory.createForeignLanguageList(value.getValue());
 			
 			JAXBContext context = JAXBContext.newInstance(
 					at.gv.egiz.eid4u.impl.attributes.xjc.eid4u.ObjectFactory.class, 
@@ -52,7 +49,7 @@ public class LanguageLevelTypeAttributeValueMarshaller implements AttributeValue
 	}
 
 	@Override
-	public AttributeValue<ArrayList<ForeignLanguageSkillType>> unmarshal(String value, boolean isNonLatinScriptAlternateVersion)
+	public AttributeValue<LanguageLevelType> unmarshal(String value, boolean isNonLatinScriptAlternateVersion)
 			throws AttributeValueMarshallingException {
 		try {
 			Reader reader = new StringReader(EidasStringUtil.decodeStringFromBase64(value));
@@ -83,15 +80,8 @@ public class LanguageLevelTypeAttributeValueMarshaller implements AttributeValue
 			if (languageLevels.getForeignLanguage() == null || languageLevels.getForeignLanguage().size()==0)
 				throw new AttributeValueMarshallingException("'CertificatesType' contains NO documents");	
 				
-			ArrayList<ForeignLanguageSkillType> list = null;
-			if (!(languageLevels.getForeignLanguage() instanceof ArrayList)) {
-				list = new ArrayList<ForeignLanguageSkillType>();
-				list.addAll(languageLevels.getForeignLanguage());
-				
-			} else
-				list = (ArrayList<ForeignLanguageSkillType>) languageLevels.getForeignLanguage();
 			
-			return new LanguageLevelAttributeValue(list, false);
+			return new LanguageLevelAttributeValue(languageLevels, false);
 		
 		} catch (JAXBException | XMLStreamException e) {
 			throw new AttributeValueMarshallingException("Can NOT create JAXB unmarshaller for type 'Document'", e);

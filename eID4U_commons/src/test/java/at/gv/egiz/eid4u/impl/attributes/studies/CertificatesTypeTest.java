@@ -4,11 +4,13 @@ import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 import org.apache.commons.lang.RandomStringUtils;
 import org.junit.Test;
 
+import at.gv.egiz.eid4u.impl.attributes.xjc.eid4u.CertificatesType;
 import at.gv.egiz.eid4u.impl.attributes.xjc.eid4u.generic.Document;
 import at.gv.egiz.eid4u.impl.attributes.xjc.eid4u.generic.DocumentTypeType;
 import at.gv.egiz.eid4u.impl.attributes.xjc.europass.MimeTypeEnumeration;
@@ -27,7 +29,7 @@ public class CertificatesTypeTest {
 		CertificatesTypeAttributeValueMarshaller certTypeSerializer = new CertificatesTypeAttributeValueMarshaller();
 		
 		String serializedValue  = null;
-		AttributeValue<ArrayList<Document>> testvalues = generateTestValue();
+		AttributeValue<CertificatesType > testvalues = generateTestValue();
 		
 		//serialize attribute
 		try {
@@ -41,7 +43,7 @@ public class CertificatesTypeTest {
 		
 		
 		//deserialize attribute
-		AttributeValue<ArrayList<Document>> result = null;
+		AttributeValue<CertificatesType > result = null;
 		try {
 			result = certTypeSerializer.unmarshal(serializedValue, false);
 			
@@ -57,9 +59,9 @@ public class CertificatesTypeTest {
 		
 	}
 
-	private void validate(AttributeValue<ArrayList<Document>> result, AttributeValue<ArrayList<Document>> testvalues) {
-		ArrayList<Document> testList = testvalues.getValue();
-		ArrayList<Document> resultList = result.getValue();
+	private void validate(AttributeValue<CertificatesType> result, AttributeValue<CertificatesType> testvalues) {
+		List<Document> testList = testvalues.getValue().getDocument();
+		List<Document> resultList = result.getValue().getDocument();
 		
 		assertTrue(testList.size() == resultList.size());
 		
@@ -80,7 +82,7 @@ public class CertificatesTypeTest {
 		}
 	}
 
-	private AttributeValue<ArrayList<Document>> generateTestValue() {
+	private AttributeValue<CertificatesType> generateTestValue() {
 		ArrayList<Document> list = new ArrayList<Document>();
 		
 		//create first test-document
@@ -99,6 +101,9 @@ public class CertificatesTypeTest {
 		testDocTwo.setValue(RandomStringUtils.random(99).getBytes());
 		list.add(testDocTwo);
 		
-		return new CertificatesTypeAttributeValue(list, false);
+		CertificatesType result = new CertificatesType(); 
+		result.getDocument().addAll(list);
+		
+		return new CertificatesTypeAttributeValue(result, false);
 	}
 }

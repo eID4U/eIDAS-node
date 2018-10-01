@@ -26,7 +26,7 @@ public class Definitions {
 	public static final String IDTYPE_NAME = "http://eidas.europa.eu/attributes/sectorspecific/eid4u/naturalperson/id/Type";
 	public static final String IDTYPE_FRIENDLYNAME = "IdType";
 	
-	public static final String IDNUMBER_NAME = "http://eidas:europa:eu/attributes/sectorspecific/eid4u/naturalperson/id/Number";
+	public static final String IDNUMBER_NAME = "http://eidas.europa.eu/attributes/sectorspecific/eid4u/naturalperson/id/Number";
 	public static final String IDNUMBER_FRIENDLYNAME = "IdNumber";
 
 	public static final String IDISSUER_NAME = "http://eidas.europa.eu/attributes/sectorspecific/eid4u/naturalperson/id/Issuer";
@@ -44,7 +44,7 @@ public class Definitions {
 	public static final String MARITALSTATE_NAME = "http://eidas.europa.eu/attributes/sectorspecific/eid4u/naturalperson/MaritalState";
 	public static final String MARITALSTATE_FRIENDLYNAME = "MaritalState";
 	
-	public static final String COUNTRYOFBIRTH_NAME = "http://eidas:europa:eu/attributes/sectorspecific/eid4u/naturalperson/CountryOfBirth";
+	public static final String COUNTRYOFBIRTH_NAME = "http://eidas.europa.eu/attributes/sectorspecific/eid4u/naturalperson/CountryOfBirth";
 	public static final String COUNTRYOFBIRTH_FRIENDLYNAME = "CountryOfBirth";
 	
 	public static final String EMAIL_NAME = "http://eidas.europa.eu/attributes/sectorspecific/eid4u/naturalperson/Email";
@@ -62,7 +62,7 @@ public class Definitions {
 	public static final String TAXIDENTIFICATIONNUMBER_NAME = "http://eidas.europa.eu/attributes/sectorspecific/naturalperson/TaxIdentificationNumber";
 	public static final String TAXIDENTIFICATIONNUMBER_FRIENDLYNAME = "TaxIdentificationNumber";
 	
-	public static final String HOMEINSTITUTIONNAME_NAME = "http://eidas:europa:eu/attributes/sectorspecific/eid4u/studies/homeinsitution/Name";
+	public static final String HOMEINSTITUTIONNAME_NAME = "http://eidas.europa.eu/attributes/sectorspecific/eid4u/studies/homeinsitution/Name";
 	public static final String HOMEINSTITUTIONNAME_FRIENDLYNAME = "HomeInstitutionName";
 	
 	public static final String HOMEINSTITUTIONIDENTIFIER_NAME = "http://eidas.europa.eu/attributes/sectorspecific/eid4u/studies/homeinsitution/Identifier";

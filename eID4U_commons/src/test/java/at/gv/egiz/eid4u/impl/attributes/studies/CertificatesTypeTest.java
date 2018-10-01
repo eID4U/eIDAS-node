@@ -5,8 +5,6 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
-
 import org.apache.commons.lang.RandomStringUtils;
 import org.junit.Test;
 

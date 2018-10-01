@@ -74,7 +74,7 @@
     <entry key="8.XmlType.NamespacePrefix">eid4uP</entry>
     <entry key="8.AttributeValueMarshaller">at.gv.egiz.eid4u.impl.attributes.natural.MaritalStateAttributeValueMarshaller</entry>
         
-    <entry key="9.NameUri">http://eidas:europa:eu/attributes/sectorspecific/eid4u/naturalperson/CountryOfBirth</entry>
+    <entry key="9.NameUri">http://eidas.europa.eu/attributes/sectorspecific/eid4u/naturalperson/CountryOfBirth</entry>
     <entry key="9.FriendlyName">CountryOfBirth</entry>
     <entry key="9.PersonType">NaturalPerson</entry>
     <entry key="9.Required">false</entry>
@@ -128,7 +128,7 @@
     <entry key="14.XmlType.NamespacePrefix">eid4uP</entry>
     <entry key="14.AttributeValueMarshaller">at.gv.egiz.eid4u.impl.attributes.natural.TaxIdentificationNumberType</entry>
 
-    <entry key="15.NameUri">http://eidas:europa:eu/attributes/sectorspecific/eid4u/studies/homeinsitution/Name</entry>
+    <entry key="15.NameUri">http://eidas.europa.eu/attributes/sectorspecific/eid4u/studies/homeinsitution/Name</entry>
     <entry key="15.FriendlyName">HomeInstitutionNamer</entry>
     <entry key="15.PersonType">NaturalPerson</entry>
     <entry key="15.Required">false</entry>

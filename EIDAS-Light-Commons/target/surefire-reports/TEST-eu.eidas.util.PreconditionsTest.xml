@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="eu.eidas.util.PreconditionsTest" time="0.073" tests="63" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="eu.eidas.util.PreconditionsTest" time="0.055" tests="63" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-8-oracle/jre/lib/amd64"/>
@@ -59,14 +59,14 @@
     <property name="sun.desktop" value="gnome"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase name="testCheckLengthMapLonger" classname="eu.eidas.util.PreconditionsTest" time="0.008"/>
+  <testcase name="testCheckLengthMapLonger" classname="eu.eidas.util.PreconditionsTest" time="0.006"/>
   <testcase name="testIsAlphanumericSpaceWithAlphanumericSpaceArgument" classname="eu.eidas.util.PreconditionsTest" time="0.002"/>
   <testcase name="testCheckLengthArrayShorter" classname="eu.eidas.util.PreconditionsTest" time="0"/>
   <testcase name="testCheckNotBlankWithNonNullArgument" classname="eu.eidas.util.PreconditionsTest" time="0"/>
-  <testcase name="testIsAlphanumericWithAlphabetArgument" classname="eu.eidas.util.PreconditionsTest" time="0.001"/>
+  <testcase name="testIsAlphanumericWithAlphabetArgument" classname="eu.eidas.util.PreconditionsTest" time="0"/>
   <testcase name="testCheckNotBlankWithBlankCharArray" classname="eu.eidas.util.PreconditionsTest" time="0"/>
   <testcase name="testCheckLengthNullArray" classname="eu.eidas.util.PreconditionsTest" time="0"/>
-  <testcase name="testIsAlphanumericWithAlphabetAndDigitArgument" classname="eu.eidas.util.PreconditionsTest" time="0"/>
+  <testcase name="testIsAlphanumericWithAlphabetAndDigitArgument" classname="eu.eidas.util.PreconditionsTest" time="0.001"/>
   <testcase name="testCheckLengthMapOk01" classname="eu.eidas.util.PreconditionsTest" time="0"/>
   <testcase name="testCheckLengthMapOk02" classname="eu.eidas.util.PreconditionsTest" time="0"/>
   <testcase name="testCheckLengthMapOk03" classname="eu.eidas.util.PreconditionsTest" time="0"/>
@@ -74,11 +74,11 @@
   <testcase name="testIsAlphanumericSpaceWithBlankArgument" classname="eu.eidas.util.PreconditionsTest" time="0"/>
   <testcase name="testIsAlphanumericWithEmptyArgument" classname="eu.eidas.util.PreconditionsTest" time="0"/>
   <testcase name="testCheckNotBlankWithMixedBlankArgument" classname="eu.eidas.util.PreconditionsTest" time="0"/>
-  <testcase name="testCheckSingleValuedListWithMultiValuedArgument" classname="eu.eidas.util.PreconditionsTest" time="0.006"/>
+  <testcase name="testCheckSingleValuedListWithMultiValuedArgument" classname="eu.eidas.util.PreconditionsTest" time="0.004"/>
   <testcase name="testCheckSingleValuedListWithNullArgument" classname="eu.eidas.util.PreconditionsTest" time="0"/>
   <testcase name="testCheckLengthCollectionShorter" classname="eu.eidas.util.PreconditionsTest" time="0"/>
   <testcase name="testIsAlphanumericWithAlphabetAndSpaceArgument" classname="eu.eidas.util.PreconditionsTest" time="0"/>
-  <testcase name="testIsAlphanumericWithAlphabetAndHyphenArgument" classname="eu.eidas.util.PreconditionsTest" time="0"/>
+  <testcase name="testIsAlphanumericWithAlphabetAndHyphenArgument" classname="eu.eidas.util.PreconditionsTest" time="0.001"/>
   <testcase name="testCheckLengthNullCharSequence" classname="eu.eidas.util.PreconditionsTest" time="0"/>
   <testcase name="testCheckLengthNullMap" classname="eu.eidas.util.PreconditionsTest" time="0"/>
   <testcase name="testIsAlphanumericWithNullArgument" classname="eu.eidas.util.PreconditionsTest" time="0"/>
@@ -87,12 +87,12 @@
   <testcase name="testCheckLengthArrayOk02" classname="eu.eidas.util.PreconditionsTest" time="0"/>
   <testcase name="testCheckLengthArrayOk03" classname="eu.eidas.util.PreconditionsTest" time="0"/>
   <testcase name="testCheckLengthArrayOk04" classname="eu.eidas.util.PreconditionsTest" time="0"/>
-  <testcase name="testCheckLengthCharSequenceShorter" classname="eu.eidas.util.PreconditionsTest" time="0.001"/>
+  <testcase name="testCheckLengthCharSequenceShorter" classname="eu.eidas.util.PreconditionsTest" time="0"/>
   <testcase name="testCheckNotNullWithNullArgument" classname="eu.eidas.util.PreconditionsTest" time="0"/>
   <testcase name="testCheckNotBlankWithNullArgument" classname="eu.eidas.util.PreconditionsTest" time="0"/>
   <testcase name="testIsAlphanumericSpaceWithEmptyArgument" classname="eu.eidas.util.PreconditionsTest" time="0"/>
   <testcase name="testIsAlphanumericSpaceWithAlphabetAndDigitArgument" classname="eu.eidas.util.PreconditionsTest" time="0"/>
-  <testcase name="testIsAlphanumericSpaceWithNullArgument" classname="eu.eidas.util.PreconditionsTest" time="0"/>
+  <testcase name="testIsAlphanumericSpaceWithNullArgument" classname="eu.eidas.util.PreconditionsTest" time="0.001"/>
   <testcase name="testCheckLengthCollectionLonger" classname="eu.eidas.util.PreconditionsTest" time="0"/>
   <testcase name="testCheckSingleValuedListWithSingleValuedArgument" classname="eu.eidas.util.PreconditionsTest" time="0"/>
   <testcase name="testIsAlphanumericWithAlphanumericArgument" classname="eu.eidas.util.PreconditionsTest" time="0"/>
@@ -106,7 +106,7 @@
   <testcase name="testIsAlphanumericSpaceWithAlphabetArgument" classname="eu.eidas.util.PreconditionsTest" time="0"/>
   <testcase name="testIsAlphanumericWithBlankArgument" classname="eu.eidas.util.PreconditionsTest" time="0"/>
   <testcase name="testIsAlphanumericSpaceWithNonAlphanumericSpaceArgument" classname="eu.eidas.util.PreconditionsTest" time="0"/>
-  <testcase name="testCheckLengthNullCollection" classname="eu.eidas.util.PreconditionsTest" time="0.001"/>
+  <testcase name="testCheckLengthNullCollection" classname="eu.eidas.util.PreconditionsTest" time="0"/>
   <testcase name="testCheckNotBlankWithZeroedCharArray" classname="eu.eidas.util.PreconditionsTest" time="0"/>
   <testcase name="testIsAlphanumericSpaceWithAlphabetAndHyphenArgument" classname="eu.eidas.util.PreconditionsTest" time="0"/>
   <testcase name="testIsAlphanumericSpaceWithAlphabetAndSpaceArgument" classname="eu.eidas.util.PreconditionsTest" time="0"/>
@@ -121,5 +121,5 @@
   <testcase name="testCheckNotBlankWithSingleSpaceArgument" classname="eu.eidas.util.PreconditionsTest" time="0"/>
   <testcase name="testCheckNotBlankWithEmptyCharArray" classname="eu.eidas.util.PreconditionsTest" time="0"/>
   <testcase name="testCheckSingleValuedListWithEmptyArgument" classname="eu.eidas.util.PreconditionsTest" time="0"/>
-  <testcase name="testCheckNotBlankWithMultiSpacesArgument" classname="eu.eidas.util.PreconditionsTest" time="0"/>
+  <testcase name="testCheckNotBlankWithMultiSpacesArgument" classname="eu.eidas.util.PreconditionsTest" time="0.001"/>
 </testsuite>

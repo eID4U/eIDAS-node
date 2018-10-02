@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="eu.eidas.auth.commons.attribute.ImmutableAttributeMapTest" time="0.054" tests="16" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="eu.eidas.auth.commons.attribute.ImmutableAttributeMapTest" time="0.059" tests="16" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-8-oracle/jre/lib/amd64"/>
@@ -60,19 +60,19 @@
     <property name="sun.cpu.isalist" value=""/>
   </properties>
   <testcase name="testGetValuesByFriendlyName" classname="eu.eidas.auth.commons.attribute.ImmutableAttributeMapTest" time="0.002"/>
-  <testcase name="testSerialization" classname="eu.eidas.auth.commons.attribute.ImmutableAttributeMapTest" time="0.041"/>
-  <testcase name="testGetDefinitionByNameUriString" classname="eu.eidas.auth.commons.attribute.ImmutableAttributeMapTest" time="0.001"/>
-  <testcase name="testToString" classname="eu.eidas.auth.commons.attribute.ImmutableAttributeMapTest" time="0"/>
-  <testcase name="testFirstValue" classname="eu.eidas.auth.commons.attribute.ImmutableAttributeMapTest" time="0.003"/>
-  <testcase name="testGetDefinitionByNameUri" classname="eu.eidas.auth.commons.attribute.ImmutableAttributeMapTest" time="0"/>
+  <testcase name="testSerialization" classname="eu.eidas.auth.commons.attribute.ImmutableAttributeMapTest" time="0.045"/>
+  <testcase name="testGetDefinitionByNameUriString" classname="eu.eidas.auth.commons.attribute.ImmutableAttributeMapTest" time="0"/>
+  <testcase name="testToString" classname="eu.eidas.auth.commons.attribute.ImmutableAttributeMapTest" time="0.001"/>
+  <testcase name="testFirstValue" classname="eu.eidas.auth.commons.attribute.ImmutableAttributeMapTest" time="0.002"/>
+  <testcase name="testGetDefinitionByNameUri" classname="eu.eidas.auth.commons.attribute.ImmutableAttributeMapTest" time="0.001"/>
   <testcase name="testGetAttributeMap" classname="eu.eidas.auth.commons.attribute.ImmutableAttributeMapTest" time="0"/>
-  <testcase name="testGetDefinitionsByFriendlyName" classname="eu.eidas.auth.commons.attribute.ImmutableAttributeMapTest" time="0"/>
+  <testcase name="testGetDefinitionsByFriendlyName" classname="eu.eidas.auth.commons.attribute.ImmutableAttributeMapTest" time="0.001"/>
   <testcase name="testEmptyWithOf" classname="eu.eidas.auth.commons.attribute.ImmutableAttributeMapTest" time="0"/>
   <testcase name="testHashCode" classname="eu.eidas.auth.commons.attribute.ImmutableAttributeMapTest" time="0"/>
   <testcase name="testGetValuesByNameUri" classname="eu.eidas.auth.commons.attribute.ImmutableAttributeMapTest" time="0"/>
-  <testcase name="testBuilderDuplicateNameUri" classname="eu.eidas.auth.commons.attribute.ImmutableAttributeMapTest" time="0.001"/>
+  <testcase name="testBuilderDuplicateNameUri" classname="eu.eidas.auth.commons.attribute.ImmutableAttributeMapTest" time="0"/>
   <testcase name="testEquals" classname="eu.eidas.auth.commons.attribute.ImmutableAttributeMapTest" time="0"/>
   <testcase name="testGetValuesByName" classname="eu.eidas.auth.commons.attribute.ImmutableAttributeMapTest" time="0"/>
-  <testcase name="testEmptyWithBuild" classname="eu.eidas.auth.commons.attribute.ImmutableAttributeMapTest" time="0"/>
-  <testcase name="testValues" classname="eu.eidas.auth.commons.attribute.ImmutableAttributeMapTest" time="0.003"/>
+  <testcase name="testEmptyWithBuild" classname="eu.eidas.auth.commons.attribute.ImmutableAttributeMapTest" time="0.001"/>
+  <testcase name="testValues" classname="eu.eidas.auth.commons.attribute.ImmutableAttributeMapTest" time="0.005"/>
 </testsuite>

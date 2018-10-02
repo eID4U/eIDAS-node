@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: eu.eidas.engine.test.simple.eidas.EidasAuthResponseTest
 -------------------------------------------------------------------------------
-Tests run: 23, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.401 sec - in eu.eidas.engine.test.simple.eidas.EidasAuthResponseTest
+Tests run: 23, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.169 sec - in eu.eidas.engine.test.simple.eidas.EidasAuthResponseTest

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="eu.eidas.node.auth.service.tests.AUSERVICETestCase" time="0.244" tests="10" errors="0" skipped="3" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="eu.eidas.node.auth.service.tests.AUSERVICETestCase" time="0.237" tests="10" errors="0" skipped="3" failures="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-8-oracle/jre/lib/amd64"/>
@@ -69,10 +69,10 @@
   <testcase name="testProcessCitizenConsentNoConsent" classname="eu.eidas.node.auth.service.tests.AUSERVICETestCase" time="0">
     <skipped/>
   </testcase>
-  <testcase name="testGenerateSamlTokenFail" classname="eu.eidas.node.auth.service.tests.AUSERVICETestCase" time="0.003"/>
+  <testcase name="testGenerateSamlTokenFail" classname="eu.eidas.node.auth.service.tests.AUSERVICETestCase" time="0.004"/>
   <testcase name="testProcessAuthenticationRequestInvalidQAA" classname="eu.eidas.node.auth.service.tests.AUSERVICETestCase" time="0.001"/>
-  <testcase name="testProcessAuthenticationRequestErrorValidatingSaml" classname="eu.eidas.node.auth.service.tests.AUSERVICETestCase" time="0"/>
-  <testcase name="testUpdateResponseAttributesFail" classname="eu.eidas.node.auth.service.tests.AUSERVICETestCase" time="0.001"/>
+  <testcase name="testProcessAuthenticationRequestErrorValidatingSaml" classname="eu.eidas.node.auth.service.tests.AUSERVICETestCase" time="0.001"/>
+  <testcase name="testUpdateResponseAttributesFail" classname="eu.eidas.node.auth.service.tests.AUSERVICETestCase" time="0"/>
   <testcase name="testProcessAuthenticationRequestInvalidSaml" classname="eu.eidas.node.auth.service.tests.AUSERVICETestCase" time="0"/>
   <testcase name="testProcessAuthenticationRequest" classname="eu.eidas.node.auth.service.tests.AUSERVICETestCase" time="0.004"/>
 </testsuite>

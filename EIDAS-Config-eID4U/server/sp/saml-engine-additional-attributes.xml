@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
-     <comment>eID4U natural-person attributes</comment>
+    <comment>eID4U natural-person attributes</comment>
+    
     <entry key="1.NameUri">http://eidas.europa.eu/attributes/sectorspecific/eid4u/naturalperson/id/Type</entry>
     <entry key="1.FriendlyName">IdType</entry>
     <entry key="1.PersonType">NaturalPerson</entry>
@@ -128,7 +129,7 @@
     <entry key="14.XmlType.NamespacePrefix">eid4uP</entry>
     <entry key="14.AttributeValueMarshaller">at.gv.egiz.eid4u.impl.attributes.natural.TaxIdentificationNumberType</entry>
 
-    <entry key="15.NameUri">http://eidas.europa.eu/attributes/sectorspecific/eid4u/studies/homeinsitution/Name</entry>
+    <entry key="15.NameUri">http://eidas.europa.eu/attributes/sectorspecific/eid4u/studies/homeinstitution/Name</entry>
     <entry key="15.FriendlyName">HomeInstitutionNamer</entry>
     <entry key="15.PersonType">NaturalPerson</entry>
     <entry key="15.Required">false</entry>
@@ -137,7 +138,7 @@
     <entry key="15.XmlType.NamespacePrefix">eid4uS</entry>
     <entry key="15.AttributeValueMarshaller">at.gv.egiz.eid4u.impl.attributes.natural.NonValidatingStringAttributeValueMarshaller</entry>
 
-    <entry key="16.NameUri">http://eidas.europa.eu/attributes/sectorspecific/eid4u/studies/homeinsitution/Identifier</entry>
+    <entry key="16.NameUri">http://eidas.europa.eu/attributes/sectorspecific/eid4u/studies/homeinstitution/Identifier</entry>
     <entry key="16.FriendlyName">HomeInstitutionIdentifier</entry>
     <entry key="16.PersonType">NaturalPerson</entry>
     <entry key="16.Required">false</entry>
@@ -146,7 +147,7 @@
     <entry key="16.XmlType.NamespacePrefix">eid4uS</entry>
     <entry key="16.AttributeValueMarshaller">at.gv.egiz.eid4u.impl.attributes.natural.NonValidatingStringAttributeValueMarshaller</entry>    
 
-    <entry key="17.NameUri">http://eidas.europa.eu/attributes/sectorspecific/eid4u/studies/homeinsitution/Country</entry>
+    <entry key="17.NameUri">http://eidas.europa.eu/attributes/sectorspecific/eid4u/studies/homeinstitution/Country</entry>
     <entry key="17.FriendlyName">HomeInstitutionCountry</entry>
     <entry key="17.PersonType">NaturalPerson</entry>
     <entry key="17.Required">false</entry>
@@ -155,7 +156,7 @@
     <entry key="17.XmlType.NamespacePrefix">europass3</entry>
     <entry key="17.AttributeValueMarshaller">at.gv.egiz.eid4u.impl.attributes.natural.NationalityTypeAttributeValueMarshaller</entry>
     
-    <entry key="18.NameUri">http://eidas.europa.eu/attributes/sectorspecific/eid4u/studies/homeinsitution/Address</entry>
+    <entry key="18.NameUri">http://eidas.europa.eu/attributes/sectorspecific/eid4u/studies/homeinstitution/Address</entry>
     <entry key="18.FriendlyName">HomeInstitutionAddress</entry>
     <entry key="18.PersonType">NaturalPerson</entry>
     <entry key="18.Required">false</entry>
@@ -164,7 +165,7 @@
     <entry key="18.XmlType.NamespacePrefix">eidas-natural</entry>
     <entry key="18.AttributeValueMarshaller">eu.eidas.auth.commons.protocol.eidas.impl.CurrentAddressAttributeValueMarshaller</entry>
     
-    <entry key="19.NameUri">http://eidas.europa.eu/attributes/sectorspecific/eid4u/studies/CurentLevelOfStudy</entry>
+    <entry key="19.NameUri">http://eidas.europa.eu/attributes/sectorspecific/eid4u/studies/CurrentLevelOfStudy</entry>
     <entry key="19.FriendlyName">CurrentLevelOfStudy</entry>
     <entry key="19.PersonType">NaturalPerson</entry>
     <entry key="19.Required">false</entry>

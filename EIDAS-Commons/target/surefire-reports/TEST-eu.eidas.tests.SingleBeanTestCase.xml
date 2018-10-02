@@ -61,7 +61,7 @@
   </properties>
   <testcase name="testCountryCode" classname="eu.eidas.tests.SingleBeanTestCase" time="0.007"/>
   <testcase name="testCountrySetGet" classname="eu.eidas.tests.SingleBeanTestCase" time="0.001"/>
-  <testcase name="testEidasNodeError" classname="eu.eidas.tests.SingleBeanTestCase" time="0.003"/>
+  <testcase name="testEidasNodeError" classname="eu.eidas.tests.SingleBeanTestCase" time="0.002"/>
   <testcase name="testEIDASNodeValue" classname="eu.eidas.tests.SingleBeanTestCase" time="0.001"/>
-  <testcase name="testEIDASSubStatusCode" classname="eu.eidas.tests.SingleBeanTestCase" time="0"/>
+  <testcase name="testEIDASSubStatusCode" classname="eu.eidas.tests.SingleBeanTestCase" time="0.001"/>
 </testsuite>

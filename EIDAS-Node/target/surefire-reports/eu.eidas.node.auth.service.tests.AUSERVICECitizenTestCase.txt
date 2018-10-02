@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: eu.eidas.node.auth.service.tests.AUSERVICECitizenTestCase
 -------------------------------------------------------------------------------
-Tests run: 16, Failures: 0, Errors: 0, Skipped: 3, Time elapsed: 0.007 sec - in eu.eidas.node.auth.service.tests.AUSERVICECitizenTestCase
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 3, Time elapsed: 0.006 sec - in eu.eidas.node.auth.service.tests.AUSERVICECitizenTestCase

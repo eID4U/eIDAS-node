@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="eu.eidas.node.auth.service.tests.AUSERVICECitizenTestCase" time="0.007" tests="16" errors="0" skipped="3" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="eu.eidas.node.auth.service.tests.AUSERVICECitizenTestCase" time="0.006" tests="16" errors="0" skipped="3" failures="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-8-oracle/jre/lib/amd64"/>
@@ -63,15 +63,15 @@
   <testcase name="testGetCitizenConsentEmptyAttrList" classname="eu.eidas.node.auth.service.tests.AUSERVICECitizenTestCase" time="0"/>
   <testcase name="testGetCitizenConsent" classname="eu.eidas.node.auth.service.tests.AUSERVICECitizenTestCase" time="0"/>
   <testcase name="testProcessCitizenConsentEmptyAuthData" classname="eu.eidas.node.auth.service.tests.AUSERVICECitizenTestCase" time="0"/>
-  <testcase name="testProcessCitizenConsentEmptyConsent" classname="eu.eidas.node.auth.service.tests.AUSERVICECitizenTestCase" time="0"/>
-  <testcase name="testProcessCitizenConsent" classname="eu.eidas.node.auth.service.tests.AUSERVICECitizenTestCase" time="0.001"/>
+  <testcase name="testProcessCitizenConsentEmptyConsent" classname="eu.eidas.node.auth.service.tests.AUSERVICECitizenTestCase" time="0.001"/>
+  <testcase name="testProcessCitizenConsent" classname="eu.eidas.node.auth.service.tests.AUSERVICECitizenTestCase" time="0"/>
   <testcase name="testProcessCitizenConsentWrongConsent" classname="eu.eidas.node.auth.service.tests.AUSERVICECitizenTestCase" time="0">
     <skipped/>
   </testcase>
   <testcase name="testUpdateAttributeListEmptyConsent" classname="eu.eidas.node.auth.service.tests.AUSERVICECitizenTestCase" time="0.002"/>
   <testcase name="testUpdateAttributeListEmptyAttrList" classname="eu.eidas.node.auth.service.tests.AUSERVICECitizenTestCase" time="0"/>
   <testcase name="testUpdateAttributeListEmpty" classname="eu.eidas.node.auth.service.tests.AUSERVICECitizenTestCase" time="0"/>
-  <testcase name="testUpdateAttributeList" classname="eu.eidas.node.auth.service.tests.AUSERVICECitizenTestCase" time="0"/>
+  <testcase name="testUpdateAttributeList" classname="eu.eidas.node.auth.service.tests.AUSERVICECitizenTestCase" time="0.001"/>
   <testcase name="testUpdateAttributeListEmptySession" classname="eu.eidas.node.auth.service.tests.AUSERVICECitizenTestCase" time="0">
     <skipped/>
   </testcase>
@@ -79,6 +79,6 @@
   <testcase name="testUpdateAttributeListSessionNullAttrList" classname="eu.eidas.node.auth.service.tests.AUSERVICECitizenTestCase" time="0">
     <skipped/>
   </testcase>
-  <testcase name="testUpdateAttributeListSession" classname="eu.eidas.node.auth.service.tests.AUSERVICECitizenTestCase" time="0.001"/>
+  <testcase name="testUpdateAttributeListSession" classname="eu.eidas.node.auth.service.tests.AUSERVICECitizenTestCase" time="0"/>
   <testcase name="testUpdateAttributeListValuesEmptyAttrList" classname="eu.eidas.node.auth.service.tests.AUSERVICECitizenTestCase" time="0"/>
 </testsuite>

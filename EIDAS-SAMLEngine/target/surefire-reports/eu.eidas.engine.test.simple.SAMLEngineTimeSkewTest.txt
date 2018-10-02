@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: eu.eidas.engine.test.simple.SAMLEngineTimeSkewTest
 -------------------------------------------------------------------------------
-Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.047 sec - in eu.eidas.engine.test.simple.SAMLEngineTimeSkewTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.088 sec - in eu.eidas.engine.test.simple.SAMLEngineTimeSkewTest

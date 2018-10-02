@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="eu.eidas.tests.PersonalAttributeListTestCase" time="0.025" tests="28" errors="0" skipped="1" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="eu.eidas.tests.PersonalAttributeListTestCase" time="0.033" tests="28" errors="0" skipped="1" failures="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-8-oracle/jre/lib/amd64"/>
@@ -60,12 +60,12 @@
     <property name="sun.cpu.isalist" value=""/>
   </properties>
   <testcase name="testPutComplexAttr" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0.001"/>
-  <testcase name="testGetIsAgeOverAttr" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0.006"/>
+  <testcase name="testGetIsAgeOverAttr" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0.007"/>
   <testcase name="testCloneFromPopulate" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0.002"/>
   <testcase name="testAddSameAttrNameEmpty" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0.001"/>
   <testcase name="testAddNull" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0"/>
-  <testcase name="testToStringFromAdd" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0.001"/>
-  <testcase name="testToStringFromPut" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0"/>
+  <testcase name="testToStringFromAdd" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0"/>
+  <testcase name="testToStringFromPut" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0.001"/>
   <testcase name="testToString" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0">
     <skipped/>
   </testcase>
@@ -73,19 +73,19 @@
   <testcase name="testPutNull" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0"/>
   <testcase name="testPopulateWithInvalidValuesFormat" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0"/>
   <testcase name="testPopulateWithInvalidFormat" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0"/>
-  <testcase name="testCloneFromAdd" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0.001"/>
+  <testcase name="testCloneFromAdd" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0"/>
   <testcase name="testCloneFromPut" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0"/>
-  <testcase name="testPutSimpleAttr" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0"/>
-  <testcase name="testAddSameAttrName" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0.001"/>
-  <testcase name="testToStringFromPopulate" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0"/>
-  <testcase name="testGetSimpleAttr" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0.001"/>
-  <testcase name="testPutSameAttrNameEmpty" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0"/>
+  <testcase name="testPutSimpleAttr" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0.001"/>
+  <testcase name="testAddSameAttrName" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0"/>
+  <testcase name="testToStringFromPopulate" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0.001"/>
+  <testcase name="testGetSimpleAttr" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0"/>
+  <testcase name="testPutSameAttrNameEmpty" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0.001"/>
   <testcase name="testAddSimpleAttr" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0"/>
-  <testcase name="testPutSameAttrName" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0.001"/>
-  <testcase name="testGetCompleAttr" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0.001"/>
+  <testcase name="testPutSameAttrName" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0"/>
+  <testcase name="testGetCompleAttr" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0"/>
   <testcase name="testPopulateComplexAttr" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0"/>
   <testcase name="testToStringFromSimplePopulate" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0"/>
-  <testcase name="testCopyOf" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0.001"/>
+  <testcase name="testCopyOf" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0"/>
   <testcase name="testAddCompleAttr" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0"/>
   <testcase name="testPopulateSimpleAttr" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0"/>
   <testcase name="testIterator" classname="eu.eidas.tests.PersonalAttributeListTestCase" time="0"/>

@@ -60,6 +60,6 @@
     <property name="sun.cpu.isalist" value=""/>
   </properties>
   <testcase name="sendResponse" classname="eu.eidas.node.specificcommunication.SpecificConnectorImplTest" time="0.002"/>
-  <testcase name="processRequest" classname="eu.eidas.node.specificcommunication.SpecificConnectorImplTest" time="0.006"/>
-  <testcase name="processRequestMissingSAMLRequest" classname="eu.eidas.node.specificcommunication.SpecificConnectorImplTest" time="0"/>
+  <testcase name="processRequest" classname="eu.eidas.node.specificcommunication.SpecificConnectorImplTest" time="0.007"/>
+  <testcase name="processRequestMissingSAMLRequest" classname="eu.eidas.node.specificcommunication.SpecificConnectorImplTest" time="0.001"/>
 </testsuite>

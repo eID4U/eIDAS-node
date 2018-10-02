@@ -1,0 +1,981 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:isced="http://europass.cedefop.europa.eu/ISCED/97"
+    targetNamespace="http://europass.cedefop.europa.eu/ISCED/97">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">International Standard Classification of Education 1997,
+            desgined by UNESCO
+            (http://www.unesco.org/education/information/nfsunesco/doc/isced_1997.htm)</xsd:documentation>
+    </xsd:annotation>
+    <xsd:simpleType name="field-level1">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">ISCED first field classification (1 digit
+                code)</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="0">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">GENERAL PROGRAMMES</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">EDUCATION</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="2">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">HUMANITIES AND ARTS</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="3">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">SOCIAL SCIENCES, BUSINESS AND
+                        LAW</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="4">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">SCIENCE</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="5">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">ENGINEERING, MANUFACTURING AND
+                        CONSTRUCTION</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="6">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">AGRICULTURE</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="7">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">HEALTH AND WELFARE</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="8">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">SERVICES</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="field-level2">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">ISCED second field classification (2 digit
+                code)</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="01">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="bg">Основни / обширни общи програми </xsd:documentation>
+                    <xsd:documentation xml:lang="cs">Základní / obecné programy</xsd:documentation>
+                    <xsd:documentation xml:lang="da">Almene, brede
+                        uddannelsesprogrammer</xsd:documentation>
+                    <xsd:documentation xml:lang="de">Grundlegende
+                        Bildungsprogramme</xsd:documentation>
+                    <xsd:documentation xml:lang="el">Βασικά προγράμματα</xsd:documentation>
+                    <xsd:documentation xml:lang="en">Basic / broad general
+                        programmes</xsd:documentation>
+                    <xsd:documentation xml:lang="es">Programas básicos</xsd:documentation>
+                    <xsd:documentation xml:lang="et">Põhi-/laialdased
+                        üldprogrammid</xsd:documentation>
+                    <xsd:documentation xml:lang="fi">Yleissivistävä koulutus/
+                        peruskoulutus</xsd:documentation>
+                    <xsd:documentation xml:lang="fr">Programmes de base</xsd:documentation>
+                    <xsd:documentation xml:lang="hr">Osnovni programi </xsd:documentation>
+                    <xsd:documentation xml:lang="hu">Alapfokú/általános
+                        programok</xsd:documentation>
+                    <xsd:documentation xml:lang="is">Grunnmenntun/víðtæk almenn
+                        menntun</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Programmi di base</xsd:documentation>
+                    <xsd:documentation xml:lang="lt">Įvadinės / bendrosios
+                        programos</xsd:documentation>
+                    <xsd:documentation xml:lang="lv">Pamatprogrammas/plašas vispārējās
+                        programmas</xsd:documentation>
+                    <xsd:documentation xml:lang="mt">Programmi ġenerali bażiċi /
+                        wesgħin</xsd:documentation>
+                    <xsd:documentation xml:lang="nl">Algemeen vormende
+                        opleidingen</xsd:documentation>
+                    <xsd:documentation xml:lang="no">Grunnleggende/ allmenne
+                        utdanningsprogrammer</xsd:documentation>
+                    <xsd:documentation xml:lang="pl">Programy podstawowe /
+                        ogólnokształcące</xsd:documentation>
+                    <xsd:documentation xml:lang="pt">Programas básicos /de carácter
+                        geral</xsd:documentation>
+                    <xsd:documentation xml:lang="ro">Programe de bază</xsd:documentation>
+                    <xsd:documentation xml:lang="sk">Základné / rozšírené všeobecné
+                        programy</xsd:documentation>
+                    <xsd:documentation xml:lang="sl">Temeljni/splošni izobraževalni
+                        programi</xsd:documentation>
+                    <xsd:documentation xml:lang="sv">Bred, allmän utbildning</xsd:documentation>
+                    <xsd:documentation xml:lang="tr">Temel Programlar </xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="09">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="bg">Развитие на личността </xsd:documentation>
+                    <xsd:documentation xml:lang="cs">Osobní rozvoj</xsd:documentation>
+                    <xsd:documentation xml:lang="da">Personlig udvikling</xsd:documentation>
+                    <xsd:documentation xml:lang="de">Persönlichkeitsentwicklung</xsd:documentation>
+                    <xsd:documentation xml:lang="el">Προσωπική ανάπτυξη</xsd:documentation>
+                    <xsd:documentation xml:lang="en">Personal development</xsd:documentation>
+                    <xsd:documentation xml:lang="es">Desarrollo personal</xsd:documentation>
+                    <xsd:documentation xml:lang="et">Isiklik areng</xsd:documentation>
+                    <xsd:documentation xml:lang="fi">Henkilökohtainen
+                        kehittyminen</xsd:documentation>
+                    <xsd:documentation xml:lang="fr">Développement personnel</xsd:documentation>
+                    <xsd:documentation xml:lang="hr">Osobni razvoj</xsd:documentation>
+                    <xsd:documentation xml:lang="hu">Személyiségfejlesztés</xsd:documentation>
+                    <xsd:documentation xml:lang="is">Einstaklingsþróun</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Sviluppo personale</xsd:documentation>
+                    <xsd:documentation xml:lang="lt">Asmeninis tobulėjimas</xsd:documentation>
+                    <xsd:documentation xml:lang="lv">Personīgā attīstība</xsd:documentation>
+                    <xsd:documentation xml:lang="mt">Żvilupp personali</xsd:documentation>
+                    <xsd:documentation xml:lang="nl">Persoonlijke ontwikkeling</xsd:documentation>
+                    <xsd:documentation xml:lang="no">Personlig utvikling</xsd:documentation>
+                    <xsd:documentation xml:lang="pl">Rozwój osobisty</xsd:documentation>
+                    <xsd:documentation xml:lang="pt">Desenvolvimento pessoal</xsd:documentation>
+                    <xsd:documentation xml:lang="ro">Dezvoltare personală</xsd:documentation>
+                    <xsd:documentation xml:lang="sk">Personálny rozvoj</xsd:documentation>
+                    <xsd:documentation xml:lang="sl">Osebnostni razvoj</xsd:documentation>
+                    <xsd:documentation xml:lang="sv">Personlig utveckling</xsd:documentation>
+                    <xsd:documentation xml:lang="tr">Kişisel Gelişim</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="14">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="bg">Подготовка на учители и
+                        педагогика</xsd:documentation>
+                    <xsd:documentation xml:lang="cs">Učitelství a pedagogika</xsd:documentation>
+                    <xsd:documentation xml:lang="da">Læreruddannelse og
+                        pædagogik</xsd:documentation>
+                    <xsd:documentation xml:lang="de">Lehrerausbildung und
+                        Erziehungswissenschaft</xsd:documentation>
+                    <xsd:documentation xml:lang="el">Κατάρτιση διδασκόντων και επιστήμες της
+                        εκπαίδευσης</xsd:documentation>
+                    <xsd:documentation xml:lang="en">Teacher training and education
+                        science</xsd:documentation>
+                    <xsd:documentation xml:lang="es">Formación de personal docente y ciencias de la
+                        educación</xsd:documentation>
+                    <xsd:documentation xml:lang="et">Õpetajakoolitus ja
+                        haridusteadus</xsd:documentation>
+                    <xsd:documentation xml:lang="fi">Opettajankoulutus ja
+                        kasvatustiede</xsd:documentation>
+                    <xsd:documentation xml:lang="fr">Formation des enseignants et sciences de
+                        l'éducation</xsd:documentation>
+                    <xsd:documentation xml:lang="hr">Obrazovanje nastavnika i
+                        pedagogija</xsd:documentation>
+                    <xsd:documentation xml:lang="hu">Tanárképzés és pedagógia</xsd:documentation>
+                    <xsd:documentation xml:lang="is">Uppeldisfræði og
+                        kennarapróf</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Formazione degli insegnanti e scienze della
+                        formazione</xsd:documentation>
+                    <xsd:documentation xml:lang="lt">Mokytojų rengimas ir švietimo
+                        mokslas</xsd:documentation>
+                    <xsd:documentation xml:lang="lv">Skolotāju apmācība un izglītības
+                        zinātne</xsd:documentation>
+                    <xsd:documentation xml:lang="mt">Taħriġ ta' l-għalliema u xjenza ta'
+                        l-edukazzjoni</xsd:documentation>
+                    <xsd:documentation xml:lang="nl">Lerarenopleiding en
+                        onderwijskunde</xsd:documentation>
+                    <xsd:documentation xml:lang="no">Lærerutdanning og
+                        pedagogikk</xsd:documentation>
+                    <xsd:documentation xml:lang="pl">Kształcenie nauczycieli i
+                        pedagogika</xsd:documentation>
+                    <xsd:documentation xml:lang="pt">Formação de professores e ciências da
+                        educação</xsd:documentation>
+                    <xsd:documentation xml:lang="ro">Formarea profesorilor şi ştiinţele
+                        educaţiei</xsd:documentation>
+                    <xsd:documentation xml:lang="sk">Odborná príprava učiteľov a
+                        pedagogika</xsd:documentation>
+                    <xsd:documentation xml:lang="sl">Usposabljanje učiteljev/učiteljic in pedagoške
+                        znanosti </xsd:documentation>
+                    <xsd:documentation xml:lang="sv">Pedagogik och
+                        lärarutbildning</xsd:documentation>
+                    <xsd:documentation xml:lang="tr">Öğretmen Eğitimi ve Eğitim Bilimleri
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="21">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="bg">Изкуства </xsd:documentation>
+                    <xsd:documentation xml:lang="cs">Umění</xsd:documentation>
+                    <xsd:documentation xml:lang="da">Kunst</xsd:documentation>
+                    <xsd:documentation xml:lang="de">Kunst</xsd:documentation>
+                    <xsd:documentation xml:lang="el">Τέχνες</xsd:documentation>
+                    <xsd:documentation xml:lang="en">Arts</xsd:documentation>
+                    <xsd:documentation xml:lang="es">Artes</xsd:documentation>
+                    <xsd:documentation xml:lang="et">Kaunid kunstid</xsd:documentation>
+                    <xsd:documentation xml:lang="fi">Taideaineet</xsd:documentation>
+                    <xsd:documentation xml:lang="fr">Arts</xsd:documentation>
+                    <xsd:documentation xml:lang="hr">Umjetnost</xsd:documentation>
+                    <xsd:documentation xml:lang="hu">Művészetek</xsd:documentation>
+                    <xsd:documentation xml:lang="is">Listir</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Arte</xsd:documentation>
+                    <xsd:documentation xml:lang="lt">Menai</xsd:documentation>
+                    <xsd:documentation xml:lang="lv">Māksla</xsd:documentation>
+                    <xsd:documentation xml:lang="mt">Arti</xsd:documentation>
+                    <xsd:documentation xml:lang="nl">Kunsten</xsd:documentation>
+                    <xsd:documentation xml:lang="no">Kunstfag</xsd:documentation>
+                    <xsd:documentation xml:lang="pl">Sztuka</xsd:documentation>
+                    <xsd:documentation xml:lang="pt">Artes</xsd:documentation>
+                    <xsd:documentation xml:lang="ro">Artă</xsd:documentation>
+                    <xsd:documentation xml:lang="sk">Umenie</xsd:documentation>
+                    <xsd:documentation xml:lang="sl">Umetnost</xsd:documentation>
+                    <xsd:documentation xml:lang="sv">Konst och media</xsd:documentation>
+                    <xsd:documentation xml:lang="tr">Güzel Sanatlar</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="22">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="bg">Хуманитарни науки </xsd:documentation>
+                    <xsd:documentation xml:lang="cs">Humanitní vědy</xsd:documentation>
+                    <xsd:documentation xml:lang="da">Humaniora</xsd:documentation>
+                    <xsd:documentation xml:lang="de">Geisteswissenschaften</xsd:documentation>
+                    <xsd:documentation xml:lang="el">Ανθρωπιστικές επιστήμες</xsd:documentation>
+                    <xsd:documentation xml:lang="en">Humanities</xsd:documentation>
+                    <xsd:documentation xml:lang="es">Humanidades</xsd:documentation>
+                    <xsd:documentation xml:lang="et">Humanitaarained</xsd:documentation>
+                    <xsd:documentation xml:lang="fi">Humanistiset tieteet</xsd:documentation>
+                    <xsd:documentation xml:lang="fr">Lettres</xsd:documentation>
+                    <xsd:documentation xml:lang="hr">Humanističke znanosti </xsd:documentation>
+                    <xsd:documentation xml:lang="hu">Humán tárgyak</xsd:documentation>
+                    <xsd:documentation xml:lang="is">Hugvísindi</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Lettere</xsd:documentation>
+                    <xsd:documentation xml:lang="lt">Humanitariniai mokslai</xsd:documentation>
+                    <xsd:documentation xml:lang="lv">Humanitārās zinātnes</xsd:documentation>
+                    <xsd:documentation xml:lang="mt">Umanitajiet</xsd:documentation>
+                    <xsd:documentation xml:lang="nl">Geesteswetenschappen</xsd:documentation>
+                    <xsd:documentation xml:lang="no">Humanistiske fag</xsd:documentation>
+                    <xsd:documentation xml:lang="pl">Nauki humanistyczne</xsd:documentation>
+                    <xsd:documentation xml:lang="pt">Letras</xsd:documentation>
+                    <xsd:documentation xml:lang="ro">Litere</xsd:documentation>
+                    <xsd:documentation xml:lang="sk">Humanitné vedy</xsd:documentation>
+                    <xsd:documentation xml:lang="sl">Humanistične vede</xsd:documentation>
+                    <xsd:documentation xml:lang="sv">Humaniora</xsd:documentation>
+                    <xsd:documentation xml:lang="tr">Beşeri Bilimler</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="31">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="bg">Социална и поведенческа наука </xsd:documentation>
+                    <xsd:documentation xml:lang="cs">Společenské vědy a vědy o chování
+                        lidí</xsd:documentation>
+                    <xsd:documentation xml:lang="da">Samfunds- og adfærdsvidenskab </xsd:documentation>
+                    <xsd:documentation xml:lang="de">Sozial- und
+                        Verhaltenswissenschaften</xsd:documentation>
+                    <xsd:documentation xml:lang="el">Κοινωνικές επιστήμες και επιστήμες της
+                        συμπεριφοράς</xsd:documentation>
+                    <xsd:documentation xml:lang="en">Social and behavioural
+                        science</xsd:documentation>
+                    <xsd:documentation xml:lang="es">Ciencias sociales y del
+                        comportamiento</xsd:documentation>
+                    <xsd:documentation xml:lang="et">Sotsiaalteadused ja käitumise
+                        uurimine</xsd:documentation>
+                    <xsd:documentation xml:lang="fi">Yhteiskunta- ja
+                        käyttäytymistieteet</xsd:documentation>
+                    <xsd:documentation xml:lang="fr">Sciences sociales et du
+                        comportement</xsd:documentation>
+                    <xsd:documentation xml:lang="hr">Društvene znanosti, psihologija i srodne
+                        znanosti</xsd:documentation>
+                    <xsd:documentation xml:lang="hu">Társadalom- és
+                        magatartástudomány</xsd:documentation>
+                    <xsd:documentation xml:lang="is">Félags- og atferlisvísindi</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Scienze sociali e del
+                        comportamento</xsd:documentation>
+                    <xsd:documentation xml:lang="lt">Socialiniai ir elgsenos
+                        mokslai</xsd:documentation>
+                    <xsd:documentation xml:lang="lv">Sociālās uzvedības zinātnes</xsd:documentation>
+                    <xsd:documentation xml:lang="mt">Xjenza soċjali u ta'
+                        l-imġieba</xsd:documentation>
+                    <xsd:documentation xml:lang="nl">Sociale wetenschappen</xsd:documentation>
+                    <xsd:documentation xml:lang="no">Samfunns- og
+                        atferdsvitenskap</xsd:documentation>
+                    <xsd:documentation xml:lang="pl">Nauki społeczne</xsd:documentation>
+                    <xsd:documentation xml:lang="pt">Ciências sociais e do
+                        comportamento</xsd:documentation>
+                    <xsd:documentation xml:lang="ro">Ştiinţe sociale şi
+                        comportamentale</xsd:documentation>
+                    <xsd:documentation xml:lang="sk">Sociálne a behaviorálne
+                        vedy</xsd:documentation>
+                    <xsd:documentation xml:lang="sl">Družbene vede in behavioristične
+                        znanosti</xsd:documentation>
+                    <xsd:documentation xml:lang="sv">Samhälls- och
+                        beteendevetenskap</xsd:documentation>
+                    <xsd:documentation xml:lang="tr">Sosyal ve Davranış
+                        Bilimleri</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="32">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="bg">Журналистика и информация </xsd:documentation>
+                    <xsd:documentation xml:lang="cs">Žurnalistika a informace</xsd:documentation>
+                    <xsd:documentation xml:lang="da">Journalistik og
+                        informationsvidenskab</xsd:documentation>
+                    <xsd:documentation xml:lang="de">Journalistik und
+                        Informationswissenschaft</xsd:documentation>
+                    <xsd:documentation xml:lang="el">Δημοσιογραφία και ενημέρωση</xsd:documentation>
+                    <xsd:documentation xml:lang="en">Journalism and information</xsd:documentation>
+                    <xsd:documentation xml:lang="es">Periodismo e información</xsd:documentation>
+                    <xsd:documentation xml:lang="et">Ajakirjandus ja
+                        kommunikatsioon</xsd:documentation>
+                    <xsd:documentation xml:lang="fi">Tiedotusoppi</xsd:documentation>
+                    <xsd:documentation xml:lang="fr">Journalisme et information</xsd:documentation>
+                    <xsd:documentation xml:lang="hr">Novinarstvo i informiranje</xsd:documentation>
+                    <xsd:documentation xml:lang="hu">Újságírás és
+                        információtudomány</xsd:documentation>
+                    <xsd:documentation xml:lang="is">Blaðamennska og
+                        upplýsingafræði</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Giornalismo e informazione</xsd:documentation>
+                    <xsd:documentation xml:lang="lt">Žurnalistika ir informacija</xsd:documentation>
+                    <xsd:documentation xml:lang="lv">Žurnālistika un informācija</xsd:documentation>
+                    <xsd:documentation xml:lang="mt">Ġurnaliżmu u tagħrif</xsd:documentation>
+                    <xsd:documentation xml:lang="nl">Journalistiek en informatie</xsd:documentation>
+                    <xsd:documentation xml:lang="no">Journalistikk og
+                        informatikk</xsd:documentation>
+                    <xsd:documentation xml:lang="pl">Dziennikarstwo i informacja</xsd:documentation>
+                    <xsd:documentation xml:lang="pt">Jornalismo e informação</xsd:documentation>
+                    <xsd:documentation xml:lang="ro">Jurnalism şi informaţii</xsd:documentation>
+                    <xsd:documentation xml:lang="sk">Žurnalistika a informačná
+                        veda</xsd:documentation>
+                    <xsd:documentation xml:lang="sl">Novinarstvo in informacijske
+                        vede</xsd:documentation>
+                    <xsd:documentation xml:lang="sv">Journalistik och
+                        information</xsd:documentation>
+                    <xsd:documentation xml:lang="tr">Gazetecilik ve Bilgi </xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="34">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="bg">Бизнес и администрация </xsd:documentation>
+                    <xsd:documentation xml:lang="cs">Podnikohospodářství</xsd:documentation>
+                    <xsd:documentation xml:lang="da">Virksomhedsøkonomi og
+                        administration</xsd:documentation>
+                    <xsd:documentation xml:lang="de">Wirtschaft und Verwaltung</xsd:documentation>
+                    <xsd:documentation xml:lang="el">Επιχειρήσεις και διοίκηση</xsd:documentation>
+                    <xsd:documentation xml:lang="en">Business and administration</xsd:documentation>
+                    <xsd:documentation xml:lang="es">Enseñanza comercial y
+                        administración</xsd:documentation>
+                    <xsd:documentation xml:lang="et">Äri ja haldus</xsd:documentation>
+                    <xsd:documentation xml:lang="fi">Kauppa ja hallinto</xsd:documentation>
+                    <xsd:documentation xml:lang="fr">Commerce et administration</xsd:documentation>
+                    <xsd:documentation xml:lang="hr">Ekonomija i administracija</xsd:documentation>
+                    <xsd:documentation xml:lang="hu">Üzleti tevékenység és
+                        ügyvitel</xsd:documentation>
+                    <xsd:documentation xml:lang="is">Viðskipti og stjórnun</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Commercio e amministrazione</xsd:documentation>
+                    <xsd:documentation xml:lang="lt">Verslas ir administravimas</xsd:documentation>
+                    <xsd:documentation xml:lang="lv">Bizness un administrācija</xsd:documentation>
+                    <xsd:documentation xml:lang="mt">Negozju u amministrazzjoni</xsd:documentation>
+                    <xsd:documentation xml:lang="nl">Handel en administratie</xsd:documentation>
+                    <xsd:documentation xml:lang="no">Forretningsvirksomhet og
+                        administrasjon</xsd:documentation>
+                    <xsd:documentation xml:lang="pl">Gospodarka i administracja</xsd:documentation>
+                    <xsd:documentation xml:lang="pt">Comércio e administração</xsd:documentation>
+                    <xsd:documentation xml:lang="ro">Comerţ şi administraţie</xsd:documentation>
+                    <xsd:documentation xml:lang="sk">Podnikanie a administratíva</xsd:documentation>
+                    <xsd:documentation xml:lang="sl">Poslovne in upravne vede</xsd:documentation>
+                    <xsd:documentation xml:lang="sv">Företagsekonomi, handel och
+                        administration</xsd:documentation>
+                    <xsd:documentation xml:lang="tr">İşletme ve Yönetim</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="38">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="bg">Право </xsd:documentation>
+                    <xsd:documentation xml:lang="cs">Právo</xsd:documentation>
+                    <xsd:documentation xml:lang="da">Jura</xsd:documentation>
+                    <xsd:documentation xml:lang="de">Rechtswissenschaft</xsd:documentation>
+                    <xsd:documentation xml:lang="el">Δίκαιο</xsd:documentation>
+                    <xsd:documentation xml:lang="en">Law</xsd:documentation>
+                    <xsd:documentation xml:lang="es">Derecho</xsd:documentation>
+                    <xsd:documentation xml:lang="et">Õigusteadus</xsd:documentation>
+                    <xsd:documentation xml:lang="fi">Oikeustiede</xsd:documentation>
+                    <xsd:documentation xml:lang="fr">Droit</xsd:documentation>
+                    <xsd:documentation xml:lang="hr">Pravo</xsd:documentation>
+                    <xsd:documentation xml:lang="hu">Jog</xsd:documentation>
+                    <xsd:documentation xml:lang="is">Lögfræði</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Giurisprudenza</xsd:documentation>
+                    <xsd:documentation xml:lang="lt">Teisė</xsd:documentation>
+                    <xsd:documentation xml:lang="lv">Tiesību zinātne</xsd:documentation>
+                    <xsd:documentation xml:lang="mt">Liġi</xsd:documentation>
+                    <xsd:documentation xml:lang="nl">Rechten</xsd:documentation>
+                    <xsd:documentation xml:lang="no">Jus</xsd:documentation>
+                    <xsd:documentation xml:lang="pl">Prawo</xsd:documentation>
+                    <xsd:documentation xml:lang="pt">Direito</xsd:documentation>
+                    <xsd:documentation xml:lang="ro">Drept</xsd:documentation>
+                    <xsd:documentation xml:lang="sk">Právo</xsd:documentation>
+                    <xsd:documentation xml:lang="sl">Pravo</xsd:documentation>
+                    <xsd:documentation xml:lang="sv">Juridik och rättsvetenskap</xsd:documentation>
+                    <xsd:documentation xml:lang="tr">Hukuk</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="42">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="bg">Обществени науки (науки за живота) </xsd:documentation>
+                    <xsd:documentation xml:lang="cs">Biologie</xsd:documentation>
+                    <xsd:documentation xml:lang="da">Biovidenskab- og teknologi</xsd:documentation>
+                    <xsd:documentation xml:lang="de">Lebenswissenschaften</xsd:documentation>
+                    <xsd:documentation xml:lang="el">Επιστήμες της ζωής</xsd:documentation>
+                    <xsd:documentation xml:lang="en">Life sciences</xsd:documentation>
+                    <xsd:documentation xml:lang="es">Biología</xsd:documentation>
+                    <xsd:documentation xml:lang="et">Bioteadused</xsd:documentation>
+                    <xsd:documentation xml:lang="fi">Biotieteet</xsd:documentation>
+                    <xsd:documentation xml:lang="fr">Sciences de la vie</xsd:documentation>
+                    <xsd:documentation xml:lang="hr">Biologija i srodne znanosti</xsd:documentation>
+                    <xsd:documentation xml:lang="hu">Élettel foglalkozó
+                        tudományok</xsd:documentation>
+                    <xsd:documentation xml:lang="is">Líffræði og umhverfisfræði</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Scienze e tecnologie della
+                        vita</xsd:documentation>
+                    <xsd:documentation xml:lang="lt">Gyvosios gamtos mokslai</xsd:documentation>
+                    <xsd:documentation xml:lang="lv">Zinātnes par dzīvību</xsd:documentation>
+                    <xsd:documentation xml:lang="mt">Xjenzi tal-ħajja</xsd:documentation>
+                    <xsd:documentation xml:lang="nl">Levenswetenschappen</xsd:documentation>
+                    <xsd:documentation xml:lang="no">Miljø- og biovitenskap</xsd:documentation>
+                    <xsd:documentation xml:lang="pl">Nauki biologiczne</xsd:documentation>
+                    <xsd:documentation xml:lang="pt">Ciências da vida</xsd:documentation>
+                    <xsd:documentation xml:lang="ro">Ştiinţele vieţii</xsd:documentation>
+                    <xsd:documentation xml:lang="sk">Vedy o živote</xsd:documentation>
+                    <xsd:documentation xml:lang="sl">Veda o življenju</xsd:documentation>
+                    <xsd:documentation xml:lang="sv">Biologi och miljövetenskap</xsd:documentation>
+                    <xsd:documentation xml:lang="tr">Yaşam Bilimleri</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="44">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="bg">Физически науки </xsd:documentation>
+                    <xsd:documentation xml:lang="cs">Přírodní vědy</xsd:documentation>
+                    <xsd:documentation xml:lang="da">Naturvidenskab</xsd:documentation>
+                    <xsd:documentation xml:lang="de">Physik</xsd:documentation>
+                    <xsd:documentation xml:lang="el">Φυσικές επιστήμες</xsd:documentation>
+                    <xsd:documentation xml:lang="en">Physical sciences</xsd:documentation>
+                    <xsd:documentation xml:lang="es">Ciencias físicas</xsd:documentation>
+                    <xsd:documentation xml:lang="et">Keemia ja füüsika</xsd:documentation>
+                    <xsd:documentation xml:lang="fi">Fysikaaliset tieteet</xsd:documentation>
+                    <xsd:documentation xml:lang="fr">Sciences physiques</xsd:documentation>
+                    <xsd:documentation xml:lang="hr">Fizika i srodne znanosti </xsd:documentation>
+                    <xsd:documentation xml:lang="hu">Természettudomány</xsd:documentation>
+                    <xsd:documentation xml:lang="is">Eðlisfræði, efnafræði og
+                        jarðvísindi</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Scienze fisiche</xsd:documentation>
+                    <xsd:documentation xml:lang="lt">Fiziniai mokslai</xsd:documentation>
+                    <xsd:documentation xml:lang="lv">Fizika</xsd:documentation>
+                    <xsd:documentation xml:lang="mt">Xjenzi fiżiċi</xsd:documentation>
+                    <xsd:documentation xml:lang="nl">Natuurwetenschappen</xsd:documentation>
+                    <xsd:documentation xml:lang="no">Fysisk vitenskap</xsd:documentation>
+                    <xsd:documentation xml:lang="pl">Fizyka</xsd:documentation>
+                    <xsd:documentation xml:lang="pt">Ciências físicas</xsd:documentation>
+                    <xsd:documentation xml:lang="ro">Ştiinţele naturii</xsd:documentation>
+                    <xsd:documentation xml:lang="sk">Fyzikálne vedy</xsd:documentation>
+                    <xsd:documentation xml:lang="sl">Fizika</xsd:documentation>
+                    <xsd:documentation xml:lang="sv">Fysik, kemi och
+                        geovetenskap</xsd:documentation>
+                    <xsd:documentation xml:lang="tr">Doğa Bilimleri</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="46">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="bg">Математика и статистика </xsd:documentation>
+                    <xsd:documentation xml:lang="cs">Matematika a statistika</xsd:documentation>
+                    <xsd:documentation xml:lang="da">Matematik og statistik</xsd:documentation>
+                    <xsd:documentation xml:lang="de">Mathematik und Statistik</xsd:documentation>
+                    <xsd:documentation xml:lang="el">Μαθηματικά και στατιστική</xsd:documentation>
+                    <xsd:documentation xml:lang="en">Mathematics and statistics</xsd:documentation>
+                    <xsd:documentation xml:lang="es">Matemáticas y estadística</xsd:documentation>
+                    <xsd:documentation xml:lang="et">Matemaatika ja statistika</xsd:documentation>
+                    <xsd:documentation xml:lang="fi">Matematiikka ja
+                        tilastotiede</xsd:documentation>
+                    <xsd:documentation xml:lang="fr">Mathématiques et
+                        statistiques</xsd:documentation>
+                    <xsd:documentation xml:lang="hr">Matematika i statistika </xsd:documentation>
+                    <xsd:documentation xml:lang="hu">Matematika és statisztika</xsd:documentation>
+                    <xsd:documentation xml:lang="is">Stærðfræði og tölfræði</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Matematica e statistica</xsd:documentation>
+                    <xsd:documentation xml:lang="lt">Matematika ir statistika</xsd:documentation>
+                    <xsd:documentation xml:lang="lv">Matemātika un statistika</xsd:documentation>
+                    <xsd:documentation xml:lang="mt">Matematika u statistika</xsd:documentation>
+                    <xsd:documentation xml:lang="nl">Wiskunde en statistiek</xsd:documentation>
+                    <xsd:documentation xml:lang="no">Matematikk og statistikk</xsd:documentation>
+                    <xsd:documentation xml:lang="pl">Matematyka i statystyka</xsd:documentation>
+                    <xsd:documentation xml:lang="pt">Matemáticas e estatísticas</xsd:documentation>
+                    <xsd:documentation xml:lang="ro">Matematică şi statistică</xsd:documentation>
+                    <xsd:documentation xml:lang="sk">Matematika a štatistika</xsd:documentation>
+                    <xsd:documentation xml:lang="sl">Matematika in statistika</xsd:documentation>
+                    <xsd:documentation xml:lang="sv">Matematik och statistik</xsd:documentation>
+                    <xsd:documentation xml:lang="tr">Matematik ve İstatistik </xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="48">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="bg">Информатика </xsd:documentation>
+                    <xsd:documentation xml:lang="cs">Výpočetní technika</xsd:documentation>
+                    <xsd:documentation xml:lang="da">Informatik</xsd:documentation>
+                    <xsd:documentation xml:lang="de">Informatik</xsd:documentation>
+                    <xsd:documentation xml:lang="el">Επιστήμη υπολογιστών</xsd:documentation>
+                    <xsd:documentation xml:lang="en">Computing</xsd:documentation>
+                    <xsd:documentation xml:lang="es">Informática</xsd:documentation>
+                    <xsd:documentation xml:lang="et">Infotehnoloogia</xsd:documentation>
+                    <xsd:documentation xml:lang="fi">Tietotekniikka</xsd:documentation>
+                    <xsd:documentation xml:lang="fr">Sciences informatiques</xsd:documentation>
+                    <xsd:documentation xml:lang="hr">Informatika</xsd:documentation>
+                    <xsd:documentation xml:lang="hu">Számítástechnika</xsd:documentation>
+                    <xsd:documentation xml:lang="is">Tölvun</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Informatica</xsd:documentation>
+                    <xsd:documentation xml:lang="lt">Kompiuterija</xsd:documentation>
+                    <xsd:documentation xml:lang="lv">Informātika</xsd:documentation>
+                    <xsd:documentation xml:lang="mt">Xogħol tal-Kompjuter</xsd:documentation>
+                    <xsd:documentation xml:lang="nl">Informatica</xsd:documentation>
+                    <xsd:documentation xml:lang="no">Databehandling</xsd:documentation>
+                    <xsd:documentation xml:lang="pl">Informatyka</xsd:documentation>
+                    <xsd:documentation xml:lang="pt">Ciências informáticas</xsd:documentation>
+                    <xsd:documentation xml:lang="ro">Informatică</xsd:documentation>
+                    <xsd:documentation xml:lang="sk">Informatika</xsd:documentation>
+                    <xsd:documentation xml:lang="sl">Računalništvo</xsd:documentation>
+                    <xsd:documentation xml:lang="sv">Data</xsd:documentation>
+                    <xsd:documentation xml:lang="tr">Hesaplama</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="52">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="bg">Инженерство и инженерни
+                        специалности</xsd:documentation>
+                    <xsd:documentation xml:lang="cs">Inženýrství a technické
+                        obory</xsd:documentation>
+                    <xsd:documentation xml:lang="da">Ingeniør- og
+                        industriingeniørfag</xsd:documentation>
+                    <xsd:documentation xml:lang="de">Ingenieurwesen und
+                        Ingenieurberufe</xsd:documentation>
+                    <xsd:documentation xml:lang="el">Μηχανολογία και συγγενείς
+                        τεχνολογίες</xsd:documentation>
+                    <xsd:documentation xml:lang="en">Engineering and engineering
+                        trades</xsd:documentation>
+                    <xsd:documentation xml:lang="es">Ingeniería y profesiones
+                        afines</xsd:documentation>
+                    <xsd:documentation xml:lang="et">Inseneriteadus</xsd:documentation>
+                    <xsd:documentation xml:lang="fi">Tekniikka ja tekniset
+                        ammatit</xsd:documentation>
+                    <xsd:documentation xml:lang="fr">Ingénierie et techniques
+                        apparentées</xsd:documentation>
+                    <xsd:documentation xml:lang="hr">Inžinjerstvo i pripadajući obrti </xsd:documentation>
+                    <xsd:documentation xml:lang="hu">Műszaki tudományok és
+                        szakmák</xsd:documentation>
+                    <xsd:documentation xml:lang="is">Verkfræði og verkfræðistörf</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Ingegneria e studi
+                        correlati</xsd:documentation>
+                    <xsd:documentation xml:lang="lt">Inžinerija ir inžinierių
+                        profesijos</xsd:documentation>
+                    <xsd:documentation xml:lang="lv">Inženierzinātne un inženierzinātnes
+                        specialitātes</xsd:documentation>
+                    <xsd:documentation xml:lang="mt">Inġinerija u snajja' ta'
+                        l-inġinerija</xsd:documentation>
+                    <xsd:documentation xml:lang="nl">Ingenieursopleiding</xsd:documentation>
+                    <xsd:documentation xml:lang="no">Ingeniørfag</xsd:documentation>
+                    <xsd:documentation xml:lang="pl">Inżynieria i technika</xsd:documentation>
+                    <xsd:documentation xml:lang="pt">Engenharia e técnicas
+                        similares</xsd:documentation>
+                    <xsd:documentation xml:lang="ro">Inginerie şi tehnici
+                        înrudite</xsd:documentation>
+                    <xsd:documentation xml:lang="sk">Inžinierstvo a technické
+                        odbory</xsd:documentation>
+                    <xsd:documentation xml:lang="sl">Tehniške vede in tehniški
+                        poklici</xsd:documentation>
+                    <xsd:documentation xml:lang="sv">Teknik och teknisk industri</xsd:documentation>
+                    <xsd:documentation xml:lang="tr">Mühendislik</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="54">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="bg">Производство и преработка </xsd:documentation>
+                    <xsd:documentation xml:lang="cs">Výroba a zpracovatelský
+                        průmysl</xsd:documentation>
+                    <xsd:documentation xml:lang="da">Fremstilling og forarbejdning </xsd:documentation>
+                    <xsd:documentation xml:lang="de">Fertigung und Verarbeitung</xsd:documentation>
+                    <xsd:documentation xml:lang="el">Βιομηχανίες μεταποίησης και
+                        επεξεργασίας</xsd:documentation>
+                    <xsd:documentation xml:lang="en">Manufacturing and
+                        processing</xsd:documentation>
+                    <xsd:documentation xml:lang="es">Industria y producción</xsd:documentation>
+                    <xsd:documentation xml:lang="et">Tootmine ja töötlemine</xsd:documentation>
+                    <xsd:documentation xml:lang="fi">Tuotanto ja jalostus </xsd:documentation>
+                    <xsd:documentation xml:lang="fr">Industries de transformation et de
+                        traitement</xsd:documentation>
+                    <xsd:documentation xml:lang="hr">Proizvodna i prerađivačka
+                        industrija</xsd:documentation>
+                    <xsd:documentation xml:lang="hu">Gyártás és feldolgozás</xsd:documentation>
+                    <xsd:documentation xml:lang="is">Framleiðsla og vinnsla</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Industria della produzione e della
+                        trasformazione</xsd:documentation>
+                    <xsd:documentation xml:lang="lt">Gamyba ir perdirbimas</xsd:documentation>
+                    <xsd:documentation xml:lang="lv">Ražošana un pārstrāde</xsd:documentation>
+                    <xsd:documentation xml:lang="mt">Manifattura u ipproċessar</xsd:documentation>
+                    <xsd:documentation xml:lang="nl">Verwerkende industrie </xsd:documentation>
+                    <xsd:documentation xml:lang="no">Produksjon og bearbeidelse</xsd:documentation>
+                    <xsd:documentation xml:lang="pl">Produkcja i przetwórstwo</xsd:documentation>
+                    <xsd:documentation xml:lang="pt">Indústrias de transformação e
+                        tratamento</xsd:documentation>
+                    <xsd:documentation xml:lang="ro">Industrii de transformare şi de
+                        tratare</xsd:documentation>
+                    <xsd:documentation xml:lang="sk">Výroba a spracovanie</xsd:documentation>
+                    <xsd:documentation xml:lang="sl">Proizvodnja in predelava</xsd:documentation>
+                    <xsd:documentation xml:lang="sv">Material och tillverkning</xsd:documentation>
+                    <xsd:documentation xml:lang="tr">Üretim ve İşleme</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="58">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="bg">Архитектура и строителство </xsd:documentation>
+                    <xsd:documentation xml:lang="cs">Architektura a stavebnictví</xsd:documentation>
+                    <xsd:documentation xml:lang="da">Arkitektur og byggeri</xsd:documentation>
+                    <xsd:documentation xml:lang="de">Architektur und Bauwesen</xsd:documentation>
+                    <xsd:documentation xml:lang="el">Αρχιτεκτονική και
+                        οικοδομική</xsd:documentation>
+                    <xsd:documentation xml:lang="en">Architecture and building</xsd:documentation>
+                    <xsd:documentation xml:lang="es">Arquitectura y construcción</xsd:documentation>
+                    <xsd:documentation xml:lang="et">Arhitektuur ja ehitus</xsd:documentation>
+                    <xsd:documentation xml:lang="fi">Arkkitehtuuri ja
+                        rakentaminen</xsd:documentation>
+                    <xsd:documentation xml:lang="fr">Architecture et bâtiment</xsd:documentation>
+                    <xsd:documentation xml:lang="hr">Arhitektura i građevinarstvo </xsd:documentation>
+                    <xsd:documentation xml:lang="hu">Építészet és építőipar</xsd:documentation>
+                    <xsd:documentation xml:lang="is">Arkitektúr og
+                        mannvirkjagerð</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Architettura ed edilizia</xsd:documentation>
+                    <xsd:documentation xml:lang="lt">Architektūra ir statyba</xsd:documentation>
+                    <xsd:documentation xml:lang="lv">Arhitektūra un celtniecība</xsd:documentation>
+                    <xsd:documentation xml:lang="mt">Arkitettura u bini</xsd:documentation>
+                    <xsd:documentation xml:lang="nl">Architectuur en bouwsector</xsd:documentation>
+                    <xsd:documentation xml:lang="no">Arkitektur og byggfag</xsd:documentation>
+                    <xsd:documentation xml:lang="pl">Architektura i budownictwo</xsd:documentation>
+                    <xsd:documentation xml:lang="pt">Arquitectura e construção</xsd:documentation>
+                    <xsd:documentation xml:lang="ro">Arhitectură şi construcţii</xsd:documentation>
+                    <xsd:documentation xml:lang="sk">Architektúra a stavebníctvo</xsd:documentation>
+                    <xsd:documentation xml:lang="sl">Arhitektura in gradbeništvo</xsd:documentation>
+                    <xsd:documentation xml:lang="sv">Samhällsbyggnad och
+                        byggnadsteknik</xsd:documentation>
+                    <xsd:documentation xml:lang="tr">Mimarlık ve İnşaat</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="62">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="bg">Селско стопанство, лесовъдство и риболовство </xsd:documentation>
+                    <xsd:documentation xml:lang="cs">Zemědělství, lesnictví a
+                        rybolov</xsd:documentation>
+                    <xsd:documentation xml:lang="da">Landbrug, skovbrug og
+                        fiskeri</xsd:documentation>
+                    <xsd:documentation xml:lang="de">Agrarwissenschaft, Forstwissenschaft und
+                        Fischereiwirtschaft</xsd:documentation>
+                    <xsd:documentation xml:lang="el">Γεωργία, δασοπονία και
+                        αλιεία</xsd:documentation>
+                    <xsd:documentation xml:lang="en">Agriculture, forestry and
+                        fishery</xsd:documentation>
+                    <xsd:documentation xml:lang="es">Agricultura, silvicultura y
+                        pesca</xsd:documentation>
+                    <xsd:documentation xml:lang="et">Põllumajandus, metsandus ja
+                        kalandus</xsd:documentation>
+                    <xsd:documentation xml:lang="fi">Maa-, metsä- ja kalatalous</xsd:documentation>
+                    <xsd:documentation xml:lang="fr">Agriculture, sylviculture et
+                        halieutique</xsd:documentation>
+                    <xsd:documentation xml:lang="hr">Poljoprivreda, šumarstvo i ribarstvo </xsd:documentation>
+                    <xsd:documentation xml:lang="hu">Mezőgazdaság, erdészet és
+                        halászat</xsd:documentation>
+                    <xsd:documentation xml:lang="is">Landbúnaður, skógrækt og
+                        fiskveiðar</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Agricoltura, silvicoltura e
+                        pesca</xsd:documentation>
+                    <xsd:documentation xml:lang="lt">Žemės ūkis, miškininkystė ir
+                        žuvininkystė</xsd:documentation>
+                    <xsd:documentation xml:lang="lv">Lauksaimniecība, mežsaimniecība un
+                        zivsaimniecība</xsd:documentation>
+                    <xsd:documentation xml:lang="mt">Agrikoltura, forestrija u
+                        sajd</xsd:documentation>
+                    <xsd:documentation xml:lang="nl">Landbouw, bosbouw en
+                        visserij</xsd:documentation>
+                    <xsd:documentation xml:lang="no">Landbruk, skogbruk og
+                        fiskeri</xsd:documentation>
+                    <xsd:documentation xml:lang="pl">Rolnictwo, leśnictwo i
+                        rybołówstwo</xsd:documentation>
+                    <xsd:documentation xml:lang="pt">Agricultura, silvicultura e
+                        pesca</xsd:documentation>
+                    <xsd:documentation xml:lang="ro">Agricultură, silvicultură,
+                        piscicultură</xsd:documentation>
+                    <xsd:documentation xml:lang="sk">Poľnohospodárstvo, lesníctvo a
+                        rybárstvo</xsd:documentation>
+                    <xsd:documentation xml:lang="sl">Kmetijstvo, gozdarstvo in
+                        ribištvo</xsd:documentation>
+                    <xsd:documentation xml:lang="sv">Lantbruk, trädgård, skogsbruk och
+                        fiske</xsd:documentation>
+                    <xsd:documentation xml:lang="tr">Tarım, Ormancılık ve
+                        Balıkçılık</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="64">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="bg">Ветеринарна медицина </xsd:documentation>
+                    <xsd:documentation xml:lang="cs">Veterinární lékařství </xsd:documentation>
+                    <xsd:documentation xml:lang="da">Veterinærvidenskab</xsd:documentation>
+                    <xsd:documentation xml:lang="de">Veterinärwissenschaft</xsd:documentation>
+                    <xsd:documentation xml:lang="el">Κτηνιατρική επιστήμη</xsd:documentation>
+                    <xsd:documentation xml:lang="en">Veterinary</xsd:documentation>
+                    <xsd:documentation xml:lang="es">Veterinaria</xsd:documentation>
+                    <xsd:documentation xml:lang="et">Veterinaaria</xsd:documentation>
+                    <xsd:documentation xml:lang="fi">Eläinlääketiede</xsd:documentation>
+                    <xsd:documentation xml:lang="fr">Sciences vétérinaires</xsd:documentation>
+                    <xsd:documentation xml:lang="hr">Veterina </xsd:documentation>
+                    <xsd:documentation xml:lang="hu">Állatorvostudomány</xsd:documentation>
+                    <xsd:documentation xml:lang="is">Dýralækningar</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Veterinaria</xsd:documentation>
+                    <xsd:documentation xml:lang="lt">Veterinarija</xsd:documentation>
+                    <xsd:documentation xml:lang="lv">Veterinārija</xsd:documentation>
+                    <xsd:documentation xml:lang="mt">Veterinarju</xsd:documentation>
+                    <xsd:documentation xml:lang="nl">Diergeneeskunde</xsd:documentation>
+                    <xsd:documentation xml:lang="no">Veterinærvitenskap</xsd:documentation>
+                    <xsd:documentation xml:lang="pl">Weterynaria</xsd:documentation>
+                    <xsd:documentation xml:lang="pt">Veterinária</xsd:documentation>
+                    <xsd:documentation xml:lang="ro">Medicină veterinară</xsd:documentation>
+                    <xsd:documentation xml:lang="sk">Veterinárne lekárstvo</xsd:documentation>
+                    <xsd:documentation xml:lang="sl">Veterina</xsd:documentation>
+                    <xsd:documentation xml:lang="sv">Djursjukvård</xsd:documentation>
+                    <xsd:documentation xml:lang="tr">Veterinerlik</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="72">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="bg">Здравеопазване </xsd:documentation>
+                    <xsd:documentation xml:lang="cs">Zdravotnictví</xsd:documentation>
+                    <xsd:documentation xml:lang="da">Sundhedsvæsen</xsd:documentation>
+                    <xsd:documentation xml:lang="de">Gesundheitswesen</xsd:documentation>
+                    <xsd:documentation xml:lang="el">Υγεία</xsd:documentation>
+                    <xsd:documentation xml:lang="en">Health</xsd:documentation>
+                    <xsd:documentation xml:lang="es">Sanidad</xsd:documentation>
+                    <xsd:documentation xml:lang="et">Tervishoid</xsd:documentation>
+                    <xsd:documentation xml:lang="fi">Terveydenhuolto</xsd:documentation>
+                    <xsd:documentation xml:lang="fr">Santé</xsd:documentation>
+                    <xsd:documentation xml:lang="hr">Zdravstvo</xsd:documentation>
+                    <xsd:documentation xml:lang="hu">Egészségügy</xsd:documentation>
+                    <xsd:documentation xml:lang="is">Heilsuvernd og hjúkrun</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Scienze della salute</xsd:documentation>
+                    <xsd:documentation xml:lang="lt">Sveikatos apsauga</xsd:documentation>
+                    <xsd:documentation xml:lang="lv">Veselības mācība</xsd:documentation>
+                    <xsd:documentation xml:lang="mt">Saħħa</xsd:documentation>
+                    <xsd:documentation xml:lang="nl">Gezondheid</xsd:documentation>
+                    <xsd:documentation xml:lang="no">Helsestell</xsd:documentation>
+                    <xsd:documentation xml:lang="pl">Zdrowie</xsd:documentation>
+                    <xsd:documentation xml:lang="pt">Saúde</xsd:documentation>
+                    <xsd:documentation xml:lang="ro">Sănătate</xsd:documentation>
+                    <xsd:documentation xml:lang="sk">Zdravotníctvo</xsd:documentation>
+                    <xsd:documentation xml:lang="sl">Zdravstvo</xsd:documentation>
+                    <xsd:documentation xml:lang="sv">Hälso- och sjukvård</xsd:documentation>
+                    <xsd:documentation xml:lang="tr">Sağlık</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="76">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="bg">Социални усулги </xsd:documentation>
+                    <xsd:documentation xml:lang="cs">Sociální služby</xsd:documentation>
+                    <xsd:documentation xml:lang="da">Socialforsorg</xsd:documentation>
+                    <xsd:documentation xml:lang="de">Soziale Dienste</xsd:documentation>
+                    <xsd:documentation xml:lang="el">Κοινωνικές υπηρεσίες</xsd:documentation>
+                    <xsd:documentation xml:lang="en">Social services</xsd:documentation>
+                    <xsd:documentation xml:lang="es">Servicios sociales</xsd:documentation>
+                    <xsd:documentation xml:lang="et">Sotsiaalteenused</xsd:documentation>
+                    <xsd:documentation xml:lang="fi">Sosiaalipalvelut</xsd:documentation>
+                    <xsd:documentation xml:lang="fr">Services sociaux</xsd:documentation>
+                    <xsd:documentation xml:lang="hr">Socijalne usluge</xsd:documentation>
+                    <xsd:documentation xml:lang="hu">Szociális szolgáltatások</xsd:documentation>
+                    <xsd:documentation xml:lang="is">Félagsmálastörf og umönnun</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Servizi sociali</xsd:documentation>
+                    <xsd:documentation xml:lang="lt">Visuomeninės paslaugos</xsd:documentation>
+                    <xsd:documentation xml:lang="lv">Sociālie pakalpojumi</xsd:documentation>
+                    <xsd:documentation xml:lang="mt">Servizzi soċjali</xsd:documentation>
+                    <xsd:documentation xml:lang="nl">Sociale voorzieningen</xsd:documentation>
+                    <xsd:documentation xml:lang="no">Sosialtjenester</xsd:documentation>
+                    <xsd:documentation xml:lang="pl">Opieka społeczna</xsd:documentation>
+                    <xsd:documentation xml:lang="pt">Serviços sociais</xsd:documentation>
+                    <xsd:documentation xml:lang="ro">Servicii sociale</xsd:documentation>
+                    <xsd:documentation xml:lang="sk">Sociálne služby</xsd:documentation>
+                    <xsd:documentation xml:lang="sl">Socialne storitve</xsd:documentation>
+                    <xsd:documentation xml:lang="sv">Socialt arbete och omsorg</xsd:documentation>
+                    <xsd:documentation xml:lang="tr">Sosyal Hizmetler</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="81">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="bg">Персонални услуги </xsd:documentation>
+                    <xsd:documentation xml:lang="cs">Osobní služby</xsd:documentation>
+                    <xsd:documentation xml:lang="da">Personlige tjenesteydelser</xsd:documentation>
+                    <xsd:documentation xml:lang="de">Dienstleistungen für den persönlichen
+                        Bedarf</xsd:documentation>
+                    <xsd:documentation xml:lang="el">Υπηρεσίες προς ιδιώτες</xsd:documentation>
+                    <xsd:documentation xml:lang="en">Personal services</xsd:documentation>
+                    <xsd:documentation xml:lang="es">Servicios personales</xsd:documentation>
+                    <xsd:documentation xml:lang="et">Isikuteenused</xsd:documentation>
+                    <xsd:documentation xml:lang="fi">Henkilökohtaiset palvelut</xsd:documentation>
+                    <xsd:documentation xml:lang="fr">Services aux particuliers</xsd:documentation>
+                    <xsd:documentation xml:lang="hr">Osobne usluge</xsd:documentation>
+                    <xsd:documentation xml:lang="hu">Személyi szolgáltatások</xsd:documentation>
+                    <xsd:documentation xml:lang="is">Persónuleg þjónusta</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Servizi alla persona</xsd:documentation>
+                    <xsd:documentation xml:lang="lt">Asmeninės paslaugos</xsd:documentation>
+                    <xsd:documentation xml:lang="lv">Personīgie pakalpojumi </xsd:documentation>
+                    <xsd:documentation xml:lang="mt">Servizzi personali</xsd:documentation>
+                    <xsd:documentation xml:lang="nl">Dienstverlening aan
+                        particulieren</xsd:documentation>
+                    <xsd:documentation xml:lang="no">Personlige tjenester</xsd:documentation>
+                    <xsd:documentation xml:lang="pl">Usługi dla ludności</xsd:documentation>
+                    <xsd:documentation xml:lang="pt">Serviços pessoais</xsd:documentation>
+                    <xsd:documentation xml:lang="ro">Servicii prestate unor persoane
+                        particulare</xsd:documentation>
+                    <xsd:documentation xml:lang="sk">Personálne služby</xsd:documentation>
+                    <xsd:documentation xml:lang="sl">Osebne storitve</xsd:documentation>
+                    <xsd:documentation xml:lang="sv">Personliga tjänster</xsd:documentation>
+                    <xsd:documentation xml:lang="tr">Kişisel Hizmetler</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="84">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="bg">Транспортни услуги </xsd:documentation>
+                    <xsd:documentation xml:lang="cs">Dopravní služby</xsd:documentation>
+                    <xsd:documentation xml:lang="da">Transport</xsd:documentation>
+                    <xsd:documentation xml:lang="de">Verkehr</xsd:documentation>
+                    <xsd:documentation xml:lang="el">Υπηρεσίες μεταφορών</xsd:documentation>
+                    <xsd:documentation xml:lang="en">Transport services</xsd:documentation>
+                    <xsd:documentation xml:lang="es">Servicios de transporte</xsd:documentation>
+                    <xsd:documentation xml:lang="et">Transporditeenused</xsd:documentation>
+                    <xsd:documentation xml:lang="fi">Kuljetuspalvelut</xsd:documentation>
+                    <xsd:documentation xml:lang="fr">Services de transport</xsd:documentation>
+                    <xsd:documentation xml:lang="hr">Usluge prijevoza </xsd:documentation>
+                    <xsd:documentation xml:lang="hu">Szállítási szolgáltatások</xsd:documentation>
+                    <xsd:documentation xml:lang="is">Flutningaþjónusta</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Servizi di trasporto</xsd:documentation>
+                    <xsd:documentation xml:lang="lt">Transporto paslaugos</xsd:documentation>
+                    <xsd:documentation xml:lang="lv">Transporta pakalpojumi</xsd:documentation>
+                    <xsd:documentation xml:lang="mt">Servizzi ta' trasport</xsd:documentation>
+                    <xsd:documentation xml:lang="nl">Vervoerdiensten</xsd:documentation>
+                    <xsd:documentation xml:lang="no">Transporttjenester</xsd:documentation>
+                    <xsd:documentation xml:lang="pl">Usługi transportowe</xsd:documentation>
+                    <xsd:documentation xml:lang="pt">Serviços de transporte</xsd:documentation>
+                    <xsd:documentation xml:lang="ro">Servicii de transport</xsd:documentation>
+                    <xsd:documentation xml:lang="sk">Dopravné služby</xsd:documentation>
+                    <xsd:documentation xml:lang="sl">Prometne storitve</xsd:documentation>
+                    <xsd:documentation xml:lang="sv">Transporttjänster</xsd:documentation>
+                    <xsd:documentation xml:lang="tr">Ulaşım Hizmetleri </xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="85">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="bg">Опазване на околната среда </xsd:documentation>
+                    <xsd:documentation xml:lang="cs">Ochrana životního prostředí</xsd:documentation>
+                    <xsd:documentation xml:lang="da">Miljøbeskyttelse</xsd:documentation>
+                    <xsd:documentation xml:lang="de">Umweltschutz</xsd:documentation>
+                    <xsd:documentation xml:lang="el">Προστασία περιβάλλοντος</xsd:documentation>
+                    <xsd:documentation xml:lang="en">Environmental protection</xsd:documentation>
+                    <xsd:documentation xml:lang="es">Protección ambiental</xsd:documentation>
+                    <xsd:documentation xml:lang="et">Keskkonnakaitse</xsd:documentation>
+                    <xsd:documentation xml:lang="fi">Ympäristönsuojelu</xsd:documentation>
+                    <xsd:documentation xml:lang="fr">Protection de
+                        l'environnement</xsd:documentation>
+                    <xsd:documentation xml:lang="hr">Zaštita okoliša</xsd:documentation>
+                    <xsd:documentation xml:lang="hu">Környezetvédelem</xsd:documentation>
+                    <xsd:documentation xml:lang="is">Umhverfisvernd</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Protezione dell'ambiente</xsd:documentation>
+                    <xsd:documentation xml:lang="lt">Aplinkos apsauga</xsd:documentation>
+                    <xsd:documentation xml:lang="lv">Vides aizsardzība</xsd:documentation>
+                    <xsd:documentation xml:lang="mt">Ħarsien ta' l-ambjent</xsd:documentation>
+                    <xsd:documentation xml:lang="nl">Milieubescherming</xsd:documentation>
+                    <xsd:documentation xml:lang="no">Miljøvern</xsd:documentation>
+                    <xsd:documentation xml:lang="pl">Ochrona środowiska</xsd:documentation>
+                    <xsd:documentation xml:lang="pt">Protecção do ambiente</xsd:documentation>
+                    <xsd:documentation xml:lang="ro">Protecţia mediului</xsd:documentation>
+                    <xsd:documentation xml:lang="sk">Ochrana životného
+                        prostredia</xsd:documentation>
+                    <xsd:documentation xml:lang="sl">Varstvo okolja</xsd:documentation>
+                    <xsd:documentation xml:lang="sv">Miljövård och miljöskydd</xsd:documentation>
+                    <xsd:documentation xml:lang="tr">Çevre Koruma</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="86">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="bg">Охранителни усулги </xsd:documentation>
+                    <xsd:documentation xml:lang="cs">Bezpečnostní služby</xsd:documentation>
+                    <xsd:documentation xml:lang="da">Sikkerhed</xsd:documentation>
+                    <xsd:documentation xml:lang="de">Sicherheit</xsd:documentation>
+                    <xsd:documentation xml:lang="el">Υπηρεσίες ασφάλειας</xsd:documentation>
+                    <xsd:documentation xml:lang="en">Security services</xsd:documentation>
+                    <xsd:documentation xml:lang="es">Servicios de seguridad</xsd:documentation>
+                    <xsd:documentation xml:lang="et">Turvateenused</xsd:documentation>
+                    <xsd:documentation xml:lang="fi">Turvallisuuspalvelut</xsd:documentation>
+                    <xsd:documentation xml:lang="fr">Services de sécurité</xsd:documentation>
+                    <xsd:documentation xml:lang="hr">Zaštitarske usluge </xsd:documentation>
+                    <xsd:documentation xml:lang="hu">Biztonsági szolgáltatások</xsd:documentation>
+                    <xsd:documentation xml:lang="is">Öryggisþjónusta</xsd:documentation>
+                    <xsd:documentation xml:lang="it">Servizi di sicurezza</xsd:documentation>
+                    <xsd:documentation xml:lang="lt">Saugos paslaugos</xsd:documentation>
+                    <xsd:documentation xml:lang="lv">Drošība</xsd:documentation>
+                    <xsd:documentation xml:lang="mt">Servizzi ta' sigurtà</xsd:documentation>
+                    <xsd:documentation xml:lang="nl">Veiligheidsdiensten</xsd:documentation>
+                    <xsd:documentation xml:lang="no">Sikkerhetstjenester</xsd:documentation>
+                    <xsd:documentation xml:lang="pl">Ochrona</xsd:documentation>
+                    <xsd:documentation xml:lang="pt">Serviços de segurança</xsd:documentation>
+                    <xsd:documentation xml:lang="ro">Servicii de pază</xsd:documentation>
+                    <xsd:documentation xml:lang="sk">Bezpečnostné služby</xsd:documentation>
+                    <xsd:documentation xml:lang="sl">Varnostne storitve</xsd:documentation>
+                    <xsd:documentation xml:lang="sv">Säkerhetstjänster</xsd:documentation>
+                    <xsd:documentation xml:lang="tr">Güvenlik Hizmetleri </xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="level">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">ISCED level classification</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="0">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">ISCED 0 (Pre-primary
+                        education)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">ISCED 1 (Primary education or first stage of
+                        basic education)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="2">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">ISCED 2 (Lower secondary or second stage of
+                        basic education)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="3">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">ISCED 3 ((Upper) secondary
+                        education)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="4">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">ISCED 4 (Post-secondary non-tertiary
+                        education)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="5">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">ISCED 5 (First stage of tertiary
+                        education)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="6">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">ISCED 6 (Second stage of tertiary
+                        education)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>

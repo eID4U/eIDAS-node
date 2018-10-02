@@ -41,6 +41,13 @@
             <artifactId>eidas-configmodule</artifactId>
         </dependency>
 
+		<!-- eID4U extensions -->
+		<dependency>
+			<groupId>eu.eidas.extension.eID4U</groupId>
+  			<artifactId>eID4U_commons</artifactId>
+		</dependency>
+
+
         <!-- 2) Dependencies on libraries: -->
         <dependency>
             <groupId>org.opensaml</groupId>

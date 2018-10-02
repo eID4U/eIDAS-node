@@ -1,6 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
-                             http://maven.apache.org/maven-v4_0_0.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0                              http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>eu.eidas</groupId>
     <artifactId>eidas-parent</artifactId>
@@ -23,6 +22,10 @@
 
         <samlspec.version>0.5.2</samlspec.version>
         <samlspecacept.version>0.5.1</samlspecacept.version>
+
+		<!-- eID4U extension for eIDAS ref. implementation -->
+		<eID4U.module.version>0.1</eID4U.module.version>
+
 
         <!-- 2) Library dependency versions -->
         <spring.version>4.1.0.RELEASE</spring.version>
@@ -145,6 +148,14 @@
                 <artifactId>eidas-idp</artifactId>
                 <version>${project.version}</version>
             </dependency>
+            
+            <!-- eID4U extensions -->
+            <dependency>
+              	<groupId>eu.eidas.extension.eID4U</groupId>
+  				<artifactId>eID4U_commons</artifactId>
+  				<version>${eID4U.module.version}</version>
+            </dependency>
+            
             <!-- Joda -->
             <dependency>
                 <groupId>joda-time</groupId>
@@ -838,7 +849,8 @@
         <module>../EIDAS-Node</module>
         <module>../EIDAS-SP</module>
         <module>../EIDAS-IdP-1.0</module>
-    </modules>
+    	<module>../eID4U_commons</module>
+  </modules>
 
     <repositories>
         <repository>

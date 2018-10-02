@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: eu.eidas.engine.syntax.EidasSAMLRequestSyntaxTest
 -------------------------------------------------------------------------------
-Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.197 sec - in eu.eidas.engine.syntax.EidasSAMLRequestSyntaxTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.195 sec - in eu.eidas.engine.syntax.EidasSAMLRequestSyntaxTest

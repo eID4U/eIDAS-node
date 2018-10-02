@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: eu.eidas.tests.PersonalAttributeListTestCase
 -------------------------------------------------------------------------------
-Tests run: 28, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.019 sec - in eu.eidas.tests.PersonalAttributeListTestCase
+Tests run: 28, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.033 sec - in eu.eidas.tests.PersonalAttributeListTestCase

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="eu.eidas.auth.commons.light.impl.LightResponseTest" time="0.007" tests="23" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="eu.eidas.auth.commons.light.impl.LightResponseTest" time="0.004" tests="23" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-8-oracle/jre/lib/amd64"/>
@@ -59,8 +59,8 @@
     <property name="sun.desktop" value="gnome"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase name="testValidationOnBuildForMissingInResponseTo" classname="eu.eidas.auth.commons.light.impl.LightResponseTest" time="0.002"/>
-  <testcase name="isFailure" classname="eu.eidas.auth.commons.light.impl.LightResponseTest" time="0"/>
+  <testcase name="testValidationOnBuildForMissingInResponseTo" classname="eu.eidas.auth.commons.light.impl.LightResponseTest" time="0"/>
+  <testcase name="isFailure" classname="eu.eidas.auth.commons.light.impl.LightResponseTest" time="0.001"/>
   <testcase name="testGetIPAddress" classname="eu.eidas.auth.commons.light.impl.LightResponseTest" time="0"/>
   <testcase name="testCopyConstructor" classname="eu.eidas.auth.commons.light.impl.LightResponseTest" time="0"/>
   <testcase name="testValidationOnBuildForEmptyStatus" classname="eu.eidas.auth.commons.light.impl.LightResponseTest" time="0"/>
@@ -72,7 +72,7 @@
   <testcase name="testDefaultLightResponseEquals" classname="eu.eidas.auth.commons.light.impl.LightResponseTest" time="0"/>
   <testcase name="testGetInResponseToId" classname="eu.eidas.auth.commons.light.impl.LightResponseTest" time="0"/>
   <testcase name="testValidationOnBuildForMissingIssuer" classname="eu.eidas.auth.commons.light.impl.LightResponseTest" time="0"/>
-  <testcase name="testValidationOnBuildForMissingStatus" classname="eu.eidas.auth.commons.light.impl.LightResponseTest" time="0.001"/>
+  <testcase name="testValidationOnBuildForMissingStatus" classname="eu.eidas.auth.commons.light.impl.LightResponseTest" time="0"/>
   <testcase name="testLightResponseCreation" classname="eu.eidas.auth.commons.light.impl.LightResponseTest" time="0"/>
   <testcase name="testGetIssuer" classname="eu.eidas.auth.commons.light.impl.LightResponseTest" time="0"/>
   <testcase name="testGetMessage" classname="eu.eidas.auth.commons.light.impl.LightResponseTest" time="0"/>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="eu.eidas.engine.test.simple.AuthRequestTest" time="0.257" tests="25" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="eu.eidas.engine.test.simple.AuthRequestTest" time="0.181" tests="25" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-8-oracle/jre/lib/amd64"/>
@@ -59,29 +59,29 @@
     <property name="sun.desktop" value="gnome"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase name="testValidateAuthnRequestErrorEncode" classname="eu.eidas.engine.test.simple.AuthRequestTest" time="0.012"/>
-  <testcase name="testBuildAuthnRequestWithUnknownElements" classname="eu.eidas.engine.test.simple.AuthRequestTest" time="0"/>
-  <testcase name="testGenerateAuthnRequestPALsErr2WithStork" classname="eu.eidas.engine.test.simple.AuthRequestTest" time="0"/>
-  <testcase name="testValidateFileAuthnRequest" classname="eu.eidas.engine.test.simple.AuthRequestTest" time="0"/>
-  <testcase name="testGenerateAuthnRequestWithSignedDoc" classname="eu.eidas.engine.test.simple.AuthRequestTest" time="0"/>
-  <testcase name="testGenerateAuthnRequestWithIsRequiredElementsByDefault" classname="eu.eidas.engine.test.simple.AuthRequestTest" time="0.022"/>
+  <testcase name="testValidateAuthnRequestErrorEncode" classname="eu.eidas.engine.test.simple.AuthRequestTest" time="0.001"/>
+  <testcase name="testBuildAuthnRequestWithUnknownElements" classname="eu.eidas.engine.test.simple.AuthRequestTest" time="0.015"/>
+  <testcase name="testGenerateAuthnRequestPALsErr2WithStork" classname="eu.eidas.engine.test.simple.AuthRequestTest" time="0.001"/>
+  <testcase name="testValidateFileAuthnRequest" classname="eu.eidas.engine.test.simple.AuthRequestTest" time="0.001"/>
+  <testcase name="testGenerateAuthnRequestWithSignedDoc" classname="eu.eidas.engine.test.simple.AuthRequestTest" time="0.015"/>
+  <testcase name="testGenerateAuthnRequestWithIsRequiredElementsByDefault" classname="eu.eidas.engine.test.simple.AuthRequestTest" time="0.032"/>
   <testcase name="testGenerateAuthnRequestAssertionConsumerErr1" classname="eu.eidas.engine.test.simple.AuthRequestTest" time="0"/>
-  <testcase name="testGenerateAuthnRequestCountryErr" classname="eu.eidas.engine.test.simple.AuthRequestTest" time="0"/>
+  <testcase name="testGenerateAuthnRequestCountryErr" classname="eu.eidas.engine.test.simple.AuthRequestTest" time="0.01"/>
   <testcase name="testValidateAuthnRequestNullParam" classname="eu.eidas.engine.test.simple.AuthRequestTest" time="0"/>
-  <testcase name="testGenerateAuthnRequestNADA" classname="eu.eidas.engine.test.simple.AuthRequestTest" time="0"/>
+  <testcase name="testGenerateAuthnRequestNADA" classname="eu.eidas.engine.test.simple.AuthRequestTest" time="0.012"/>
   <testcase name="testGenerateAuthnRequestInstitutionrErr" classname="eu.eidas.engine.test.simple.AuthRequestTest" time="0"/>
   <testcase name="testGenerateAuthnRequestPALsErr1" classname="eu.eidas.engine.test.simple.AuthRequestTest" time="0"/>
-  <testcase name="testValidateAuthnRequestNotTrustedErr1" classname="eu.eidas.engine.test.simple.AuthRequestTest" time="0.042"/>
+  <testcase name="testValidateAuthnRequestNotTrustedErr1" classname="eu.eidas.engine.test.simple.AuthRequestTest" time="0.012"/>
   <testcase name="testGenerateAuthnRequestSpNameErr1" classname="eu.eidas.engine.test.simple.AuthRequestTest" time="0"/>
   <testcase name="testGenerateAuthnRequestQaalErr1" classname="eu.eidas.engine.test.simple.AuthRequestTest" time="0"/>
-  <testcase name="testGenerateAuthnRequestQaalErr2" classname="eu.eidas.engine.test.simple.AuthRequestTest" time="0"/>
-  <testcase name="testGenerateAuthnRequestApplicationErr" classname="eu.eidas.engine.test.simple.AuthRequestTest" time="0"/>
+  <testcase name="testGenerateAuthnRequestQaalErr2" classname="eu.eidas.engine.test.simple.AuthRequestTest" time="0.001"/>
+  <testcase name="testGenerateAuthnRequestApplicationErr" classname="eu.eidas.engine.test.simple.AuthRequestTest" time="0.01"/>
   <testcase name="testGenerateAuthnRequestPALErr1" classname="eu.eidas.engine.test.simple.AuthRequestTest" time="0"/>
-  <testcase name="testValidateAuthnRequest" classname="eu.eidas.engine.test.simple.AuthRequestTest" time="0"/>
-  <testcase name="testValidateFileAuthnRequestTagDelete" classname="eu.eidas.engine.test.simple.AuthRequestTest" time="0"/>
-  <testcase name="testValidateDataAuthnRequest" classname="eu.eidas.engine.test.simple.AuthRequestTest" time="0"/>
-  <testcase name="testGenerateAuthnRequest" classname="eu.eidas.engine.test.simple.AuthRequestTest" time="0.179"/>
-  <testcase name="testGenerateAuthnRequestSectorErr" classname="eu.eidas.engine.test.simple.AuthRequestTest" time="0"/>
-  <testcase name="testGenerateAuthnRequestWithVIDPAuthenticationBlockAbsent" classname="eu.eidas.engine.test.simple.AuthRequestTest" time="0"/>
-  <testcase name="testValidateAuthnRequestTrusted" classname="eu.eidas.engine.test.simple.AuthRequestTest" time="0"/>
+  <testcase name="testValidateAuthnRequest" classname="eu.eidas.engine.test.simple.AuthRequestTest" time="0.012"/>
+  <testcase name="testValidateFileAuthnRequestTagDelete" classname="eu.eidas.engine.test.simple.AuthRequestTest" time="0.001"/>
+  <testcase name="testValidateDataAuthnRequest" classname="eu.eidas.engine.test.simple.AuthRequestTest" time="0.012"/>
+  <testcase name="testGenerateAuthnRequest" classname="eu.eidas.engine.test.simple.AuthRequestTest" time="0.02"/>
+  <testcase name="testGenerateAuthnRequestSectorErr" classname="eu.eidas.engine.test.simple.AuthRequestTest" time="0.001"/>
+  <testcase name="testGenerateAuthnRequestWithVIDPAuthenticationBlockAbsent" classname="eu.eidas.engine.test.simple.AuthRequestTest" time="0.011"/>
+  <testcase name="testValidateAuthnRequestTrusted" classname="eu.eidas.engine.test.simple.AuthRequestTest" time="0.013"/>
 </testsuite>

@@ -26,7 +26,7 @@
 
 	<context-param>
 		<param-name>buildDate</param-name>
-		<param-value>2018-10-02T08:47:09Z</param-value>
+		<param-value>2018-10-02T10:24:25Z</param-value>
 	</context-param>
 	<context-param>
 		<param-name>projectVersion</param-name>

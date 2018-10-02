@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="eu.eidas.engine.test.simple.AuthResponseTest" time="0.262" tests="22" errors="0" skipped="1" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="eu.eidas.engine.test.simple.AuthResponseTest" time="0.256" tests="22" errors="0" skipped="1" failures="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-8-oracle/jre/lib/amd64"/>
@@ -60,27 +60,27 @@
     <property name="sun.cpu.isalist" value=""/>
   </properties>
   <testcase name="testResponseInvalidParametersToken" classname="eu.eidas.engine.test.simple.AuthResponseTest" time="0.003"/>
-  <testcase name="testGenerateAuthnResponseFailAssertionConsumerUrlNull" classname="eu.eidas.engine.test.simple.AuthResponseTest" time="0.004"/>
-  <testcase name="testValidateAuthenticationResponseIsFail" classname="eu.eidas.engine.test.simple.AuthResponseTest" time="0.016"/>
+  <testcase name="testGenerateAuthnResponseFailAssertionConsumerUrlNull" classname="eu.eidas.engine.test.simple.AuthResponseTest" time="0.003"/>
+  <testcase name="testValidateAuthenticationResponseIsFail" classname="eu.eidas.engine.test.simple.AuthResponseTest" time="0.017"/>
   <testcase name="testResponseMandatoryPersonalAttributeList" classname="eu.eidas.engine.test.simple.AuthResponseTest" time="0.001"/>
-  <testcase name="testResponseInvalidParametersIPDistinct" classname="eu.eidas.engine.test.simple.AuthResponseTest" time="0.005"/>
+  <testcase name="testResponseInvalidParametersIPDistinct" classname="eu.eidas.engine.test.simple.AuthResponseTest" time="0.004"/>
   <testcase name="testResponseValidationIP" classname="eu.eidas.engine.test.simple.AuthResponseTest" time="0">
     <skipped/>
   </testcase>
   <testcase name="testGenerateAuthnResponseFailCodeErrorNull" classname="eu.eidas.engine.test.simple.AuthResponseTest" time="0.004"/>
-  <testcase name="testResponseInvalidParametersAttrComplexValue" classname="eu.eidas.engine.test.simple.AuthResponseTest" time="0.006"/>
-  <testcase name="testResponseInvalidParametersAttrSimpleValue" classname="eu.eidas.engine.test.simple.AuthResponseTest" time="0.003"/>
-  <testcase name="testValidateAuthenticationResponseFailIsFail" classname="eu.eidas.engine.test.simple.AuthResponseTest" time="0.016"/>
-  <testcase name="testGenerateAuthnResponse" classname="eu.eidas.engine.test.simple.AuthResponseTest" time="0.011"/>
+  <testcase name="testResponseInvalidParametersAttrComplexValue" classname="eu.eidas.engine.test.simple.AuthResponseTest" time="0.01"/>
+  <testcase name="testResponseInvalidParametersAttrSimpleValue" classname="eu.eidas.engine.test.simple.AuthResponseTest" time="0.001"/>
+  <testcase name="testValidateAuthenticationResponseFailIsFail" classname="eu.eidas.engine.test.simple.AuthResponseTest" time="0.017"/>
+  <testcase name="testGenerateAuthnResponse" classname="eu.eidas.engine.test.simple.AuthResponseTest" time="0.005"/>
   <testcase name="testResponseInvalidParametersAttrNoName" classname="eu.eidas.engine.test.simple.AuthResponseTest" time="0.001"/>
   <testcase name="testValidateAuthenticationResponseDestination" classname="eu.eidas.engine.test.simple.AuthResponseTest" time="0.003"/>
-  <testcase name="testResponseInvalidParametersTokenMsg" classname="eu.eidas.engine.test.simple.AuthResponseTest" time="0.102"/>
-  <testcase name="testValidateAuthnResponse" classname="eu.eidas.engine.test.simple.AuthResponseTest" time="0.029"/>
+  <testcase name="testResponseInvalidParametersTokenMsg" classname="eu.eidas.engine.test.simple.AuthResponseTest" time="0.099"/>
+  <testcase name="testValidateAuthnResponse" classname="eu.eidas.engine.test.simple.AuthResponseTest" time="0.035"/>
   <testcase name="testResponseMandatoryIssuer" classname="eu.eidas.engine.test.simple.AuthResponseTest" time="0"/>
-  <testcase name="testResponseMandatoryAssertionConsumerServiceURL" classname="eu.eidas.engine.test.simple.AuthResponseTest" time="0.001"/>
+  <testcase name="testResponseMandatoryAssertionConsumerServiceURL" classname="eu.eidas.engine.test.simple.AuthResponseTest" time="0"/>
   <testcase name="testGenerateAuthnResponseFailInResponseToNull" classname="eu.eidas.engine.test.simple.AuthResponseTest" time="0"/>
   <testcase name="testResponseInvalidParametersIP" classname="eu.eidas.engine.test.simple.AuthResponseTest" time="0"/>
-  <testcase name="testResponseInvalidParametersAttrNoValue" classname="eu.eidas.engine.test.simple.AuthResponseTest" time="0.027"/>
+  <testcase name="testResponseInvalidParametersAttrNoValue" classname="eu.eidas.engine.test.simple.AuthResponseTest" time="0.025"/>
   <testcase name="testResponseMandatoryId" classname="eu.eidas.engine.test.simple.AuthResponseTest" time="0"/>
-  <testcase name="testResponseInvalidParametersAttr" classname="eu.eidas.engine.test.simple.AuthResponseTest" time="0.006"/>
+  <testcase name="testResponseInvalidParametersAttr" classname="eu.eidas.engine.test.simple.AuthResponseTest" time="0.001"/>
 </testsuite>

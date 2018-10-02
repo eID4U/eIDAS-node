@@ -59,7 +59,7 @@
     <property name="sun.desktop" value="gnome"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase name="testValidationOnBuildForMissingInResponseTo" classname="eu.eidas.auth.commons.light.impl.LightResponseTest" time="0.001"/>
+  <testcase name="testValidationOnBuildForMissingInResponseTo" classname="eu.eidas.auth.commons.light.impl.LightResponseTest" time="0.002"/>
   <testcase name="isFailure" classname="eu.eidas.auth.commons.light.impl.LightResponseTest" time="0"/>
   <testcase name="testGetIPAddress" classname="eu.eidas.auth.commons.light.impl.LightResponseTest" time="0"/>
   <testcase name="testCopyConstructor" classname="eu.eidas.auth.commons.light.impl.LightResponseTest" time="0"/>
@@ -72,7 +72,7 @@
   <testcase name="testDefaultLightResponseEquals" classname="eu.eidas.auth.commons.light.impl.LightResponseTest" time="0"/>
   <testcase name="testGetInResponseToId" classname="eu.eidas.auth.commons.light.impl.LightResponseTest" time="0"/>
   <testcase name="testValidationOnBuildForMissingIssuer" classname="eu.eidas.auth.commons.light.impl.LightResponseTest" time="0"/>
-  <testcase name="testValidationOnBuildForMissingStatus" classname="eu.eidas.auth.commons.light.impl.LightResponseTest" time="0"/>
+  <testcase name="testValidationOnBuildForMissingStatus" classname="eu.eidas.auth.commons.light.impl.LightResponseTest" time="0.001"/>
   <testcase name="testLightResponseCreation" classname="eu.eidas.auth.commons.light.impl.LightResponseTest" time="0"/>
   <testcase name="testGetIssuer" classname="eu.eidas.auth.commons.light.impl.LightResponseTest" time="0"/>
   <testcase name="testGetMessage" classname="eu.eidas.auth.commons.light.impl.LightResponseTest" time="0"/>

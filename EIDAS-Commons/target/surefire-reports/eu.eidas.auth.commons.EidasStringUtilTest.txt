@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: eu.eidas.auth.commons.EidasStringUtilTest
 -------------------------------------------------------------------------------
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in eu.eidas.auth.commons.EidasStringUtilTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in eu.eidas.auth.commons.EidasStringUtilTest

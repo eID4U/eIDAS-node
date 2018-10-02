@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
-     <comment>eID4U natural-person attributes</comment>
+    <comment>eID4U natural-person attributes</comment>
+    
     <entry key="1.NameUri">http://eidas.europa.eu/attributes/sectorspecific/eid4u/naturalperson/id/Type</entry>
     <entry key="1.FriendlyName">IdType</entry>
     <entry key="1.PersonType">NaturalPerson</entry>

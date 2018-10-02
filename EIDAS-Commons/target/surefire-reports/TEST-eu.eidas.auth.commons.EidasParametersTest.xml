@@ -59,6 +59,6 @@
     <property name="sun.desktop" value="gnome"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase name="testGet" classname="eu.eidas.auth.commons.EidasParametersTest" time="0.001"/>
+  <testcase name="testGet" classname="eu.eidas.auth.commons.EidasParametersTest" time="0"/>
   <testcase name="testGetFail" classname="eu.eidas.auth.commons.EidasParametersTest" time="0"/>
 </testsuite>

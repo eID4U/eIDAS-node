@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://eidas.europa.eu/attributes/sectorspecific/eID4U/studies" xmlns:eid4u="http://eidas.europa.eu/attributes/sectorspecific/eid4u" xmlns:europass3="http://europass.cedefop.europa.eu/Europass" targetNamespace="http://eidas.europa.eu/attributes/sectorspecific/eID4U/studies" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://eidas.europa.eu/attributes/sectorspecific/eid4u/studies" xmlns:eid4u="http://eidas.europa.eu/attributes/sectorspecific/eid4u" xmlns:europass3="http://europass.cedefop.europa.eu/Europass" targetNamespace="http://eidas.europa.eu/attributes/sectorspecific/eid4u/studies" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1">
 	<!--xs:import namespace="http://europass.cedefop.europa.eu/Europass" schemaLocation="https://europass.cedefop.europa.eu/xml/v3.1.2/EuropassSchema.xsd"/-->
 	<xs:import namespace="http://europass.cedefop.europa.eu/Europass" schemaLocation="classpath:/schema/eid4u/external/EuropassSchema.xsd"/>
 	<xs:import namespace="http://eidas.europa.eu/attributes/sectorspecific/eid4u" schemaLocation="eID4U_attributes_generic.xsd"/>
@@ -72,6 +72,7 @@
 		</xs:restriction>
 	</xs:simpleType>
 	
+	<xs:element name="ForeignLanguageList" type="LanguageLevelType" />
     <xs:complexType name="LanguageLevelType">
 		<xs:annotation>
 			<xs:documentation>

@@ -3,10 +3,16 @@ package at.gv.egiz.eid4u.impl.attributes.studies;
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertTrue;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 import org.apache.commons.lang.RandomStringUtils;
 import org.junit.Test;
+
+import com.google.common.io.ByteStreams;
 
 import at.gv.egiz.eid4u.impl.attributes.xjc.eid4u.CertificatesType;
 import at.gv.egiz.eid4u.impl.attributes.xjc.eid4u.generic.Document;
@@ -24,10 +30,27 @@ public class CertificatesTypeTest {
 	
 	@Test
 	public void testMarshallerAndUnmarshaller() {
-		CertificatesTypeAttributeValueMarshaller certTypeSerializer = new CertificatesTypeAttributeValueMarshaller();
-		
-		String serializedValue  = null;
 		AttributeValue<CertificatesType > testvalues = generateTestValue();
+		toTest(testvalues);
+		
+	}
+
+	
+	@Test
+	public void testB64FromDemoIDP() throws UnsupportedEncodingException, AttributeValueMarshallingException, IOException {
+		InputStream is = this.getClass().getResourceAsStream("/certificates.b64");
+		AttributeValue<CertificatesType > testvalues = generateTestValueTwo(new String(ByteStreams.toByteArray(is), "UTF-8"));
+		toTest(testvalues);
+		
+	}
+	
+	
+	
+	private void toTest(AttributeValue<CertificatesType> testvalues) {
+		CertificatesTypeAttributeValueMarshaller certTypeSerializer = new CertificatesTypeAttributeValueMarshaller();
+		String serializedValue  = null;
+		
+		assertTrue("toString() method does not work on complexe attribute", !testvalues.getValue().toString().startsWith("Can NOT marshall"));
 		
 		//serialize attribute
 		try {
@@ -39,7 +62,7 @@ public class CertificatesTypeTest {
 		}
 		assertTrue(serializedValue != null);
 		
-		
+		new String(Base64.getDecoder().decode(serializedValue));
 		//deserialize attribute
 		AttributeValue<CertificatesType > result = null;
 		try {
@@ -55,6 +78,11 @@ public class CertificatesTypeTest {
 		//TODO: implement detail validation
 		validate(result, testvalues);
 		
+	}
+	
+	private AttributeValue<CertificatesType> generateTestValueTwo(String b64Test) throws AttributeValueMarshallingException {
+		CertificatesTypeAttributeValueMarshaller serializer = new CertificatesTypeAttributeValueMarshaller();
+		return serializer.unmarshal(b64Test, false);
 	}
 
 	private void validate(AttributeValue<CertificatesType> result, AttributeValue<CertificatesType> testvalues) {

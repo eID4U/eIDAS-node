@@ -37,6 +37,7 @@ public class LanguageLevelTypeAttributeValueMarshaller implements AttributeValue
 					at.gv.egiz.eid4u.impl.attributes.xjc.eid4u.generic.ObjectFactory.class,
 					at.gv.egiz.eid4u.impl.attributes.xjc.europass.ObjectFactory.class);
 			Marshaller m = context.createMarshaller();
+			m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
 			StringWriter sw = new StringWriter();
 			m.marshal(element, sw);			
 			return EidasStringUtil.encodeToBase64(sw.toString());

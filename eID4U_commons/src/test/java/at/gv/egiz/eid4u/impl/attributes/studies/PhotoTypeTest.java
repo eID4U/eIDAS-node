@@ -3,8 +3,14 @@ package at.gv.egiz.eid4u.impl.attributes.studies;
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertTrue;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
+
 import org.apache.commons.lang.RandomStringUtils;
 import org.junit.Test;
+
+import com.google.common.io.ByteStreams;
 
 import at.gv.egiz.eid4u.impl.attributes.natural.DocumentAttributeValue;
 import at.gv.egiz.eid4u.impl.attributes.natural.PhotoTypeAttributeValueMarshaller;
@@ -18,10 +24,26 @@ public class PhotoTypeTest {
 
 	@Test
 	public void testMarshallerAndUnmarshaller() {
-		PhotoTypeAttributeValueMarshaller serializer = new PhotoTypeAttributeValueMarshaller();
-		
-		String serializedValue  = null;
 		AttributeValue<Document> testvalues = generateTestValue();
+		toTest(testvalues);
+		
+	}
+
+	@Test
+	public void testBase64ExemplateFromUPM() throws AttributeValueMarshallingException, UnsupportedEncodingException, IOException {
+		InputStream is = this.getClass().getResourceAsStream("/photo_test_1.b64");
+		AttributeValue<Document> testvalues = generateTestValueBase64(new String(ByteStreams.toByteArray(is), "UTF-8"));
+		toTest(testvalues);
+
+		
+	}
+	
+	private void toTest(AttributeValue<Document> testvalues) {
+		PhotoTypeAttributeValueMarshaller serializer = new PhotoTypeAttributeValueMarshaller();
+		String serializedValue  = null;
+		
+		assertTrue("toString() method does not work on complexe attribute", !testvalues.getValue().toString().startsWith("Can NOT marshall"));
+		
 		
 		//serialize attribute
 		try {
@@ -45,9 +67,15 @@ public class PhotoTypeTest {
 		}
 		assertTrue(result != null);
 		
-		
-		//TODO: implement detail validation
 		validate(result, testvalues);
+		
+	}
+	
+	
+	private AttributeValue<Document> generateTestValueBase64(String b64Test) throws AttributeValueMarshallingException {
+		PhotoTypeAttributeValueMarshaller serializer = new PhotoTypeAttributeValueMarshaller();
+		return serializer.unmarshal(b64Test, false);
+		
 		
 	}
 

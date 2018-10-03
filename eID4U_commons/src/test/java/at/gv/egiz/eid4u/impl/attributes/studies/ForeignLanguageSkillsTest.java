@@ -3,13 +3,20 @@ package at.gv.egiz.eid4u.impl.attributes.studies;
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertTrue;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 import java.util.Random;
 
 import org.apache.commons.lang.RandomStringUtils;
 import org.junit.Test;
 
+import com.google.common.io.ByteStreams;
+
+import at.gv.egiz.eid4u.impl.attributes.natural.PhotoTypeAttributeValueMarshaller;
 import at.gv.egiz.eid4u.impl.attributes.xjc.eid4u.LanguageLevelType;
 import at.gv.egiz.eid4u.impl.attributes.xjc.eid4u.generic.Document;
 import at.gv.egiz.eid4u.impl.attributes.xjc.eid4u.generic.DocumentTypeType;
@@ -30,10 +37,26 @@ public class ForeignLanguageSkillsTest {
 	
 	@Test
 	public void testMarshallerAndUnmarshaller() {
-		LanguageLevelTypeAttributeValueMarshaller serializer = new LanguageLevelTypeAttributeValueMarshaller();
-		
-		String serializedValue  = null;
 		AttributeValue<LanguageLevelType> testvalues = generateTestValue();
+		toTest(testvalues);
+		
+	} 
+
+	@Test
+	public void testMarshallerAndUnmarshallerFromUPMExample() throws UnsupportedEncodingException, AttributeValueMarshallingException, IOException {
+		InputStream is = this.getClass().getResourceAsStream("/LanguageProficiency.b64");
+		AttributeValue<LanguageLevelType> testvalues = generateTestValueTwo(new String(ByteStreams.toByteArray(is), "UTF-8"));
+		toTest(testvalues);
+		
+	}
+	
+	
+	
+	private void  toTest(AttributeValue<LanguageLevelType> testvalues) {
+		LanguageLevelTypeAttributeValueMarshaller serializer = new LanguageLevelTypeAttributeValueMarshaller();
+		String serializedValue  = null;
+		
+		assertTrue("toString() method does not work on complexe attribute", !testvalues.getValue().toString().startsWith("Can NOT marshall"));
 		
 		//serialize attribute
 		try {
@@ -62,7 +85,13 @@ public class ForeignLanguageSkillsTest {
 		validate(result, testvalues);
 		
 	}
+	
+	private AttributeValue<LanguageLevelType> generateTestValueTwo(String b64Test) throws AttributeValueMarshallingException {
+		LanguageLevelTypeAttributeValueMarshaller serializer = new LanguageLevelTypeAttributeValueMarshaller();
+		return serializer.unmarshal(b64Test, false);
+	}
 
+	
 	private void validate(AttributeValue<LanguageLevelType> result, AttributeValue<LanguageLevelType> testvalues) {
 		List<ForeignLanguageSkillType> testList = testvalues.getValue().getForeignLanguage();
 		List<ForeignLanguageSkillType> resultList = result.getValue().getForeignLanguage();

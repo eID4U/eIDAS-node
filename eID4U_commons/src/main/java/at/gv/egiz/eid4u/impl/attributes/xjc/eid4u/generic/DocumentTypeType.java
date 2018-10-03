@@ -2,7 +2,7 @@
 // Diese Datei wurde mit der JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.3.0-b170531.0717 generiert 
 // Siehe <a href="https://jaxb.java.net/">https://jaxb.java.net/</a> 
 // Änderungen an dieser Datei gehen bei einer Neukompilierung des Quellschemas verloren. 
-// Generiert: 2018.09.30 um 08:08:27 PM CEST 
+// Generiert: 2018.10.02 um 03:47:41 PM CEST 
 //
 
 
@@ -11,6 +11,10 @@ package at.gv.egiz.eid4u.impl.attributes.xjc.eid4u.generic;
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlEnumValue;
 import javax.xml.bind.annotation.XmlType;
+
+import at.gv.egiz.eid4u.impl.attributes.studies.LanguageLevelAttributeValue;
+import at.gv.egiz.eid4u.impl.attributes.studies.LanguageLevelTypeAttributeValueMarshaller;
+import eu.eidas.auth.commons.attribute.AttributeValueMarshallingException;
 
 
 /**
@@ -54,5 +58,7 @@ public enum DocumentTypeType {
         }
         throw new IllegalArgumentException(v);
     }
+    
+
 
 }

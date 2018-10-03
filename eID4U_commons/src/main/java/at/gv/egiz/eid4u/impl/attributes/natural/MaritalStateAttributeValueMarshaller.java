@@ -9,8 +9,9 @@ public final class MaritalStateAttributeValueMarshaller implements AttributeValu
 
 	@Override
 	public String marshal(AttributeValue<MaritalState> value) throws AttributeValueMarshallingException {
+		if(value.getValue() == null)
+			throw new AttributeValueMarshallingException("Illegal MaritalState value \"null\"");
 		return value.getValue().getValue();
-		
 	}
 
 	@Override

@@ -22,6 +22,10 @@ public class Definitions {
 	public static final String SAML2_eID4U_EXT_EUROPASS3_EXTENSIONS_SCHEMA_LOCATION = SCHEMA_ROOT + "external/EuropassSchema.xsd";
 	  
 	
+	//Format definitions
+	public static final String DATE_FORMAT_PATTERN = "yyyy-MM-dd";
+	
+	
 	//attribute types
 	public static final String IDTYPE_NAME = "http://eidas.europa.eu/attributes/sectorspecific/eid4u/naturalperson/id/Type";
 	public static final String IDTYPE_FRIENDLYNAME = "IdType";

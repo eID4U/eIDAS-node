@@ -2,7 +2,7 @@
 // Diese Datei wurde mit der JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.3.0-b170531.0717 generiert 
 // Siehe <a href="https://jaxb.java.net/">https://jaxb.java.net/</a> 
 // Änderungen an dieser Datei gehen bei einer Neukompilierung des Quellschemas verloren. 
-// Generiert: 2018.09.30 um 08:08:27 PM CEST 
+// Generiert: 2018.10.02 um 03:47:41 PM CEST 
 //
 
 
@@ -31,8 +31,8 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _Certificates_QNAME = new QName("http://eidas.europa.eu/attributes/sectorspecific/eID4U/studies", "certificates");
-    private final static QName _ForeignLanguageList_QNAME = new QName("http://eidas.europa.eu/attributes/sectorspecific/eID4U/studies", "ForeignLanguageList");
+    private final static QName _Certificates_QNAME = new QName("http://eidas.europa.eu/attributes/sectorspecific/eid4u/studies", "certificates");
+    private final static QName _ForeignLanguageList_QNAME = new QName("http://eidas.europa.eu/attributes/sectorspecific/eid4u/studies", "ForeignLanguageList");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: at.gv.egiz.eid4u.impl.attributes.xjc.eid4u
@@ -73,13 +73,14 @@ public class ObjectFactory {
      * @return
      *     the new instance of {@link JAXBElement }{@code <}{@link CertificatesType }{@code >}
      */
-    @XmlElementDecl(namespace = "http://eidas.europa.eu/attributes/sectorspecific/eID4U/studies", name = "certificates")
+    @XmlElementDecl(namespace = "http://eidas.europa.eu/attributes/sectorspecific/eid4u/studies", name = "certificates")
     public JAXBElement<CertificatesType> createCertificates(CertificatesType value) {
         return new JAXBElement<CertificatesType>(_Certificates_QNAME, CertificatesType.class, null, value);
     }
 
-    @XmlElementDecl(namespace = "http://eidas.europa.eu/attributes/sectorspecific/eID4U/studies", name = "ForeignLanguageList")
-    public JAXBElement<LanguageLevelType> createForeignLanguageList(LanguageLevelType value) {
-        return new JAXBElement<LanguageLevelType>(_ForeignLanguageList_QNAME, LanguageLevelType.class, null, value);
-    }
+    @XmlElementDecl(namespace = "http://eidas.europa.eu/attributes/sectorspecific/eid4u/studies", name = "ForeignLanguageList")
+	public JAXBElement<LanguageLevelType> createForeignLanguageList(LanguageLevelType value) {
+		return new JAXBElement<LanguageLevelType>(_ForeignLanguageList_QNAME, LanguageLevelType.class, null, value);
+	}
+
 }

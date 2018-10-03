@@ -25,6 +25,7 @@ public class PhotoTypeAttributeValueMarshaller implements AttributeValueMarshall
 		try {
 			JAXBContext context = JAXBContext.newInstance(Document.class);
 			Marshaller m = context.createMarshaller();
+			m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
 			StringWriter sw = new StringWriter();
 			m.marshal(value.getValue(), sw);			
 			return EidasStringUtil.encodeToBase64(sw.toString());

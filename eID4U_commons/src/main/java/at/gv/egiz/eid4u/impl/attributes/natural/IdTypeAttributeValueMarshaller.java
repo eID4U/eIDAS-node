@@ -9,8 +9,9 @@ public final class IdTypeAttributeValueMarshaller implements AttributeValueMarsh
 
 	@Override
 	public String marshal(AttributeValue<IdType> value) throws AttributeValueMarshallingException {
+		if(value.getValue() == null)
+			throw new AttributeValueMarshallingException("Illegal IdType value \"null\"");
 		return value.getValue().getValue();
-		
 	}
 
 	@Override

@@ -7,7 +7,7 @@ public class CertificatesTypeAttributeValue extends AbstractAttributeValue<Certi
 
 	private static final long serialVersionUID = 1L;
 
-	protected CertificatesTypeAttributeValue(CertificatesType val, boolean nonLatinScriptAlternateVer) {
+	public CertificatesTypeAttributeValue(CertificatesType val, boolean nonLatinScriptAlternateVer) {
 		super(val, nonLatinScriptAlternateVer);
 	}
 

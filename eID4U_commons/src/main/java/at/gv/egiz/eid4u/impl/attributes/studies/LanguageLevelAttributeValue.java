@@ -7,7 +7,7 @@ public class LanguageLevelAttributeValue extends AbstractAttributeValue<Language
 
 	private static final long serialVersionUID = 1L;
 
-	protected LanguageLevelAttributeValue(LanguageLevelType val, boolean nonLatinScriptAlternateVer) {
+	public LanguageLevelAttributeValue(LanguageLevelType val, boolean nonLatinScriptAlternateVer) {
 		super(val, nonLatinScriptAlternateVer);
 	}
 

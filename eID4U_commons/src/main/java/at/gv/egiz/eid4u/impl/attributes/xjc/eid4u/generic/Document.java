@@ -16,7 +16,13 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.XmlValue;
+
+import at.gv.egiz.eid4u.impl.attributes.natural.DocumentAttributeValue;
+import at.gv.egiz.eid4u.impl.attributes.natural.PhotoTypeAttributeValueMarshaller;
+import at.gv.egiz.eid4u.impl.attributes.studies.CertificatesTypeAttributeValue;
+import at.gv.egiz.eid4u.impl.attributes.studies.CertificatesTypeAttributeValueMarshaller;
 import at.gv.egiz.eid4u.impl.attributes.xjc.europass.MimeTypeEnumeration;
+import eu.eidas.auth.commons.attribute.AttributeValueMarshallingException;
 
 
 /**
@@ -150,6 +156,18 @@ public class Document implements Serializable {
      */
     public void setContentType(MimeTypeEnumeration value) {
         this.contentType = value;
+    }
+    
+    @Override
+    public String toString() {
+    	try {
+			return new PhotoTypeAttributeValueMarshaller().marshal(new DocumentAttributeValue(this, false));
+			
+		} catch (AttributeValueMarshallingException e) {
+			return "Can NOT marshall " + super.toString() + " Reason: " + e.getMessage();
+			
+		}
+
     }
 
 }

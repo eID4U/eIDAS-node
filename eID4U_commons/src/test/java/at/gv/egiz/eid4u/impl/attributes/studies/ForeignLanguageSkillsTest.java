@@ -56,6 +56,8 @@ public class ForeignLanguageSkillsTest {
 		LanguageLevelTypeAttributeValueMarshaller serializer = new LanguageLevelTypeAttributeValueMarshaller();
 		String serializedValue  = null;
 		
+		assertTrue("toString() method does not work on complexe attribute", !testvalues.getValue().toString().startsWith("Can NOT marshall"));
+		
 		//serialize attribute
 		try {
 			serializedValue = serializer.marshal(testvalues);

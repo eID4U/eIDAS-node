@@ -15,7 +15,13 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
+
+import at.gv.egiz.eid4u.impl.attributes.studies.CertificatesTypeAttributeValue;
+import at.gv.egiz.eid4u.impl.attributes.studies.CertificatesTypeAttributeValueMarshaller;
+import at.gv.egiz.eid4u.impl.attributes.studies.LanguageLevelAttributeValue;
+import at.gv.egiz.eid4u.impl.attributes.studies.LanguageLevelTypeAttributeValueMarshaller;
 import at.gv.egiz.eid4u.impl.attributes.xjc.eid4u.generic.Document;
+import eu.eidas.auth.commons.attribute.AttributeValueMarshallingException;
 
 
 /**
@@ -83,4 +89,16 @@ public class CertificatesType implements Serializable{
         return this.document;
     }
 
+    
+    @Override
+    public String toString() {
+    	try {
+			return new CertificatesTypeAttributeValueMarshaller().marshal(new CertificatesTypeAttributeValue(this, false));
+			
+		} catch (AttributeValueMarshallingException e) {
+			return "Can NOT marshall " + super.toString() + " Reason: " + e.getMessage();
+			
+		}
+
+    }
 }

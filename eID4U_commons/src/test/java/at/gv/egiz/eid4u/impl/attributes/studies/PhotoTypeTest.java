@@ -42,6 +42,9 @@ public class PhotoTypeTest {
 		PhotoTypeAttributeValueMarshaller serializer = new PhotoTypeAttributeValueMarshaller();
 		String serializedValue  = null;
 		
+		assertTrue("toString() method does not work on complexe attribute", !testvalues.getValue().toString().startsWith("Can NOT marshall"));
+		
+		
 		//serialize attribute
 		try {
 			serializedValue = serializer.marshal(testvalues);

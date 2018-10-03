@@ -50,6 +50,8 @@ public class CertificatesTypeTest {
 		CertificatesTypeAttributeValueMarshaller certTypeSerializer = new CertificatesTypeAttributeValueMarshaller();
 		String serializedValue  = null;
 		
+		assertTrue("toString() method does not work on complexe attribute", !testvalues.getValue().toString().startsWith("Can NOT marshall"));
+		
 		//serialize attribute
 		try {
 			serializedValue = certTypeSerializer.marshal(testvalues);

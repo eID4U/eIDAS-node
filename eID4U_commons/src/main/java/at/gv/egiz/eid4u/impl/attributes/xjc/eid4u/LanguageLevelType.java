@@ -15,7 +15,11 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
+
+import at.gv.egiz.eid4u.impl.attributes.studies.LanguageLevelAttributeValue;
+import at.gv.egiz.eid4u.impl.attributes.studies.LanguageLevelTypeAttributeValueMarshaller;
 import at.gv.egiz.eid4u.impl.attributes.xjc.europass.ForeignLanguageSkillType;
+import eu.eidas.auth.commons.attribute.AttributeValueMarshallingException;
 
 
 /**
@@ -81,6 +85,18 @@ public class LanguageLevelType implements Serializable{
             foreignLanguage = new ArrayList<ForeignLanguageSkillType>();
         }
         return this.foreignLanguage;
+    }
+    
+    @Override
+    public String toString() {
+    	try {
+			return new LanguageLevelTypeAttributeValueMarshaller().marshal(new LanguageLevelAttributeValue(this, false));
+			
+		} catch (AttributeValueMarshallingException e) {
+			return "Can NOT marshall " + super.toString() + " Reason: " + e.getMessage();
+			
+		}
+
     }
 
 }

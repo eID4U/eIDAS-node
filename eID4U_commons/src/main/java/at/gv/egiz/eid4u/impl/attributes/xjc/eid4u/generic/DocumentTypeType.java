@@ -12,6 +12,10 @@ import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlEnumValue;
 import javax.xml.bind.annotation.XmlType;
 
+import at.gv.egiz.eid4u.impl.attributes.studies.LanguageLevelAttributeValue;
+import at.gv.egiz.eid4u.impl.attributes.studies.LanguageLevelTypeAttributeValueMarshaller;
+import eu.eidas.auth.commons.attribute.AttributeValueMarshallingException;
+
 
 /**
  * <p>Java-Klasse für DocumentTypeType.
@@ -54,5 +58,7 @@ public enum DocumentTypeType {
         }
         throw new IllegalArgumentException(v);
     }
+    
+
 
 }

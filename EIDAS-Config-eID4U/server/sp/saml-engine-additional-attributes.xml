@@ -130,7 +130,7 @@
     <entry key="14.AttributeValueMarshaller">at.gv.egiz.eid4u.impl.attributes.natural.TaxIdentificationNumberType</entry>
 
     <entry key="15.NameUri">http://eidas.europa.eu/attributes/sectorspecific/eid4u/studies/homeinstitution/Name</entry>
-    <entry key="15.FriendlyName">HomeInstitutionNamer</entry>
+    <entry key="15.FriendlyName">HomeInstitutionName</entry>
     <entry key="15.PersonType">NaturalPerson</entry>
     <entry key="15.Required">false</entry>
     <entry key="15.XmlType.NamespaceUri">http://eidas.europa.eu/attributes/sectorspecific/eID4U/studies</entry>

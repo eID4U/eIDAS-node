@@ -32,7 +32,8 @@ public class EidasResponseValidator extends ResponseSchemaValidator {
     private static final String CONSENT_ALLOWED_VALUE_4 = "urn:oasis:names:tc:SAML:2.0:consent:curent-explicit";
     private static final String CONSENT_ALLOWED_VALUE_5 = "urn:oasis:names:tc:SAML:2.0:consent:unspecified";
 
-    private static final int MAX_SIZE = 131072;
+    //updated for eID4U complexe attributes
+    private static final int MAX_SIZE = 131072000;
 
     /**
      * Constructor

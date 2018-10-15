@@ -1,5 +1,10 @@
 package at.gv.egiz.eid4u.api.attributes;
 
+import java.net.URI;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class Definitions {
 
 	/*Prefix and Schema definitions for eIDU specific eIDAS extensions */
@@ -106,5 +111,35 @@ public class Definitions {
 	public static final String LANGUAGECERTIFICATES_FRIENDLYNAME = "LanguageCertificates";
 	
 	
+	public static final List<String> EID4UATTRIBUTEELIST = Collections.unmodifiableList(new ArrayList<String>() {
+		private static final long serialVersionUID = 1L;
+		{
+			add(IDTYPE_NAME);
+			add(IDISSUER_NAME);
+			add(IDNUMBER_NAME);
+			add(IDEXPIREDATE_NAME);
+			add(NATIONALITY_NAME);
+			add(MARITALSTATE_NAME);
+			add(COUNTRYOFBIRTH_NAME);
+			add(EMAIL_NAME);
+			add(PHONE_NAME);
+			add(TEMPORARYADDRESS_NAME);
+			add(CURRENTPHOTO_NAME);
+			add(TAXIDENTIFICATIONNUMBER_NAME);
+			add(HOMEINSTITUTIONNAME_NAME);
+			add(HOMEINSTITUTIONIDENTIFIER_NAME);
+			add(HOMEINSTITUTIONCOUNTRY_NAME);
+			add(HOMEINSTITUTIONADDRESS_NAME);
+			add(CURRENTLEVELOFSTUDY_NAME);
+			add(FIELDOFSTUDY_NAME);
+			add(CURRENTDEGREE_NAME);
+			add(DEGREE_NAME);
+			add(DEGREEAWARDINGINSTITUTION_NAME);
+			add(GRADUATIONYEAR_NAME);
+			add(DEGREECOUNTRY_NAME);
+			add(LANGUAGEPROFICIENCY_NAME);
+			add(LANGUAGECERTIFICATES_NAME);
+		}
+	});
 
 }

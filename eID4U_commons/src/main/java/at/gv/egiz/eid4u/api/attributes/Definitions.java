@@ -1,6 +1,5 @@
 package at.gv.egiz.eid4u.api.attributes;
 
-import java.net.URI;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -71,21 +70,22 @@ public class Definitions {
 	public static final String TAXIDENTIFICATIONNUMBER_NAME = "http://eidas.europa.eu/attributes/sectorspecific/naturalperson/TaxIdentificationNumber";
 	public static final String TAXIDENTIFICATIONNUMBER_FRIENDLYNAME = "TaxIdentificationNumber";
 	
-	public static final String HOMEINSTITUTIONNAME_NAME = "http://eidas.europa.eu/attributes/sectorspecific/eid4u/studies/homeinsitution/Name";
+	public static final String HOMEINSTITUTIONNAME_NAME = "http://eidas.europa.eu/attributes/sectorspecific/eid4u/studies/homeinstitution/Name";
+	                                                       
 	public static final String HOMEINSTITUTIONNAME_FRIENDLYNAME = "HomeInstitutionName";
 	
-	public static final String HOMEINSTITUTIONIDENTIFIER_NAME = "http://eidas.europa.eu/attributes/sectorspecific/eid4u/studies/homeinsitution/Identifier";
+	public static final String HOMEINSTITUTIONIDENTIFIER_NAME = "http://eidas.europa.eu/attributes/sectorspecific/eid4u/studies/homeinstitution/Identifier";
 	public static final String HOMEINSTITUTIONIDENTIFIER_FRIENDLYNAME = "HomeInstitutionIdentifier";
 		
-	public static final String HOMEINSTITUTIONCOUNTRY_NAME = "http://eidas.europa.eu/attributes/sectorspecific/eid4u/studies/homeinsitution/Country";
+	public static final String HOMEINSTITUTIONCOUNTRY_NAME = "http://eidas.europa.eu/attributes/sectorspecific/eid4u/studies/homeinstitution/Country";
 	public static final String HOMEINSTITUTIONCOUNTRY_FRIENDLYNAME = "HomeInstitutionCountry";
 	
-	public static final String HOMEINSTITUTIONADDRESS_NAME = "http://eidas.europa.eu/attributes/sectorspecific/eid4u/studies/homeinsitution/Address";
+	public static final String HOMEINSTITUTIONADDRESS_NAME = "http://eidas.europa.eu/attributes/sectorspecific/eid4u/studies/homeinstitution/Address";
 	public static final String HOMEINSTITUTIONADDRESS_FRIENDLYNAME = "HomeInstitutionAddress";
 	
-	public static final String CURRENTLEVELOFSTUDY_NAME = "http://eidas.europa.eu/attributes/sectorspecific/eid4u/studies/CurentLevelOfStudy";
+	public static final String CURRENTLEVELOFSTUDY_NAME = "http://eidas.europa.eu/attributes/sectorspecific/eid4u/studies/CurrentLevelOfStudy";
 	public static final String CURRENTLEVELOFSTUDY_FRIENDLYNAME = "CurrentLevelOfStudy";
-	
+	 
 	public static final String FIELDOFSTUDY_NAME = "http://eidas.europa.eu/attributes/sectorspecific/eid4u/studies/FieldOfStudy";
 	public static final String FIELDOFSTUDY_FRIENDLYNAME = "FieldOfStudy";
 	
@@ -104,7 +104,7 @@ public class Definitions {
 	public static final String DEGREECOUNTRY_NAME = "http://eidas.europa.eu/attributes/sectorspecific/eid4u/studies/DegreeCountry";
 	public static final String DEGREECOUNTRY_FRIENDLYNAME = "DegreeCountry";
 	
-	public static final String LANGUAGEPROFICIENCY_NAME = "http://eidas.europa.eu/attributes/sectorspecific/eid4u/studies/LanguageProficiency<";
+	public static final String LANGUAGEPROFICIENCY_NAME = "http://eidas.europa.eu/attributes/sectorspecific/eid4u/studies/LanguageProficiency";
 	public static final String LANGUAGEPROFICIENCY_FRIENDLYNAME = "LanguageProficiency";
 		
 	public static final String LANGUAGECERTIFICATES_NAME = "http://eidas.europa.eu/attributes/sectorspecific/eid4u/studies/LanguageCertificates";

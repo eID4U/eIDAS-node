@@ -49,6 +49,9 @@ public class Definitions {
 	public static final String NATIONALITY_NAME = "http://eidas.europa.eu/attributes/sectorspecific/eid4u/naturalperson/Nationality";
 	public static final String NATIONALITY_FRIENDLYNAME = "Nationality";
 	
+	public static final String CITIZENSHIP_NAME = "http://eidas.europa.eu/attributes/sectorspecific/eid4u/naturalperson/Citizenship";
+	public static final String CITIZENSHIP_FRIENDLYNAME = "Citizenship";
+	
 	public static final String MARITALSTATE_NAME = "http://eidas.europa.eu/attributes/sectorspecific/eid4u/naturalperson/MaritalState";
 	public static final String MARITALSTATE_FRIENDLYNAME = "MaritalState";
 	
@@ -67,11 +70,10 @@ public class Definitions {
 	public static final String CURRENTPHOTO_NAME = "http://eidas.europa.eu/attributes/sectorspecific/eid4u/naturalperson/CurrentPhoto";
 	public static final String CURRENTPHOTO_FRIENDLYNAME = "CurrentPhoto";
 	
-	public static final String TAXIDENTIFICATIONNUMBER_NAME = "http://eidas.europa.eu/attributes/sectorspecific/naturalperson/TaxIdentificationNumber";
+	public static final String TAXIDENTIFICATIONNUMBER_NAME = "http://eidas.europa.eu/attributes/sectorspecific/eid4u/naturalperson/TaxIdentificationNumber";
 	public static final String TAXIDENTIFICATIONNUMBER_FRIENDLYNAME = "TaxIdentificationNumber";
 	
-	public static final String HOMEINSTITUTIONNAME_NAME = "http://eidas.europa.eu/attributes/sectorspecific/eid4u/studies/homeinstitution/Name";
-	                                                       
+	public static final String HOMEINSTITUTIONNAME_NAME = "http://eidas.europa.eu/attributes/sectorspecific/eid4u/studies/homeinstitution/Name";	                                                       
 	public static final String HOMEINSTITUTIONNAME_FRIENDLYNAME = "HomeInstitutionName";
 	
 	public static final String HOMEINSTITUTIONIDENTIFIER_NAME = "http://eidas.europa.eu/attributes/sectorspecific/eid4u/studies/homeinstitution/Identifier";
